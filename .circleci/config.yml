@@ -32,15 +32,15 @@ jobs:
   rubocop:
     docker:
       - image: circleci/ruby:3.0.0
-        environment: 
-          RAILS_ENV: test
-          APP_DATABASE_HOST: 127.0.0.1
       - image: cicleci/mysql:8.0-ram
         environment:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: app_test
           MYSQL_USER: root  
         command: --default-authentication-plugin=mysql_native_password
+    environment: 
+      RAILS_ENV: test
+      APP_DATABASE_HOST: 127.0.0.1
     working_directory: ~/portfolios-museum/src
     steps:
       - checkout:
