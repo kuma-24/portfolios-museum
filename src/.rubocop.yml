@@ -1,11 +1,9 @@
 require:
   - rubocop-rails
   - rubocop-rspec
-  - rubocop-performance
+
 
 AllCops:
-  TargetRubyVersion: 2.6
-  TargetRailsVersion: 5.2
   Exclude:
     - 'vendor/**/*'
     - 'bin/**/*'
@@ -159,3 +157,6 @@ Style/RegexpLiteral:
 # https://rubocop.readthedocs.io/en/stable/cops_style/#styleslicingwithrange
 Style/SlicingWithRange:
   Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
