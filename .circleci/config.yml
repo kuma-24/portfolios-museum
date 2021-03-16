@@ -1,11 +1,14 @@
 workflows:
   version: 2
-  build_deploy:
+  build_rubocop_deploy:
    jobs:
     - build
-    - deploy:
+    - rubocop:
         requires:
           - build
+    - deploy:
+        requires:
+          - rubocop
         filters:
           branches:
             only: master
@@ -20,9 +23,40 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:3.0.0
+    working_directory: ~/portfolios-museum/src
     steps:
-      - checkout
-      - run: echo "A first hello"
+      - checkout:
+          path: ~/portfolios-museum
+      - ruby/install-deps
+  
+  rubocop:
+    docker:
+      - image: circleci/ruby:3.0.0
+        environment: 
+          RAILS_ENV: test
+          APP_DATABASE_HOST: 127.0.0.1
+      - image: cicleci/mysql
+        environment:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: app_test
+          MYSQL_USER: root  
+    working_directory: ~/portfolios-museum/src
+    steps:
+      - checkout:
+          path: ~/portfolios-museum
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+          
   
   deploy:
     docker:
