@@ -34,12 +34,13 @@ jobs:
       - image: circleci/ruby:3.0.0
         environment: 
           RAILS_ENV: test
-          APP_DATABASE_HOST: 127.0.0.1
+          APP_DATABASE_HOST: "127.0.0.1"
       - image: circlci/mysql:8.0
         environment:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: app_test
           MYSQL_USER: root  
+        command: --default-authentication-plugin=mysql_native_password
     working_directory: ~/portfolios-museum/src
     steps:
       - checkout:
