@@ -35,7 +35,8 @@ jobs:
         environment: 
           RAILS_ENV: test
           APP_DATABASE_HOST: 127.0.0.1
-      - image: cicleci/mysql
+      - image: cicleci/mysql:8.0
+        command: --default-authentication-plugin=mysql_native_password
         environment:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: app_test
