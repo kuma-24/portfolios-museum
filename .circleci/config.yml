@@ -39,7 +39,7 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: app_test
-          MYSQL_USER: root  
+          MYSQL_USER: user  
     working_directory: ~/portfolios-museum/src
     steps:
       - checkout:
@@ -49,7 +49,7 @@ jobs:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
       - run: bundle config set deployment 'true'
-      - run: bundle install --jobs=4 --retry=3 vendor/bundle
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           paths:
             - ./vendor/bundle
