@@ -10,6 +10,8 @@ class User < ApplicationRecord
     end
   end
 
+  has_many :posts, dependent: :destroy
+
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
   with_options presence: true do
