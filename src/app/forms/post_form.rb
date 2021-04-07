@@ -1,7 +1,6 @@
 class PostForm
   include ActiveModel::Model
-  attr_accessor :title, :servis_content, :evelopment_background, :thumbnail_img, :user_id
-  attr_accessor :site_url, :github_url, :post_id 
+  attr_accessor :title, :servis_content, :evelopment_background, :thumbnail_img, :user_id, :site_url, :github_url, :post_id
 
   with_options presence: true do
     validates :title,                 presence: { message: 'タイトルを入力してください' }
@@ -22,7 +21,7 @@ class PostForm
     Url.create(
       post_id: @post.id,
       site_url: site_url,
-      github_url: github_url,
+      github_url: github_url
     )
   end
 end
