@@ -27,10 +27,26 @@
   <div>
     <%= form.label :name, "イメージ画像" %>
     <%= form.file_field :thumbnail_img %>
-  </div>
-  <% if @post.errors.include?(:thumbnail_img) %> 
+    <% if @post.errors.include?(:thumbnail_img) %> 
       <p class="error-messages"><%= @post.errors.messages_for(:thumbnail_img).first %></p>
     <% end %>
+  </div>
+
+  <div>
+    <%= form.label :name, "サイトのURL" %>
+    <%= form.text_field :site_url %>
+    <% if @post.errors.include?(:site_url) %> 
+      <p class="error-messages"><%= @post.errors.messages_for(:site_url).first %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :name, "githubのURL" %>
+    <%= form.text_field :github_url %>
+    <% if @post.errors.include?(:github_url) %> 
+      <p class="error-messages"><%= @post.errors.messages_for(:github_url).first %></p>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= form.submit "登録する" %>

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.includes(:post)
+    @posts = Post.includes(:user)
   end
 
   def new
@@ -20,7 +20,14 @@ class PostsController < ApplicationController
 
   private
 
-    def post_params
-      params.require(:post_form).permit(:title, :servis_content, :evelopment_background, :thumbnail_img).merge(user_id: current_user.id)
-    end
+  def post_params
+    params.require(:post_form).permit(
+      :title, 
+      :servis_content, 
+      :evelopment_background, 
+      :thumbnail_img,
+      :site_url,
+      :github_url
+    ).merge(user_id: current_user.id)
+  end
 end
