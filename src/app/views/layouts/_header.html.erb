@@ -7,7 +7,8 @@
           <ul class="global-nav__list">
             <li class="global-nav__item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             <li class="global-nav__item"><%= link_to "マイページ", edit_user_registration_path %></li>
-            <li class="global-nav__item"><%= link_to "トップページへ", root_path %></li>
+            <li class="global-nav__item"><%= link_to "トップページへ", posts_path %></li>
+            <li class="global-nav__item"><%= link_to "投稿", new_post_path %></li>
           </ul>
         </nav>
         
@@ -17,6 +18,7 @@
           <span class="hamburger__line hamburger__line--3"></span>
         </div>
         <div class="black-bg" id="js-black-bg"></div>
+
       <% else %>
         <li><%= link_to "ログイン", new_user_session_path %></li>  
         <li><%= link_to "新規登録", new_user_registration_path %></li>  

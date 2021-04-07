@@ -1,0 +1,54 @@
+<%= form_with model: @post, url: posts_path, local: true do |form| %>
+  <div>
+    <%= form.label :name, "タイトル" %>
+    <%= form.text_field :title %>
+    <div class="error">
+    <% if @post.errors.include?(:title) %> 
+      <p class="error-messages"><%= @post.errors.messages_for(:title).first %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :name, "サービス内容" %>
+    <%= form.text_field :servis_content %>
+    <% if @post.errors.include?(:servis_content) %> 
+      <p class="error-messages"><%= @post.errors.messages_for(:servis_content).first %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :name, "開発背景" %>
+    <%= form.text_field :evelopment_background %>
+    <% if @post.errors.include?(:evelopment_background) %> 
+      <p class="error-messages"><%= @post.errors.messages_for(:evelopment_background).first %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :name, "イメージ画像" %>
+    <%= form.file_field :thumbnail_img %>
+    <% if @post.errors.include?(:thumbnail_img) %> 
+      <p class="error-messages"><%= @post.errors.messages_for(:thumbnail_img).first %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :name, "サイトのURL" %>
+    <%= form.text_field :site_url %>
+    <% if @post.errors.include?(:site_url) %> 
+      <p class="error-messages"><%= @post.errors.messages_for(:site_url).first %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :name, "githubのURL" %>
+    <%= form.text_field :github_url %>
+    <% if @post.errors.include?(:github_url) %> 
+      <p class="error-messages"><%= @post.errors.messages_for(:github_url).first %></p>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "登録する" %>
+  </div>
+<% end %>

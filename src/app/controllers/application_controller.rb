@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     email = resource&.email || params[:user][:email].downcas
     return unless email == 'guest@example.com'
 
-    redirect_to root_path, alert: 'ゲストユーザーの変更・削除はできません。'
+    redirect_to edit_user_registration_path, alert: 'ゲストユーザー様の変更・退会はできません。'
   end
 
   def index; end
