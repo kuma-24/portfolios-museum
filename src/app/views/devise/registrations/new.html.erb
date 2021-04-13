@@ -46,11 +46,23 @@
           </div>
         </div>
 
+        <%= f.fields_for :profile do |f| %>
+          <div>
+            <%= f.label :avatar_img, "アバター画像" %>
+            <%= f.file_field :avatar_img %>
+          </div>
+
+          <div>
+            <%= f.label :self_introduction, "自己紹介" %>
+            <%= f.text_field :self_introduction %>
+          </div>
+        <% end %>
         <div class="signup-button">
           <%= f.submit "登録" %>
         </div>
 
-        <% end %> 
+        
+      <% end %> 
     </div>
   </div>
 </section>

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.includes(:user)
+    @posts = Post.all.includes(:user)
   end
 
   def new
@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post_form).permit(
         :title,
+        :catchphrase,
         :servis_content,
         :evelopment_background,
         :thumbnail_img,

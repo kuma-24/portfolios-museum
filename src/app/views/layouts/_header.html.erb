@@ -1,47 +1,29 @@
-<header class="page-header wrapper">
-  <h1>portfolios-museum</h1>
-  <nav>
-    <ul class="main-nav">
-      <% if user_signed_in? %>
-        <nav class="global-nav">
-          <ul class="global-nav__list">
-            <li class="global-nav__item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-            <li class="global-nav__item"><%= link_to "マイページ", edit_user_registration_path %></li>
-            <li class="global-nav__item"><%= link_to "トップページへ", posts_path %></li>
-            <li class="global-nav__item"><%= link_to "投稿", new_post_path %></li>
-          </ul>
-        </nav>
-        
-        <div class="hamburger" id="js-hamburger">
-          <span class="hamburger__line hamburger__line--1"></span>
-          <span class="hamburger__line hamburger__line--2"></span>
-          <span class="hamburger__line hamburger__line--3"></span>
-        </div>
-        <div class="black-bg" id="js-black-bg"></div>
+<!DOCTYPE html>
+<html lang="ja">
+  <div class="page-logo">
+    <h1>portfolios~museum</h1>
+  </div>
 
-      <% else %>
-        <li><%= link_to "ログイン", new_user_session_path %></li>  
-        <li><%= link_to "新規登録", new_user_registration_path %></li>  
-        <li><%= link_to "ゲストユーザー", users_guest_sign_in_path, method: :post %></li>   
-      <% end %>
-    </ul>
-  </nav>
-<%= javascript_pack_tag "hamburger.js" %>
-</header>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <header class="page-header">
+    <div class="header-logo">
+      <h2>portfolios-museum</h2>
+    </div>
+    
+    <div class="main-nav">
+      <nav class="main-menu">
+        <ul class="nav-item">
+        <% if user_signed_in? %>
+          <li><% link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <li><% link_to "トップページへ", posts_path %></li>  
+          <li><i class="fa fa-pencil-square-o"></i><%= link_to "投稿", new_post_path %></i></li>
+          <li class="user-img"><%= link_to image_tag(current_user.profile.avatar_img.url), edit_user_registration_path %></li>
+        <% else %>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
+          <li><%= link_to "ゲストユーザー", users_guest_sign_in_path, method: :post %></li>
+        <% end %>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</html>

@@ -9,6 +9,15 @@
   </div>
 
   <div>
+    <%= form.label :name, "キャッチフレーズ" %>
+    <%= form.text_field :catchphrase %>
+    <div class="error">
+    <% if @post.errors.include?(:catchphrase) %> 
+      <p class="error-messages"><%= @post.errors.messages_for(:catchphrase).first %></p>
+    <% end %>
+  </div>
+
+  <div>
     <%= form.label :name, "サービス内容" %>
     <%= form.text_field :servis_content %>
     <% if @post.errors.include?(:servis_content) %> 
