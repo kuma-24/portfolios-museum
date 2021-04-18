@@ -14,109 +14,166 @@
   background-image: linear-gradient(#dfcba5,#eddcbc);
   height: 80px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   
-  
   .header-logo {
-    margin-left: 40px;
+    height: 80px;
+    margin-left: 55px;
 
-    h2 {
-      font-family: 'Philosopher', sans-serif;
-    }
-  }
+    a {
+      text-decoration: none;
 
-  .main-nav {
-    margin-right: 40px;
-
-    .main-menu {
-      .nav-item {
-        display: flex;
-        align-items: center;
-        li {
-          font-family: 'sans-serif';
-          font-size: 1.25rem;
-          margin-left: 36px;
-        }
+      h2 {
+        font-family: 'Philosopher', sans-serif;
+        height: 40px;
       }
     }
   }
 
-  // .main-nav {
-  //   text-align: right;
+  .main-nav {
+    margin-right: 55px;
+
+    .nav-menu {
+
+      .nav-item {
+        margin: 0px;
+        display: flex;
+
+        .nav-content {
+          display: flex;
+          height: 80px;
+        }
+
+        .user-post {
+          margin: auto 0px;
+
+          
+          a {
+            display: flex;
+            text-decoration: none;
+
+            .post-size {
+              height: 50px;
+              width: 50px;
+            }
   
-  //   .main-menu {
-  //     .nav-item {
-  //       display: flex;
-  //       font-size: 1.25rem;
-  //       text-transform: uppercase;
-  //       justify-content: center;
-  //       align-items: center;
-  //     }
-  //   }
-  // }
-  // .nav-scroll {
-  //   height: 80px;
+            span {
+              margin: auto 0px;
+              margin-left: 5px;
+              user-select:none
+            }
+          }
+        }
 
-  //   .main-nav {
-  //     height: 80px;
-  //     justify-content: space-between;
-  //     display: flex;
-  //     max-width: 1340px;
-  //     margin: 0px 50px;
+        .user-icon {
+          display: flex;
+          margin-top: 15px;
+          margin-bottom: 15px;
+          margin-left: 40px;
+          cursor: pointer;
+
+          .user-img {
+            img {
+              display: block;
+              user-select:none;
+              height: 50px;
+              width: 50px;
+              border-radius: 50px;
+            }
+          }
+
+          span {
+            margin: auto 0px;
+            margin-left: 5px;
+            user-select:none
+          }
+        }
       
-  //     .header-logo {
-  //       justify-content: center;
-  //       align-items: center;
-  //       font-family: 'Philosopher', sans-serif;
-  //     }
-      
-  //     .nav-menu {
-  //       display: flex;
-  //       font-size: 1.25rem;
-  //       text-align: right;
-  //       text-transform: uppercase;
-  //       justify-content: center;
-  //       align-items: center;
-        
-  //       li {
-  //         font-family: 'sans-serif';
-  //         margin-left: 36px;
-  //       }
-  //     }
-  //   }
-  // }
-}
 
-main {
-  background: aquamarine;
+        .user-menu {
+          background: pink;
+          position: absolute;
+          top: 300px;
+          left: 1270px;
+          opacity: 0;
+          pointer-events: none;
+        }
 
-  .main-content {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 25px;
-    
-    .article-content {
-      width: 74%;
-      margin-top: 15px;
-      background-color: burlywood;
+        .user-menu.show {
+          opacity: 1;
+          transition: opacity .6s;
+          pointer-events: all;
+         
+          .menu-item {
+            padding: 20px;
 
-      
-    }
+            .drop-item {
+              margin: auto 0px;
+              padding: 10px 0;
+              opacity: 1;
+              transition: none;
+             
 
-    .aside-content {
-      width: 22%;
-      margin-top: 15px;
-      background-color: #dfcba5;
+              a {
+                display: flex;
+                text-decoration: none;
+                
+                .user-size {
+                  height: 25px;
+                  width: 25px;
+                }
 
-      
+                span {
+                  position: relative;
+                  display: inline-block;
+                }
+
+                span:before{
+                  position: absolute;
+                  top: 1.3em;
+                  right: 0;
+                  content: "";
+                  display: inline-block;
+                  width: 0;
+                  height: 2px;
+                  background: #2d00f3;
+                  transition: 0.3s;
+                }
+                
+                span:hover:before{
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+
+        .top-menu {
+          display: flex;
+
+          .top-item {
+            padding-left: 40px;
+
+            a {
+              display: flex;
+              text-decoration: none;
+
+              .sign-in-size, .new-user-size  {
+                height: 30px;
+                width: 30px;
+              }
+
+              span {
+                margin: auto 0px;
+                margin-left: 5px;
+                user-select:none
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
 
-.user-img {
-  img {
-    height: 50px;
-    width: 50px;
-    border-radius: 50px;
-  } 
-}

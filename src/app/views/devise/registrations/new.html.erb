@@ -5,7 +5,7 @@
         <h1>新規登録</h1>
       </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+      <% render "devise/shared/error_messages", resource: resource %>
         <div>
           <%= f.label :name %>
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
@@ -65,4 +65,11 @@
       <% end %> 
     </div>
   </div>
+
+  <li>
+    <%= link_to users_guest_sign_in_path, method: :post do %>
+      <i class="fas fa-users"></i> 
+      <span>ゲストログイン</span>
+    <% end %>
+  </li>
 </section>
