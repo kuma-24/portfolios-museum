@@ -10,17 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_073120) do
+ActiveRecord::Schema.define(version: 2021_04_07_070146) do
 
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "title", default: "", null: false
-    t.text "servis_content", size: :medium, null: false
-    t.text "evelopment_background", size: :medium, null: false
+    t.text "catchphrase", null: false
+    t.text "servis_content", null: false
+    t.text "evelopment_background", null: false
     t.string "thumbnail_img", default: "", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "profiles", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+    t.string "avatar_img", default: ""
+    t.text "self_introduction"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "urls", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
@@ -46,5 +56,6 @@ ActiveRecord::Schema.define(version: 2021_04_04_073120) do
   end
 
   add_foreign_key "posts", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "urls", "posts"
 end

@@ -1,0 +1,179 @@
+.page-logo {
+  background-image: url(page_logo.jpg);
+  height: 200px;
+  
+  h1 {
+    font-family: 'Philosopher', sans-serif;
+    font-size: 50px;
+    padding-left: 50px;
+    margin: 0px;
+  }
+}
+
+.page-header {
+  background-image: linear-gradient(#dfcba5,#eddcbc);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  .header-logo {
+    height: 80px;
+    margin-left: 55px;
+
+    a {
+      text-decoration: none;
+
+      h2 {
+        font-family: 'Philosopher', sans-serif;
+        height: 40px;
+      }
+    }
+  }
+
+  .main-nav {
+    margin-right: 55px;
+
+    .nav-menu {
+
+      .nav-item {
+        margin: 0px;
+        display: flex;
+
+        .nav-content {
+          display: flex;
+          height: 80px;
+        }
+
+        .user-post {
+          margin: auto 0px;
+
+          
+          a {
+            display: flex;
+            text-decoration: none;
+
+            .post-size {
+              height: 50px;
+              width: 50px;
+            }
+  
+            span {
+              margin: auto 0px;
+              margin-left: 5px;
+              user-select:none
+            }
+          }
+        }
+
+        .user-icon {
+          display: flex;
+          margin-top: 15px;
+          margin-bottom: 15px;
+          margin-left: 40px;
+          cursor: pointer;
+
+          .user-img {
+            img {
+              display: block;
+              user-select:none;
+              height: 50px;
+              width: 50px;
+              border-radius: 50px;
+            }
+          }
+
+          span {
+            margin: auto 0px;
+            margin-left: 5px;
+            user-select:none
+          }
+        }
+      
+
+        .user-menu {
+          background: pink;
+          position: absolute;
+          top: 300px;
+          left: 1270px;
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .user-menu.show {
+          opacity: 1;
+          transition: opacity .6s;
+          pointer-events: all;
+         
+          .menu-item {
+            padding: 20px;
+
+            .drop-item {
+              margin: auto 0px;
+              padding: 10px 0;
+              opacity: 1;
+              transition: none;
+             
+
+              a {
+                display: flex;
+                text-decoration: none;
+                
+                .user-size {
+                  height: 25px;
+                  width: 25px;
+                }
+
+                span {
+                  position: relative;
+                  display: inline-block;
+                }
+
+                span:before{
+                  position: absolute;
+                  top: 1.3em;
+                  right: 0;
+                  content: "";
+                  display: inline-block;
+                  width: 0;
+                  height: 2px;
+                  background: #2d00f3;
+                  transition: 0.3s;
+                }
+                
+                span:hover:before{
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+
+        .top-menu {
+          display: flex;
+
+          .top-item {
+            padding-left: 40px;
+
+            a {
+              display: flex;
+              text-decoration: none;
+
+              .sign-in-size, .new-user-size  {
+                height: 30px;
+                width: 30px;
+              }
+
+              span {
+                margin: auto 0px;
+                margin-left: 5px;
+                user-select:none
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

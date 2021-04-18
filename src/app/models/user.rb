@@ -5,17 +5,19 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def self.guest
-    find_or_create_by!(email: 'guest@example.com', name: 'ゲスト') do |user|
+    find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
+      user.name = 'ゲスト'
     end
   end
 
   has_many :posts, dependent: :destroy
-
-  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile
 
   with_options presence: true do
-    validates :name
+    validates :name, length: { maximum: 15 }
+    validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
     validates :password, length: { minimum: 6 }
   end
 end

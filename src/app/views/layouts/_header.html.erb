@@ -1,47 +1,77 @@
-<header class="page-header wrapper">
-  <h1>portfolios-museum</h1>
-  <nav>
-    <ul class="main-nav">
-      <% if user_signed_in? %>
-        <nav class="global-nav">
-          <ul class="global-nav__list">
-            <li class="global-nav__item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-            <li class="global-nav__item"><%= link_to "マイページ", edit_user_registration_path %></li>
-            <li class="global-nav__item"><%= link_to "トップページへ", posts_path %></li>
-            <li class="global-nav__item"><%= link_to "投稿", new_post_path %></li>
-          </ul>
-        </nav>
-        
-        <div class="hamburger" id="js-hamburger">
-          <span class="hamburger__line hamburger__line--1"></span>
-          <span class="hamburger__line hamburger__line--2"></span>
-          <span class="hamburger__line hamburger__line--3"></span>
-        </div>
-        <div class="black-bg" id="js-black-bg"></div>
+<!DOCTYPE html>
+<html lang="ja">
+  <div class="page-logo">
+    <h1>portfolios~museum</h1>
+  </div>
 
-      <% else %>
-        <li><%= link_to "ログイン", new_user_session_path %></li>  
-        <li><%= link_to "新規登録", new_user_registration_path %></li>  
-        <li><%= link_to "ゲストユーザー", users_guest_sign_in_path, method: :post %></li>   
+  <header class="page-header">
+    <div class="header-logo">
+      <%= link_to root_path do %>
+        <h2>portfolios-museum</h2>
       <% end %>
-    </ul>
-  </nav>
-<%= javascript_pack_tag "hamburger.js" %>
-</header>
+    </div>
+    
+    <div class="main-nav">
+      <nav class="nav-menu">
+        <ul class="nav-item">
 
+        <% if user_signed_in? %>
+          <div class="nav-content">
+            <li class="user-post">
+              <%= link_to new_post_path do %>
+                <i class="fas fa-newspaper post-size"></i>
+                <span>投稿</span>
+              <% end %>
+            </li>
+            <div class="user-icon" id="open" >
+              <li class="user-img">
+                <% if current_user.profile.avatar_img? %>
+                  <%= image_tag(current_user.profile.avatar_img.url) %> 
+                <% else %>
+                  <%= image_tag("/assets/guest_img.jpg") %>
+                <% end %>
+              </li>
+              <span>メニュー</span>
+            </div>
+          </div>
+          <div class="user-menu">
+            <ul class="menu-item">
+              <li class="drop-item link">
+                <%= link_to edit_user_registration_path do %>
+                   <i class="fas fa-user-edit user-size"></i>
+                   <span>マイページ</span>
+                <% end %>
+              </li>
+              <li class="drop-item link">
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt user-size"></i>
+                  <span>ログアウト</span>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        <% else %>
+          <div class="top-menu">
+            <li class="top-item link">
+              <%= link_to new_user_session_path do %>
+                <i class="fas fa-sign-in-alt sign-in-size tooltip"></i>
+                <span>ログイン</span>
+              <% end %>
+            </li>
+            <li class="top-item link">
+              <%= link_to new_user_registration_path do %>
+                <i class="fas fa-user-plus new-user-size tooltip"></i>
+                <span>新規登録</span>
+              <% end %>
+            </li>
+          </div>
+        <% end %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <%= javascript_pack_tag 'user_menu.js' %>
+</html>
 
 

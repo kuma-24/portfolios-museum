@@ -5,7 +5,7 @@
         <h1>新規登録</h1>
       </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+      <% render "devise/shared/error_messages", resource: resource %>
         <div>
           <%= f.label :name %>
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
@@ -46,11 +46,30 @@
           </div>
         </div>
 
+        <%= f.fields_for :profile do |f| %>
+          <div>
+            <%= f.label :avatar_img, "アバター画像" %>
+            <%= f.file_field :avatar_img %>
+          </div>
+
+          <div>
+            <%= f.label :self_introduction, "自己紹介" %>
+            <%= f.text_field :self_introduction %>
+          </div>
+        <% end %>
         <div class="signup-button">
           <%= f.submit "登録" %>
         </div>
 
-        <% end %> 
+        
+      <% end %> 
     </div>
   </div>
+
+  <li>
+    <%= link_to users_guest_sign_in_path, method: :post do %>
+      <i class="fas fa-users"></i> 
+      <span>ゲストログイン</span>
+    <% end %>
+  </li>
 </section>

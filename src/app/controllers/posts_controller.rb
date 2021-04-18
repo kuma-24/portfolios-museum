@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.includes(:user)
+    @posts = Post.all.includes(:user)
   end
 
   def new
@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
     if @post.valid?
       @post.save
-      redirect_to posts_path
+      redirect_to root_path
     else
       render :new
     end
@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post_form).permit(
         :title,
+        :catchphrase,
         :servis_content,
         :evelopment_background,
         :thumbnail_img,
