@@ -10,4 +10,3 @@ import '@fortawesome/fontawesome-free/js/all';
 
 Rails.start()
 ActiveStorage.start()
-

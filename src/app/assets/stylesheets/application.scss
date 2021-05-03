@@ -14,30 +14,16 @@
  *= require_self
  */
 
- @import '@fortawesome/fontawesome-free/scss/fontawesome';
-
- main {
-  background: aquamarine;
-
-  .main-content {
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+ 
+body {
+  background: #F596AA;
+  .content {
+    min-height: 100vh; 
+    position: relative;
+    padding-bottom: 10vh; 
+    box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
-    margin: 0 25px;
-    
-    .article-content {
-      width: 74%;
-      margin-top: 15px;
-      background-color: burlywood;
-
-      
-    }
-
-    .aside-content {
-      width: 22%;
-      margin-top: 15px;
-      background-color: #dfcba5;
-
-      
-    }
+    flex-direction: column;
   }
 }
