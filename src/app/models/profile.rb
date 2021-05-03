@@ -9,5 +9,5 @@ class Profile < ApplicationRecord
     end
   end
 
-  validates :self_introduction, length: { maximum: 150 }
+  validates :self_introduction, length: { maximum: 150, message: '150文字以下で入力してください' }
 end
