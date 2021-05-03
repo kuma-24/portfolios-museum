@@ -8,15 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&family=Philosopher:ital@1&display=swap" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %> 
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <div class="content">
+      <%= render 'layouts/header' %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
     <%# <p class="notice"><% notice %> 
     <%# <p class="alert"><%= alert %> 
-    <%= yield %>
+    
   </body>
 </html>

@@ -1,75 +1,132 @@
 <section class="signup-section">
-  <div class="signup-container">
-    <div class="signup-form">
-      <div class="signup-title">
-        <h1>新規登録</h1>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>    
+    <div class="signup-field">
+      <div class="user-field">
+        <div class="input-field">
+          <div class="text">
+            <%= f.label :name %>
+            <p class="mandatory">【必須】</p>
+            <p class="info">※15文字以下</p>
+            <span>&#xFF08;現在の文字数：<p id="mandatory-count">0</p>&#xFF09;</span>
+          </div>
+          <div class="fill-in">
+            <div class="signup-text">
+              <i class="fas fa-user-edit icon-img"></i>
+              <%= f.text_field :name, id:"mandatory-input", autofocus: true, autocomplete: "name", maxlength: 15 %>
+            </div>
+            <% if @user.errors.include?(:name) %> 
+              <p class="error-messages">※<%= @user.errors.full_messages_for(:name).first %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="input-field">
+          <div class="text">
+            <%= f.label :email %>
+            <p class="mandatory">【必須】</p>
+            <div class="text-info">
+              <p class="info">※有効なアドレス</p>
+              <p class="info">例：sample@sample.com</p>
+            </div>
+          </div>
+          <div class="fill-in">
+            <div class="signup-text">
+              <i class="fas fa-envelope icon-img"></i>
+              <%= f.text_field :email, autofocus: true, autocomplete: "name" %>
+            </div>
+            <% if @user.errors.include?(:email) %> 
+              <p class="error-messages">※<%= @user.errors.full_messages_for(:email).first %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="input-field">
+          <div class="text">
+            <%= f.label :password %>
+            <p class="mandatory">【必須】</p>
+            <p class="info">※半角英数字６桁</p>
+          </div>
+          <div class="fill-in">
+            <div class="signup-text">
+              <i class="fas fa-lock icon-img"></i>
+              <%= f.password_field :password, autocomplete: "new-password", maxlength: 6 %>
+              <button type="button" id="btn_passview">表示</button>
+            </div>
+            <% if @user.errors.include?(:password) %> 
+              <p class="error-messages">※<%= @user.errors.full_messages_for(:password).first %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="input-field">
+          <div class="text">
+            <%= f.label :password_confirmation, "パスワード再確認" %>
+            <p class="mandatory">【必須】</p>
+            <p class="info">※設定したパスワード</p>
+          </div>
+          <div class="fill-in">
+            <div class="signup-text">
+              <i class="fas fa-key icon-img"></i>
+              <%= f.password_field :password_confirmation, maxlength: 6 %>
+            </div>
+            <% if @user.errors.include?(:password_confirmation) %> 
+              <p class="error-messages">※<%= @user.errors.full_messages_for(:password_confirmation).first %></p>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <% render "devise/shared/error_messages", resource: resource %>
-        <div>
-          <%= f.label :name %>
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-          <div class="error">
-          <% if @user.errors.include?(:name) %> 
-            <p class="error-messages"><%= @user.errors.full_messages_for(:name).first %></p>
-          <% end %>
-          </div>
-        </div>
-
-        <div>
-          <%= f.label :email %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          <div class="error">
-          <% if @user.errors.include?(:email) %> 
-            <p class="error-messages"><%= @user.errors.full_messages_for(:email).first %></p>
-          <% end %>
-          </div> 
-        </div>
-
-        <div>
-          <%= f.label :password %>
-          <%= f.password_field :password, autocomplete: "new-password" %>
-          <div class="error">
-          <% if @user.errors.include?(:password) %> 
-            <p class="error-messages"><%= @user.errors.full_messages_for(:password).first %></p>
-          <% end %> 
-          </div>
-        </div>
-
-        <div>
-          <%= f.label :password_confirmation, "確認用パスワード" %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-          <div class="error">
-          <% if @user.errors.include?(:password_confirmation) %> 
-            <p class="error-messages"><%= @user.errors.full_messages_for(:password_confirmation).first %></p>
-          <% end %> 
-          </div>
-        </div>
-
+    
+      <details>
+        <summary>任意項目の設定（ユーザーアイコン・自己紹介）</summary>
         <%= f.fields_for :profile do |f| %>
-          <div>
-            <%= f.label :avatar_img, "アバター画像" %>
-            <%= f.file_field :avatar_img %>
-          </div>
+          <div class="profile-field">
+            <div class="any-field">
+              <div class="any-text">
+                <i class="fas fa-image icon-img"></i>
+                <p class="title">ユーザーアイコン</p>
+                <p class="any">【任意】</p>
+              </div>
+              <div class="any-in" id="file-select">
+                <%= f.label :avatar_img, id:"file-list" do %>
+                  <i class="fas fa-camera-retro size"></i>
+                <% end %>
+                <div class="file-info">
+                  <%= f.file_field :avatar_img %>
+                  <p class="info">※自動でリサイズされます。</p>
+                </div>
+              </div>
+            </div>
 
-          <div>
-            <%= f.label :self_introduction, "自己紹介" %>
-            <%= f.text_field :self_introduction %>
+            <div class="any-field">
+              <div class="any-text">
+                <i class="fas fa-address-card icon-img"></i>
+                <%= f.label :self_introduction, "自己紹介" %>
+                <p class="any">【任意】</p>
+                <div class="count-info">
+                  <p>※150文字以下</p>
+                  <span>&#xFF08;現在の文字数：<p id="any-count">0</p>&#xFF09;</span>
+                </div>
+              </div>
+              <div class="fill-in">
+                <%= f.text_area :self_introduction, id:"any-input", maxlength: 150 %>
+                <% if @user.profile.errors.include?(:self_introduction) %> 
+                  <p class="error-messages">※<%= @user.profile.errors.messages_for(:self_introduction).first %></p>
+                <% end %>
+              </div>
+            </div>
           </div>
-        <% end %>
-        <div class="signup-button">
-          <%= f.submit "登録" %>
-        </div>
-
-        
-      <% end %> 
+        <% end %> 
+      </details>
+      <div class="signup-button">
+        <%= f.button "登録する", type: 'button', onclick: 'submit();' %>
+      </div>
+      <div class="signup-guest">
+        <%= link_to users_guest_sign_in_path, method: :post do %>
+          <i class="fas fa-users"></i>
+          <span>ゲストログイン</span>
+        <% end %> 
     </div>
-  </div>
-
-  <li>
-    <%= link_to users_guest_sign_in_path, method: :post do %>
-      <i class="fas fa-users"></i> 
-      <span>ゲストログイン</span>
-    <% end %>
-  </li>
+    </div>
+  <% end %> 
+  <%= javascript_pack_tag 'user_signup.js' %>
 </section>

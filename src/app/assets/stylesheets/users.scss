@@ -1,3 +1,519 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+$spMax: 519px;
+$spMin: 320px;
+$tbMax: 1024px;
+$tbMin: 520px;
+$pcMin: 1025px;
+
+@media screen and (min-width: $spMin) and (max-width: $spMax) {
+  .signup-section {
+    font-size: calc(100vw / 32);
+    .new_user {
+      margin: 2vh 4vw;
+      .signup-field {
+        .user-field {
+          .input-field {
+           margin-top: 3.5vh;
+            .text {
+              display: flex;
+              align-items: flex-end;
+              label {
+                font-size: 1.5em;
+              }
+              .mandatory {
+                font-size: 1em;
+                margin: 0;
+                color: red;
+              }
+              .info {
+                height: auto;
+                margin: 0;
+                font-size: 1em;
+                span {
+                  height: auto;
+                }
+                .br::before {
+                  content: "\A" ;
+                  white-space: pre ;
+                }
+              }
+              span {
+                display: flex;
+                p {
+                  margin: 0;
+                }
+              }
+            }
+            .fill-in {
+              height: 6vh;
+              .signup-text {
+                display: flex;
+                align-items: center;
+                height: 6vh;
+                border: 0.4vh solid;
+                border-radius: 5px;
+                .icon-img {
+                  height: auto;
+                  width: 6vw;
+                  margin-left: 1vw;
+                }
+                input {
+                  width: 100%;
+                  outline: none;
+                  border: 0;
+                  padding-left: 5vw;
+                }
+                button {
+                  width: 25vw;
+                  margin: auto 2vw;
+                }
+                .field_with_errors {
+                  width: 100%;
+                }
+              }   
+              .error-messages {
+                margin: 0;
+                color: red;
+              }
+            }
+          }
+        }
+        details {
+          margin-top: 5vh;
+          summary {
+            display: block;
+            text-align: center;
+            border: 0.1vh solid red;
+            margin: 1vh 1vw;
+            padding: 1vh 1vw;
+          }
+          .profile-field {
+            .any-info {
+              
+            }
+            .any-field {
+              margin-bottom: 2vh;
+              .any-text {
+                display: flex;
+                // align-items: center;
+                align-items: flex-end;
+                .icon-img {
+                  height: auto;
+                  width: 5.5vw;
+                  margin-bottom: 0.6vh;
+                }
+                .title {
+                  margin: 0;
+                  font-size: 1.6em;
+                }
+                .any {
+                  margin: 0;
+                }
+                .count-info {
+                  p {
+                    margin: 0;
+                  }
+                }
+                .info {
+                  margin: 0;
+                  padding-top: 0.6vh;
+                }
+                span {
+                  display: flex;
+                  
+                  p {
+                    margin: 0;
+                  }
+                }
+                label {
+                  font-size: 1.6em;
+                }
+              }
+              .any-in {
+                #file-list {
+                  .size {
+                    height: auto;
+                    width: 19vw;
+                    margin-left: 6vw;
+                  }
+                  ul {
+                    margin: 0;
+                    margin-left: 6vw;
+                    width: 18.8vw;
+                    padding: 0;
+                    li {
+                      list-style: none;
+                      img {
+                        border-radius: 50%;
+                      }
+                    }
+                  }
+                }
+                .file-info {
+                  margin: 1vh 0vw;
+                  input {
+                  
+                  }
+                  p {
+                    margin: 0;
+                  }
+                }
+                input {
+                  top: 10vh;
+                }
+              }
+              .fill-in {
+                height: auto;
+                #any-input {
+                  width: 100%;
+                  height: 11vh;
+                }
+              }
+            }
+          }
+        }
+        details[open] .profile-field {
+          animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          100% {
+            opacity: 1;
+            transform: none;
+          }
+        }
+        .signup-button {
+          margin-top: 5vh;
+          text-align: center;
+          button {
+          }
+        }
+        .signup-guest {
+          margin-top: 5vh;
+          text-align: center;
+          a {
+            text-decoration: none;
+            span {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $tbMin) and (max-width: $tbMax) {
+  .signup-section {
+    .new_user {
+      .signup-field {
+        .user-field {
+          .input-field {
+            .text {
+              .icon-img {
+
+              }
+              label {
+
+              }
+              .mandatory {
+
+              }
+              .info {
+
+              }
+            }
+            .fill-in {
+              input {
+
+              }
+              .field_with_errors {
+                input {
+
+                }
+              }
+              .error-messages {
+        
+              }
+            }
+          }
+        }
+        .profile-field {
+          .any-info {
+            
+          }
+          .any-field {
+            .any-text {
+              .icon-img {
+
+              }
+              label {
+
+              }
+              .any {
+
+              }
+              .info {
+
+              }
+              span {
+                #count {
+
+                }
+              }
+            }
+            .fill-in {
+              #input {
+
+              }
+            }
+            .any-in {
+              #file-list {
+                .img-size {
+
+                }
+              }
+              input {
+
+              }
+            }
+          }
+        }
+        .signup-button {
+          button {
+            
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $pcMin) {
+  .signup-section {
+    .new_user {
+      .signup-field {
+        .user-field {
+          .input-field {
+            .text {
+              .icon-img {
+
+              }
+              label {
+
+              }
+              .mandatory {
+
+              }
+              .info {
+
+              }
+            }
+            .fill-in {
+              input {
+
+              }
+              .field_with_errors {
+                input {
+
+                }
+              }
+              .error-messages {
+        
+              }
+            }
+          }
+        }
+        .profile-field {
+          .any-info {
+            
+          }
+          .any-field {
+            .any-text {
+              .icon-img {
+
+              }
+              label {
+
+              }
+              .any {
+
+              }
+              .info {
+
+              }
+              span {
+                #count {
+
+                }
+              }
+            }
+            .fill-in {
+              #input {
+
+              }
+            }
+            .any-in {
+              #file-list {
+                .img-size {
+
+                }
+              }
+              input {
+
+              }
+            }
+          }
+        }
+        .signup-button {
+          button {
+            
+          }
+        }
+      }
+    }
+  }
+}
+// .signup-section {
+//   // background: #d6c299;
+//   width: auto;
+//   margin: 50px;
+//   background: #fff56c;
+
+//   .new_user {
+//     height: 400px;
+//     margin-left: 30px;
+
+//     .signup-field {
+//       display: flex;
+      
+//       .user-field {
+        
+//         .input-field {
+    
+//           .error-messages {
+//             margin: 0px;
+//           }
+//           .text {
+//             display: flex;
+    
+//             .icon-img {
+//               margin: auto 2px;
+//             }
+//             .mandatory {
+//               font-size: 10px;
+//               color: red;
+//               margin: auto 0px 0px;
+//             }
+//             .info {
+//               font-size: 10px;
+//               margin: auto 0px 0px;
+//             }
+//           }
+//           .fill-in {
+//             height: 65px;
+    
+//             input {
+//               height: 40px;
+//               width: 200px;
+//             }
+//             .error-messages {
+//               font-size: 15px;
+//               color: red;
+//             }
+//           }
+//         }
+//       }
+//       .profile-field {
+        
+//         .any-info {
+//           font-size: 10px;
+//           margin-right: 15px;
+//           border-bottom: 2px #0db solid;
+//         }
+//         .any-field {
+//           margin: 10px auto; 
+    
+//           .any-text {
+//             display: flex;
+    
+//             .icon-img {
+//               margin: auto 2px;
+//             }
+//             .any {
+//               font-size: 10px;
+//               margin: auto 0px 0px;
+//             }
+//             .info {
+//               font-size: 10px;
+//               margin: auto 0px 0px;
+//             }
+//             span {
+//               font-size: 10px;
+//               margin: auto 0px 0px;
+//               display: flex;
+//               p {
+//                 font-size: 10px;
+//                 margin: auto 0px 0px;
+//               }
+//             }
+//           }
+//           .fill-in {
+//             height: auto;
+    
+//             input {
+//               height: 100px;
+//               width: 400px;
+//             }
+//             .field_with_errors {
+//               textarea {
+//                 height: 150px;
+//                 width: 400px;
+//               }
+//             }
+//           }
+//           .any-in {
+//             display: flex;
+//             height: 100px;
+//             width: 600px;
+//             border-bottom: 2px #0db solid;
+    
+//             #file-list {
+//               height: 100px;
+//               width: 100px;
+//               text-align: center;
+    
+//               .size {
+//                 height: 50px;
+//                 width: 50px;
+//                 margin: 25px auto;
+//               }
+    
+//               ul {
+//                 margin: 20px;
+//                 padding: 0px;
+    
+//                 li {
+//                   list-style: none;
+    
+//                   img {
+//                     border-radius: 50%;
+//                   }
+//                 }
+//               }
+//             }
+//             input {
+//               margin: auto 0px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//     .signup-button {
+//       height: 50px;
+//       width: 70px;
+//       display: block;
+//     }
+//   }
+// }
