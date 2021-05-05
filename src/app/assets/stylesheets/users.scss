@@ -8,16 +8,24 @@ $pcMin: 1025px;
   .signup-section {
     font-size: calc(100vw / 32);
     .new_user {
-      margin: 2vh 4vw;
+      margin: auto 6vw;
+      h1 {
+        text-align: center;
+        margin: 1vh 0vw;
+        color: #64363C;
+        font-family: "游ゴシック体", sans-serif;
+      }
       .signup-field {
         .user-field {
           .input-field {
-           margin-top: 3.5vh;
+           margin-top: 4vh;
             .text {
               display: flex;
               align-items: flex-end;
               label {
                 font-size: 1.5em;
+                color: #0F2540;
+                font-family: "游ゴシック体", sans-serif;
               }
               .mandatory {
                 font-size: 1em;
@@ -28,6 +36,7 @@ $pcMin: 1025px;
                 height: auto;
                 margin: 0;
                 font-size: 1em;
+                font-family: "游ゴシック体", sans-serif;
                 span {
                   height: auto;
                 }
@@ -38,6 +47,7 @@ $pcMin: 1025px;
               }
               span {
                 display: flex;
+                font-family: "游ゴシック体", sans-serif;
                 p {
                   margin: 0;
                 }
@@ -49,22 +59,27 @@ $pcMin: 1025px;
                 display: flex;
                 align-items: center;
                 height: 6vh;
-                border: 0.4vh solid;
+                border: 0.4vh solid #B47157;
                 border-radius: 5px;
+                background: #FFFFFB;
                 .icon-img {
-                  height: auto;
+                  height: 3vh;
                   width: 6vw;
-                  margin-left: 1vw;
+                  margin: auto 3vw;
+                  color: #FB966E;
                 }
                 input {
                   width: 100%;
                   outline: none;
                   border: 0;
-                  padding-left: 5vw;
+                  font-size: 1.5em;
+                  background-color: #FFFFFB;
                 }
                 button {
-                  width: 25vw;
+                  width: 30vw;
                   margin: auto 2vw;
+                  border-radius: 2.5em;
+                  background: #FFBA84;
                 }
                 .field_with_errors {
                   width: 100%;
@@ -73,6 +88,7 @@ $pcMin: 1025px;
               .error-messages {
                 margin: 0;
                 color: red;
+                font-family: "游ゴシック体", sans-serif;
               }
             }
           }
@@ -82,19 +98,33 @@ $pcMin: 1025px;
           summary {
             display: block;
             text-align: center;
-            border: 0.1vh solid red;
+            border-radius: 1em;
             margin: 1vh 1vw;
             padding: 1vh 1vw;
+            font-family: "游ゴシック体", sans-serif;
+            background-color: #ffe0b6;
+            border-bottom: 5px solid #9E7A7A;
+            p {
+              margin: 0;
+            }
+          }
+          summary.lock {
+            margin-top: 3px;
+            color: #43341B;
+            background: #ffe0b6;
+            border-bottom: 2px solid #9E7A7A;
           }
           .profile-field {
+            margin-top: 3vh;
+            color: #0F2540;
             .any-info {
               
             }
             .any-field {
-              margin-bottom: 2vh;
+              text-align: center;
+              font-family: "游ゴシック体", sans-serif;
               .any-text {
                 display: flex;
-                // align-items: center;
                 align-items: flex-end;
                 .icon-img {
                   height: auto;
@@ -132,24 +162,26 @@ $pcMin: 1025px;
                 #file-list {
                   .size {
                     height: auto;
-                    width: 19vw;
-                    margin-left: 6vw;
+                    width: 16vw;
+                    margin-top: 2.5vh;
+                    margin-bottom: 1.5vh;
                   }
                   ul {
-                    margin: 0;
-                    margin-left: 6vw;
-                    width: 18.8vw;
+                    text-align: center;
                     padding: 0;
                     li {
                       list-style: none;
+                      height: auto;
+                      margin-top: 2.5vh;
+                      margin-bottom: 1.5vh;
                       img {
-                        border-radius: 50%;
+                        border-radius: 5em;
                       }
                     }
                   }
                 }
                 .file-info {
-                  margin: 1vh 0vw;
+                  margin-bottom: 4vh;
                   input {
                   
                   }
@@ -166,6 +198,8 @@ $pcMin: 1025px;
                 #any-input {
                   width: 100%;
                   height: 11vh;
+                  border: 0.4vh solid #B47157;
+                  font-size: 1.5em
                 }
               }
             }
@@ -185,17 +219,28 @@ $pcMin: 1025px;
           }
         }
         .signup-button {
-          margin-top: 5vh;
           text-align: center;
           button {
+            margin-top: 5vh;
+            font-size: 1.5em;
+            background: #FFBA84;
+            color: #64363C;
+            border-radius: 1em;
+            padding: 1vh 25vw;
           }
         }
         .signup-guest {
-          margin-top: 5vh;
+          border-radius: 1em;
+          margin: 5vh auto;
+          padding: 1vh 1vw;
           text-align: center;
+          background: #81C7D4;
+          border: 0.4vh solid #B47157;
           a {
             text-decoration: none;
+            font-size: 1.5em;
             span {
+              font-family: "游ゴシック体", sans-serif;
             }
           }
         }

@@ -24,15 +24,15 @@
   let page_header = document.querySelector(".page-header");
   
   if (window_w < spMax) {
-    page_header.style.top = "12vh";
+    page_header.style.marginTop = "12vh";
     page_header.style.width = "100%";
   } 
   if (window_w > spMax & window_w < tbMax) {
-    page_header.style.top = "12vh";
+    page_header.style.marginTop = "12vh";
     page_header.style.width = "100%";
   } 
   if (window_w > tbMax) {
-    page_header.style.top = "25vh";
+    page_header.style.marginTop = "25vh";
     page_header.style.width = "100%";
   }
 }

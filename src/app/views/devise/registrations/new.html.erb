@@ -1,13 +1,13 @@
 <section class="signup-section">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>    
+    <h1>新規登録</h1>
     <div class="signup-field">
       <div class="user-field">
         <div class="input-field">
           <div class="text">
             <%= f.label :name %>
             <p class="mandatory">【必須】</p>
-            <p class="info">※15文字以下</p>
-            <span>&#xFF08;現在の文字数：<p id="mandatory-count">0</p>&#xFF09;</span>
+            <span>※15文字以下&#xFF08;現在：<p id="mandatory-count">0</p>文字&#xFF09;</span>
           </div>
           <div class="fill-in">
             <div class="signup-text">
@@ -77,7 +77,10 @@
       </div>
     
       <details>
-        <summary>任意項目の設定（ユーザーアイコン・自己紹介）</summary>
+        <summary id="toggle">
+          <p>任意項目の設定ができます。</p>
+          <p>&#xFF08;ユーザーアイコン・自己紹介&#xFF09;</p>
+        </summary>
         <%= f.fields_for :profile do |f| %>
           <div class="profile-field">
             <div class="any-field">
@@ -93,6 +96,7 @@
                 <div class="file-info">
                   <%= f.file_field :avatar_img %>
                   <p class="info">※自動でリサイズされます。</p>
+                  <p class="info">※特になければデフォルト画像が適応されます。</p>
                 </div>
               </div>
             </div>
@@ -103,8 +107,7 @@
                 <%= f.label :self_introduction, "自己紹介" %>
                 <p class="any">【任意】</p>
                 <div class="count-info">
-                  <p>※150文字以下</p>
-                  <span>&#xFF08;現在の文字数：<p id="any-count">0</p>&#xFF09;</span>
+                  <span>※150文字以下&#xFF08;現在：<p id="any-count">0</p>文字&#xFF09;</span>
                 </div>
               </div>
               <div class="fill-in">
@@ -118,11 +121,10 @@
         <% end %> 
       </details>
       <div class="signup-button">
-        <%= f.button "登録する", type: 'button', onclick: 'submit();' %>
+        <%= f.button "登録", type: 'button', onclick: 'submit();' %>
       </div>
       <div class="signup-guest">
         <%= link_to users_guest_sign_in_path, method: :post do %>
-          <i class="fas fa-users"></i>
           <span>ゲストログイン</span>
         <% end %> 
     </div>

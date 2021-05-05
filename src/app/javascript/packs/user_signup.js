@@ -66,3 +66,10 @@
     }
   });
 }
+
+{
+  const button = document.getElementById('toggle');
+  button.addEventListener('click', () => {
+    button.classList.toggle('lock');
+  });
+}

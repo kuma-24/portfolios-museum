@@ -4,7 +4,7 @@ $tbMax: 1024px;
 $tbMin: 520px;
 $pcMin: 1025px;
 
-$header-color: #e6beaa;
+$header-color: #FFBA84;
 
 
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
@@ -24,28 +24,35 @@ $header-color: #e6beaa;
         text-decoration: none;
         h2 {
           font-family: 'Philosopher', sans-serif;
+          color: #64363C;
           margin: 0;
         }
       }
     }
     .main-nav {
-      margin: auto 0vw;
       margin-right: 3vw;
       .top-menu {
         display: flex;
         .top-item {
-          margin-left: 2.5vw;
+          margin-left: 5vw;
           list-style: none;
           a {
+            display: flex;
+            flex-direction: column;
             text-decoration: none;
+            .tooltip {
+              margin: 0 auto;
+              height: 4vh;
+              width: 7vw;
+            }
             span {
+              font-family: "游ゴシック体", sans-serif;
             }
           }
         }
       }
       .nav-content {
         display: flex;
-        margin: 1vh 0vw;
         .user-post {
           list-style: none;
           text-align: center;
@@ -57,7 +64,7 @@ $header-color: #e6beaa;
             text-decoration: none;
             border-radius: 50%;
             background: red;
-            height: 6vh;
+            height: 5.5vh;
             width: 12vw;
             .post-size {
               height: 6vh;
@@ -73,11 +80,11 @@ $header-color: #e6beaa;
           flex-direction: column;
           margin-left: 5vw;
           .user-img {
-            height: 6vh;
+            height: 5.5vh;
             width: 12vw;
             list-style: none;
             img {
-              height: 6vh;
+              height: 5.5vh;
               width: 12vw;
               border-radius: 50%;
             }
@@ -115,6 +122,7 @@ $header-color: #e6beaa;
       .user-menu.show {
         opacity: 1;
         width: auto;
+        margin-top: 0.7vh;
         .menu-item {
           .drop-item {
             list-style: none;

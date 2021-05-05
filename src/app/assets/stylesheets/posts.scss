@@ -6,6 +6,7 @@ $pcMin: 1025px;
 
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
   .main-content {
+    font-size: calc(100vw / 32);
     .page-logo {
       img {
         position: absolute;
@@ -24,7 +25,7 @@ $pcMin: 1025px;
     .post-content {
      
       .article-content {
-  
+        height: 200vh;
       }
       .aside-content {
   
@@ -39,48 +40,52 @@ $pcMin: 1025px;
 }
 
 @media screen and (min-width: $tbMin) and (max-width: $tbMax) {
-  .page-logo {
-    h1 {
-      
+  .main-content {
+    .page-logo {
+      h1 {
+        
+      }
     }
-  }
-  .post-content {
-    .article-content {
+    .post-content {
+      .article-content {
 
-    }
-    .aside-content {
+      }
+      .aside-content {
 
+      }
     }
-  }
-  .page-top {
-    a {
-      
+    .page-top {
+      a {
+        
+      }
     }
   }
 }
 @media screen and (min-width: $pcMin) {
-  .page-logo {
-    img {
-      position: absolute;
-      top : 0;
-      height: 25vh;
-      width: 100%;
+  .main-content {
+    .page-logo {
+      img {
+        position: absolute;
+        top : 0;
+        height: 25vh;
+        width: 100%;
+      }
+      h1 {
+        
+      }
     }
-    h1 {
-      
-    }
-  }
-  .post-content {
-    .article-content {
+    .post-content {
+      .article-content {
 
-    }
-    .aside-content {
+      }
+      .aside-content {
 
+      }
     }
-  }
-  .page-top {
-    a {
-      
+    .page-top {
+      a {
+        
+      }
     }
   }
 }
