@@ -20,6 +20,7 @@ body {
   // background: #E98B2A;
   // background: #ffe0b6;
   background: #fecf8d;
+  user-select: none;
   .content {
     min-height: 100vh; 
     position: relative;
@@ -27,5 +28,6 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    
   }
 }

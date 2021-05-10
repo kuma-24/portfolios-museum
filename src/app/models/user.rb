@@ -11,6 +11,10 @@ class User < ApplicationRecord
     end
   end
 
+  def remember_me
+    true
+  end
+
   has_many :posts, dependent: :destroy
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile

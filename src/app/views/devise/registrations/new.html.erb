@@ -78,7 +78,7 @@
     
       <details>
         <summary id="toggle">
-          <p>任意項目の設定ができます。</p>
+          <p>任意項目の設定</p>
           <p>&#xFF08;ユーザーアイコン・自己紹介&#xFF09;</p>
         </summary>
         <%= f.fields_for :profile do |f| %>
@@ -125,9 +125,10 @@
       </div>
       <div class="signup-guest">
         <%= link_to users_guest_sign_in_path, method: :post do %>
+          <i class="fas fa-user-tie guest-icon " ></i>
           <span>ゲストログイン</span>
         <% end %> 
-    </div>
+      </div>
     </div>
   <% end %> 
   <%= javascript_pack_tag 'user_signup.js' %>

@@ -16,6 +16,7 @@ $header-color: #FFBA84;
     justify-content: space-between;
     z-index: 100;
     top: 0vh;
+    margin-top: 0vh;
     align-items: center;
     .header-logo {
       margin: 3vh 0vw;
@@ -44,57 +45,60 @@ $header-color: #FFBA84;
               margin: 0 auto;
               height: 4vh;
               width: 7vw;
+              color: #F75C2F;
+            }
+            .tooltip.login {
+              color: #64363C;
             }
             span {
               font-family: "游ゴシック体", sans-serif;
+              color: #0F2540;
             }
           }
         }
       }
       .nav-content {
         display: flex;
+        list-style: none;
+        text-align: center;
         .user-post {
-          list-style: none;
-          text-align: center;
           a {
+            align-items: center;
+            text-decoration: none;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            list-style: none;
-            text-decoration: none;
-            border-radius: 50%;
-            background: red;
-            height: 5.5vh;
-            width: 12vw;
+            width: auto;
             .post-size {
-              height: 6vh;
-              width: 6vw;
+              height: 5vh;
+              padding: 0.5vh 0.25vw;
+              width: auto;
             }
-          }
-          span {     
+            span {     
+              font-family: "游ゴシック体", sans-serif;
+            }
           }
         }
         .user-icon {
-          display: flex;
-          align-items: center;
-          flex-direction: column;
           margin-left: 5vw;
           .user-img {
-            height: 5.5vh;
-            width: 12vw;
-            list-style: none;
+            display: flex;    
+            flex-direction: column;
+            align-items: center;
             img {
-              height: 5.5vh;
-              width: 12vw;
-              border-radius: 50%;
+              height: 5vh;
+              width: 9.5vw;
+              border-radius: 5em;
+              object-fit: cover;
             }
           }
           span {
+            font-family: "游ゴシック体", sans-serif;
+           
           }
         }
       }
       .user-menu {
-        background: aqua;
+        background: #F7C242;
         position: absolute;
         overflow-x: hidden;
         right: 0vw;
@@ -109,28 +113,27 @@ $header-color: #FFBA84;
             list-style: none;
             margin: 3vh 1vw;
             opacity: 0;
-            transform: translateX(10vw);
+            transform: translateY(10vw);
             transition: opacity .3s, transform .3s;
             a {
               text-decoration: none;
-              span {
-              }
             }
           }
         }
       }
       .user-menu.show {
+        text-align: center;
         opacity: 1;
-        width: auto;
-        margin-top: 0.7vh;
+        width: 100%;
+        margin-top: 1vh;
+        transition: opacity .6s;
         .menu-item {
           .drop-item {
             list-style: none;
             opacity: 1;
             transform: none;
             a {
-              span {
-              }
+              opacity: 1;
             }
           }
         }
@@ -140,249 +143,7 @@ $header-color: #FFBA84;
 }
 
 @media screen and (min-width: $tbMin) and (max-width: $tbMax) {
-  .page-header {
-    font-size: calc(100vw / 52);
-    background: $header-color;
-    display: flex;
-    position: sticky;
-    justify-content: space-between;
-    z-index: 100;
-    top: 0px;
-    align-items: center;
-    .header-logo {
-      margin: 3vh 0vw;
-      margin-left: 3vw;
-      a {
-        text-decoration: none;
-        h2 {
-          font-family: 'Philosopher', sans-serif;
-          margin: 0;
-        }
-      }
-    }
-    .main-nav {
-      margin: auto 0vw;
-      margin-right: 3vw;
-      .top-menu {
-        display: flex;
-        .top-item {
-          margin-left: 2.5vw;
-          list-style: none;
-          a {
-            text-decoration: none;
-            span {
-            }
-          }
-        }
-      }
-      .nav-content {
-        display: flex;
-        margin: 1vh 0vw;
-        .user-post {
-          list-style: none;
-          text-align: center;
-          a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            list-style: none;
-            text-decoration: none;
-            border-radius: 50%;
-            background: red;
-            height: 7vh;
-            width: 11vw;
-            .post-size {
-              height: 7vh;
-              width: 5vw;
-            }
-          }
-          span {
-          }
-        }
-        .user-icon {
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          margin-left: 5vw;
-          .user-img {
-            height: 7vh;
-            width: 11vw;
-            list-style: none;
-            img {
-              height: 7vh;
-              width: 11vw;
-              border-radius: 50%;
-            }
-          }
-          span {
-          }
-        }
-      }
-      .user-menu {
-        background: aqua;
-        position: absolute;
-        overflow-x: hidden;
-        right: 0vw;
-        width: 0vw;
-        z-index: 1;
-        opacity: 0;
-        transition: opacity .6s;
-        .menu-item {
-          padding: 0vw;
-          margin: 3vh 3vw;
-          .drop-item {
-            list-style: none;
-            margin: 3vh 1vw;
-            opacity: 0;
-            transform: translateX(10vw);
-            transition: opacity .3s, transform .3s;
-            a {
-              text-decoration: none;
-              span {
-              }
-            }
-          }
-        }
-      }
-      .user-menu.show {
-        opacity: 1;
-        width: auto;
-        .menu-item {
-          .drop-item {
-            list-style: none;
-            opacity: 1;
-            transform: none;
-            a {
-              span {
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 }
 
 @media screen and (min-width: $pcMin) {
-  .page-header {
-    font-size: calc(100vw / 96);
-    background: $header-color;
-    display: flex;
-    position: sticky;
-    justify-content: space-between;
-    z-index: 100;
-    top: 0;
-    align-items: center;
-    .header-logo {
-      margin: 3.5vh 0vw;
-      margin-left: 3vw;
-      a {
-        text-decoration: none;
-        h2 {
-          font-family: 'Philosopher', sans-serif;
-          margin: 0;
-        }
-      }
-    }
-    .main-nav {
-      margin: auto 0vw;
-      margin-right: 3vw;
-      .top-menu {
-        display: flex;
-        .top-item {
-          margin-left: 2.5vw;
-          list-style: none;
-          a {
-            text-decoration: none;
-            span {
-            }
-          }
-        }
-      }
-      .nav-content {
-        display: flex;
-        margin: 2vh 0vw;
-        .user-post {
-          list-style: none;
-          text-align: center;
-          a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            list-style: none;
-            text-decoration: none;
-            border-radius: 50%;
-            background: red;
-            height: 8vh;
-            width: 4vw;
-            .post-size {
-              height: 8vh;
-              width: 2vw;
-            }
-          }
-          span {
-          }
-        }
-        .user-icon {
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          margin-left: 5vw;
-          .user-img {
-            height: 8vh;
-            width: 4vw;
-            list-style: none;
-            img {
-              height: 8vh;
-              width: 4vw;
-              border-radius: 50%;
-            }
-          }
-          span { 
-          }
-        }
-      }
-      .user-menu {
-        background: aqua;
-        position: absolute;
-        overflow-x: hidden;
-        right: 0vw;
-        width: 0vw;
-        z-index: 1;
-        opacity: 0;
-        transition: opacity .6s;
-        .menu-item {
-          padding: 0vw;
-          margin: 3vh 3vw;
-          .drop-item {
-            list-style: none;
-            margin: 3vh 1vw;
-            opacity: 0;
-            transform: translateX(10vw);
-            transition: opacity .3s, transform .3s;
-            a {
-              text-decoration: none;
-              span {
-              }
-            }
-          }
-        }
-      }
-      .user-menu.show {
-        opacity: 1;
-        width: auto;
-        .menu-item {
-          .drop-item {
-            list-style: none;
-            opacity: 1;
-            transform: none;
-            a {
-              span {
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 }

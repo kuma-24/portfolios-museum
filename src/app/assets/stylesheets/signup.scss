@@ -18,10 +18,11 @@ $pcMin: 1025px;
       .signup-field {
         .user-field {
           .input-field {
-           margin-top: 4vh;
+           margin-top: 2.5vh;
             .text {
               display: flex;
               align-items: flex-end;
+              height: 5vh;
               label {
                 font-size: 1.5em;
                 color: #0F2540;
@@ -66,7 +67,7 @@ $pcMin: 1025px;
                   height: 3vh;
                   width: 6vw;
                   margin: auto 3vw;
-                  color: #FB966E;
+                  color: #F75C2F;
                 }
                 input {
                   width: 100%;
@@ -117,9 +118,6 @@ $pcMin: 1025px;
           .profile-field {
             margin-top: 3vh;
             color: #0F2540;
-            .any-info {
-              
-            }
             .any-field {
               text-align: center;
               font-family: "游ゴシック体", sans-serif;
@@ -149,7 +147,6 @@ $pcMin: 1025px;
                 }
                 span {
                   display: flex;
-                  
                   p {
                     margin: 0;
                   }
@@ -175,16 +172,14 @@ $pcMin: 1025px;
                       margin-top: 2.5vh;
                       margin-bottom: 1.5vh;
                       img {
-                        border-radius: 5em;
+                        border-radius: 50%;
+                        object-fit: cover;
                       }
                     }
                   }
                 }
                 .file-info {
                   margin-bottom: 4vh;
-                  input {
-                  
-                  }
                   p {
                     margin: 0;
                   }
@@ -221,26 +216,29 @@ $pcMin: 1025px;
         .signup-button {
           text-align: center;
           button {
+            border: 0;
             margin-top: 5vh;
             font-size: 1.5em;
             background: #FFBA84;
-            color: #64363C;
             border-radius: 1em;
             padding: 1vh 25vw;
+            box-shadow: 0px 1px 0px 1.5px #64363C;
           }
         }
         .signup-guest {
-          border-radius: 1em;
-          margin: 5vh auto;
-          padding: 1vh 1vw;
           text-align: center;
-          background: #81C7D4;
-          border: 0.4vh solid #B47157;
+          margin: 5vh auto;
+          border-bottom: 0.25vh solid #F75C2F;
+          width: 60vw;
+          .guest-icon {
+            color: #64363C;
+          }
           a {
             text-decoration: none;
             font-size: 1.5em;
             span {
               font-family: "游ゴシック体", sans-serif;
+              color: #64363C;
             }
           }
         }
@@ -250,315 +248,9 @@ $pcMin: 1025px;
 }
 
 @media screen and (min-width: $tbMin) and (max-width: $tbMax) {
-  .signup-section {
-    .new_user {
-      .signup-field {
-        .user-field {
-          .input-field {
-            .text {
-              .icon-img {
 
-              }
-              label {
-
-              }
-              .mandatory {
-
-              }
-              .info {
-
-              }
-            }
-            .fill-in {
-              input {
-
-              }
-              .field_with_errors {
-                input {
-
-                }
-              }
-              .error-messages {
-        
-              }
-            }
-          }
-        }
-        .profile-field {
-          .any-info {
-            
-          }
-          .any-field {
-            .any-text {
-              .icon-img {
-
-              }
-              label {
-
-              }
-              .any {
-
-              }
-              .info {
-
-              }
-              span {
-                #count {
-
-                }
-              }
-            }
-            .fill-in {
-              #input {
-
-              }
-            }
-            .any-in {
-              #file-list {
-                .img-size {
-
-                }
-              }
-              input {
-
-              }
-            }
-          }
-        }
-        .signup-button {
-          button {
-            
-          }
-        }
-      }
-    }
-  }
 }
 
 @media screen and (min-width: $pcMin) {
-  .signup-section {
-    .new_user {
-      .signup-field {
-        .user-field {
-          .input-field {
-            .text {
-              .icon-img {
-
-              }
-              label {
-
-              }
-              .mandatory {
-
-              }
-              .info {
-
-              }
-            }
-            .fill-in {
-              input {
-
-              }
-              .field_with_errors {
-                input {
-
-                }
-              }
-              .error-messages {
-        
-              }
-            }
-          }
-        }
-        .profile-field {
-          .any-info {
-            
-          }
-          .any-field {
-            .any-text {
-              .icon-img {
-
-              }
-              label {
-
-              }
-              .any {
-
-              }
-              .info {
-
-              }
-              span {
-                #count {
-
-                }
-              }
-            }
-            .fill-in {
-              #input {
-
-              }
-            }
-            .any-in {
-              #file-list {
-                .img-size {
-
-                }
-              }
-              input {
-
-              }
-            }
-          }
-        }
-        .signup-button {
-          button {
-            
-          }
-        }
-      }
-    }
-  }
+  
 }
-// .signup-section {
-//   // background: #d6c299;
-//   width: auto;
-//   margin: 50px;
-//   background: #fff56c;
-
-//   .new_user {
-//     height: 400px;
-//     margin-left: 30px;
-
-//     .signup-field {
-//       display: flex;
-      
-//       .user-field {
-        
-//         .input-field {
-    
-//           .error-messages {
-//             margin: 0px;
-//           }
-//           .text {
-//             display: flex;
-    
-//             .icon-img {
-//               margin: auto 2px;
-//             }
-//             .mandatory {
-//               font-size: 10px;
-//               color: red;
-//               margin: auto 0px 0px;
-//             }
-//             .info {
-//               font-size: 10px;
-//               margin: auto 0px 0px;
-//             }
-//           }
-//           .fill-in {
-//             height: 65px;
-    
-//             input {
-//               height: 40px;
-//               width: 200px;
-//             }
-//             .error-messages {
-//               font-size: 15px;
-//               color: red;
-//             }
-//           }
-//         }
-//       }
-//       .profile-field {
-        
-//         .any-info {
-//           font-size: 10px;
-//           margin-right: 15px;
-//           border-bottom: 2px #0db solid;
-//         }
-//         .any-field {
-//           margin: 10px auto; 
-    
-//           .any-text {
-//             display: flex;
-    
-//             .icon-img {
-//               margin: auto 2px;
-//             }
-//             .any {
-//               font-size: 10px;
-//               margin: auto 0px 0px;
-//             }
-//             .info {
-//               font-size: 10px;
-//               margin: auto 0px 0px;
-//             }
-//             span {
-//               font-size: 10px;
-//               margin: auto 0px 0px;
-//               display: flex;
-//               p {
-//                 font-size: 10px;
-//                 margin: auto 0px 0px;
-//               }
-//             }
-//           }
-//           .fill-in {
-//             height: auto;
-    
-//             input {
-//               height: 100px;
-//               width: 400px;
-//             }
-//             .field_with_errors {
-//               textarea {
-//                 height: 150px;
-//                 width: 400px;
-//               }
-//             }
-//           }
-//           .any-in {
-//             display: flex;
-//             height: 100px;
-//             width: 600px;
-//             border-bottom: 2px #0db solid;
-    
-//             #file-list {
-//               height: 100px;
-//               width: 100px;
-//               text-align: center;
-    
-//               .size {
-//                 height: 50px;
-//                 width: 50px;
-//                 margin: 25px auto;
-//               }
-    
-//               ul {
-//                 margin: 20px;
-//                 padding: 0px;
-    
-//                 li {
-//                   list-style: none;
-    
-//                   img {
-//                     border-radius: 50%;
-//                   }
-//                 }
-//               }
-//             }
-//             input {
-//               margin: auto 0px;
-//             }
-//           }
-//         }
-//       }
-//     }
-//     .signup-button {
-//       height: 50px;
-//       width: 70px;
-//       display: block;
-//     }
-//   }
-// }

@@ -13,8 +13,8 @@
         <li class="user-post">
           <%= link_to new_post_path do %>
             <i class="fas fa-feather-alt post-size"></i>
+            <span>投稿</span>
           <% end %>
-          <span>投稿</span>
         </li>
         <div class="user-icon" id="open" >
           <li class="user-img">
@@ -23,14 +23,14 @@
             <% else %>
               <%= image_tag("/assets/guest_img.jpg") %>
             <% end %>
+            <span>メニュー</span>
           </li>
-          <span>メニュー</span>
         </div>
       </div>
       <nav class="user-menu">
         <ul class="menu-item">
           <li class="drop-item">
-            <%= link_to edit_user_registration_path do %>
+            <%= link_to "/users/#{current_user.id}" do %>
                 <i class="fas fa-user-edit user-size"></i>
                 <span>マイページ</span>
             <% end %>
@@ -47,7 +47,7 @@
       <div class="top-menu">
         <li class="top-item">
           <%= link_to new_user_session_path do %>
-            <i class="fas fa-sign-in-alt sign-in-size tooltip"></i>
+            <i class="fas fa-sign-in-alt sign-in-size tooltip login"></i>
             <span>ログイン</span>
           <% end %>
         </li>
