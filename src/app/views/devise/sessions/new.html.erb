@@ -1,36 +1,46 @@
-<section class="login-section">
-  <div class="login-container">
-    <div class="login-form">
-      <div class="login-title">
-        <h1>ログイン</h1>
+<section class="section-login">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h1>ログイン</h1>
+    <div class="login-category">
+      <div class="login-input">
+        <%= f.label :email %>
+        <div class="login-form">
+          <i class="fas fa-envelope icon-img"></i>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
       </div>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div>
-            <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
-
-          <div>
-            <%= f.label :password %>
-            <%= f.password_field :password, autocomplete: "current-password" %>
-          </div>
-
-          <div>
-            <% if devise_mapping.rememberable? %>
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            <% end %>
-          </div>
-
-          <div class="login-button">
-            <%= f.submit "ログイン" %>
-            <p class="alert"><%= alert %></p>
-          </div>
-          
-          <div>
-            <%= render "devise/shared/links" %>
-          </div>
-        <% end %>
+      
+      <div class="login-input">
+        <%= f.label :password %>
+        <div class="login-form">
+          <i class="fas fa-key icon-img"></i>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+          <button type="button" id="btn_passview">表示</button>
+        </div>
+      </div>
     </div>
-  </div>
+
+    <div class="login-button">
+      <%= f.button "ログイン", type: 'button', onclick: 'submit();' %>
+      <p class="alert"><%= alert %></p>
+    </div>
+
+    <div class="button-form">
+      <div class="new-signup">
+        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+          <%= link_to new_registration_path(resource_name) do %>
+            <span>新規登録はこちら</span>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="guest-signup">
+        <%= link_to users_guest_sign_in_path, method: :post do %>
+          <span>ゲストログイン</span>
+        <% end %> 
+      </div>
+    </div>
+  <% end %>
+  <%= javascript_pack_tag 'user_signin.js' %>
 </section>
+

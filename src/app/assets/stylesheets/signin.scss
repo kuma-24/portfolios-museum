@@ -1,0 +1,109 @@
+$spMax: 519px;
+$spMin: 320px;
+$tbMax: 1024px;
+$tbMin: 520px;
+$pcMin: 1025px;
+
+@media screen and (min-width: $spMin) and (max-width: $spMax) {
+  .section-login {
+    font-size: calc(100vw / 32);
+    .new_user {
+      margin: auto 6vw;
+      font-family: "游ゴシック体", sans-serif;
+      h1 {
+        text-align: center;
+        margin: 1vh 0vw;
+        color: #64363C;
+      }
+      .login-category {
+        .login-input {
+          margin-top: 4vh;
+          label {
+            font-size: 1.5em;
+            color: #0F2540;
+          }
+          .login-form {
+              background-color: #FFFFFB;
+              display: flex;
+              align-items: center;
+              height: 6vh;
+              border: 0.4vh solid #B47157;
+              border-radius: 5px;
+            .icon-img {
+              height: 3vh;
+              width: 6vw;
+              margin: auto 3vw;
+              color: #64363C;
+            }
+            #user_email {
+              outline: none;
+              border: 0;
+              font-size: 1.5em;
+              background-color: #FFFFFB;
+            }
+            #user_password {
+              outline: none;
+              border: 0;
+              font-size: 1.5em;
+              background-color: #FFFFFB;
+            }
+            #btn_passview {
+              width: 40vw;
+              margin: auto 1vw;
+              border-radius: 2.5em;
+              background: #FFBA84;
+            }
+          }
+        }
+      }
+      .login-button {
+        text-align: center;
+        height: 18vh;
+        button {
+          border: 0;
+          margin-top: 6vh;
+          padding: 1vh 20vw;
+          font-size: 1.5em;
+          border-radius: 1em;
+          background: #FFBA84;
+          color: #64363C;
+          box-shadow: 0px 1px 0px 1.5px #64363C;
+        }
+        .alert {
+          color: #E83015;
+          font-size: 1em;
+        }
+      }
+      .button-form {
+        display: flex;
+        justify-content: space-between;
+        .guest-signup {
+          a {
+            text-decoration: none;
+            border-bottom: 0.25vh solid #F75C2F;
+            padding: 0 2vw;
+            span {
+              font-size: 1.2em;
+              color: #64363C; 
+            }
+          }
+        }
+        .new-signup {       
+          a {
+            text-decoration: none;
+            border-bottom: 0.25vh solid #51A8DD;
+            padding: 0 2vw;
+            span {
+              font-size: 1.2em;
+              color: #0089A7;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: $tbMin) and (max-width: $tbMax) {
+}
+@media screen and (min-width: $pcMin) {
+}

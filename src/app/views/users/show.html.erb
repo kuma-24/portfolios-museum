@@ -1,0 +1,15 @@
+<p>こんにちは</p>
+
+<% if @user.email == 'guest@example.com' %>
+  <p>おはようございます</p>
+<% else %>
+  <%= link_to "編集", edit_user_path(@user) %>
+<% end %>
+<%= @user.email %>
+<%= @user.name %>
+<%= @user.profile.self_introduction %>
+<% if @user.profile.avatar_img? %>
+  <%= image_tag(@user.profile.avatar_img.url) %> 
+<% else %>
+  <%= image_tag("/assets/guest_img.jpg") %>
+<% end %>

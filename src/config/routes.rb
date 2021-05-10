@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   end
 
   root 'posts#index'
-  resource :users
+  resources :users
   resources :posts, only: %i[index new create]
 end

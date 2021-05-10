@@ -4,8 +4,7 @@
   const fileElem = document.getElementById('user_profile_attributes_avatar_img');
   const fileSelect = document.getElementById('file-select');
   const fileList = document.getElementById('file-list');
-  
-  
+
   fileElem.addEventListener("change", handleFiles, false);
   
   function handleFiles() {
@@ -64,5 +63,12 @@
       input_pass.type = 'password';
       btn_passview.textContent = '表示';
     }
+  });
+}
+
+{
+  const button = document.getElementById('toggle');
+  button.addEventListener('click', () => {
+    button.classList.toggle('lock');
   });
 }
