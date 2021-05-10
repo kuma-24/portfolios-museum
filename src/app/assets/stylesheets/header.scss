@@ -3,9 +3,7 @@ $spMin: 320px;
 $tbMax: 1024px;
 $tbMin: 520px;
 $pcMin: 1025px;
-
 $header-color: #FFBA84;
-
 
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
   .page-header {
