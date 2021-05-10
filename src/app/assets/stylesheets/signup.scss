@@ -1,0 +1,256 @@
+$spMax: 519px;
+$spMin: 320px;
+$tbMax: 1024px;
+$tbMin: 520px;
+$pcMin: 1025px;
+
+@media screen and (min-width: $spMin) and (max-width: $spMax) {
+  .signup-section {
+    font-size: calc(100vw / 32);
+    .new_user {
+      margin: auto 6vw;
+      h1 {
+        text-align: center;
+        margin: 1vh 0vw;
+        color: #64363C;
+        font-family: "游ゴシック体", sans-serif;
+      }
+      .signup-field {
+        .user-field {
+          .input-field {
+           margin-top: 2.5vh;
+            .text {
+              display: flex;
+              align-items: flex-end;
+              height: 5vh;
+              label {
+                font-size: 1.5em;
+                color: #0F2540;
+                font-family: "游ゴシック体", sans-serif;
+              }
+              .mandatory {
+                font-size: 1em;
+                margin: 0;
+                color: red;
+              }
+              .info {
+                height: auto;
+                margin: 0;
+                font-size: 1em;
+                font-family: "游ゴシック体", sans-serif;
+                span {
+                  height: auto;
+                }
+                .br::before {
+                  content: "\A" ;
+                  white-space: pre ;
+                }
+              }
+              span {
+                display: flex;
+                font-family: "游ゴシック体", sans-serif;
+                p {
+                  margin: 0;
+                }
+              }
+            }
+            .fill-in {
+              height: 6vh;
+              .signup-text {
+                display: flex;
+                align-items: center;
+                height: 6vh;
+                border: 0.4vh solid #B47157;
+                border-radius: 5px;
+                background: #FFFFFB;
+                .icon-img {
+                  height: 3vh;
+                  width: 6vw;
+                  margin: auto 3vw;
+                  color: #F75C2F;
+                }
+                input {
+                  width: 100%;
+                  outline: none;
+                  border: 0;
+                  font-size: 1.5em;
+                  background-color: #FFFFFB;
+                }
+                button {
+                  width: 30vw;
+                  margin: auto 2vw;
+                  border-radius: 2.5em;
+                  background: #FFBA84;
+                }
+                .field_with_errors {
+                  width: 100%;
+                }
+              }   
+              .error-messages {
+                margin: 0;
+                color: red;
+                font-family: "游ゴシック体", sans-serif;
+              }
+            }
+          }
+        }
+        details {
+          margin-top: 5vh;
+          summary {
+            display: block;
+            text-align: center;
+            border-radius: 1em;
+            margin: 1vh 1vw;
+            padding: 1vh 1vw;
+            font-family: "游ゴシック体", sans-serif;
+            background-color: #ffe0b6;
+            border-bottom: 5px solid #9E7A7A;
+            p {
+              margin: 0;
+            }
+          }
+          summary.lock {
+            margin-top: 3px;
+            color: #43341B;
+            background: #ffe0b6;
+            border-bottom: 2px solid #9E7A7A;
+          }
+          .profile-field {
+            margin-top: 3vh;
+            color: #0F2540;
+            .any-field {
+              text-align: center;
+              font-family: "游ゴシック体", sans-serif;
+              .any-text {
+                display: flex;
+                align-items: flex-end;
+                .icon-img {
+                  height: auto;
+                  width: 5.5vw;
+                  margin-bottom: 0.6vh;
+                }
+                .title {
+                  margin: 0;
+                  font-size: 1.6em;
+                }
+                .any {
+                  margin: 0;
+                }
+                .count-info {
+                  p {
+                    margin: 0;
+                  }
+                }
+                .info {
+                  margin: 0;
+                  padding-top: 0.6vh;
+                }
+                span {
+                  display: flex;
+                  p {
+                    margin: 0;
+                  }
+                }
+                label {
+                  font-size: 1.6em;
+                }
+              }
+              .any-in {
+                #file-list {
+                  .size {
+                    height: auto;
+                    width: 16vw;
+                    margin-top: 2.5vh;
+                    margin-bottom: 1.5vh;
+                  }
+                  ul {
+                    text-align: center;
+                    padding: 0;
+                    li {
+                      list-style: none;
+                      height: auto;
+                      margin-top: 2.5vh;
+                      margin-bottom: 1.5vh;
+                      img {
+                        border-radius: 50%;
+                        object-fit: cover;
+                      }
+                    }
+                  }
+                }
+                .file-info {
+                  margin-bottom: 4vh;
+                  p {
+                    margin: 0;
+                  }
+                }
+                input {
+                  top: 10vh;
+                }
+              }
+              .fill-in {
+                height: auto;
+                #any-input {
+                  width: 100%;
+                  height: 11vh;
+                  border: 0.4vh solid #B47157;
+                  font-size: 1.5em
+                }
+              }
+            }
+          }
+        }
+        details[open] .profile-field {
+          animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          100% {
+            opacity: 1;
+            transform: none;
+          }
+        }
+        .signup-button {
+          text-align: center;
+          button {
+            border: 0;
+            margin-top: 5vh;
+            font-size: 1.5em;
+            background: #FFBA84;
+            border-radius: 1em;
+            padding: 1vh 25vw;
+            box-shadow: 0px 1px 0px 1.5px #64363C;
+          }
+        }
+        .signup-guest {
+          text-align: center;
+          margin: 5vh auto;
+          border-bottom: 0.25vh solid #F75C2F;
+          width: 60vw;
+          .guest-icon {
+            color: #64363C;
+          }
+          a {
+            text-decoration: none;
+            font-size: 1.5em;
+            span {
+              font-family: "游ゴシック体", sans-serif;
+              color: #64363C;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $tbMin) and (max-width: $tbMax) {
+
+}
+
+@media screen and (min-width: $pcMin) {
+  
+}

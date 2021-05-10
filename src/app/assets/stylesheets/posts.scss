@@ -6,25 +6,27 @@ $pcMin: 1025px;
 
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
   .main-content {
+    font-size: calc(100vw / 32);
     .page-logo {
       img {
         position: absolute;
         top : 0;
         height: 12vh;
         width: 100%;
+        margin-bottom: 12vh;
       }
       h1 {
         position: absolute;
         font-family: 'Philosopher', sans-serif;
         top: 0;
-        margin: 0;
+        margin: 1vh 2vw;
         font-size: 2.5vh;
       }
     }
     .post-content {
      
       .article-content {
-  
+        height: 200vh;
       }
       .aside-content {
   
@@ -39,108 +41,8 @@ $pcMin: 1025px;
 }
 
 @media screen and (min-width: $tbMin) and (max-width: $tbMax) {
-  .page-logo {
-    h1 {
-      
-    }
-  }
-  .post-content {
-    .article-content {
-
-    }
-    .aside-content {
-
-    }
-  }
-  .page-top {
-    a {
-      
-    }
-  }
 }
 @media screen and (min-width: $pcMin) {
-  .page-logo {
-    img {
-      position: absolute;
-      top : 0;
-      height: 25vh;
-      width: 100%;
-    }
-    h1 {
-      
-    }
-  }
-  .post-content {
-    .article-content {
-
-    }
-    .aside-content {
-
-    }
-  }
-  .page-top {
-    a {
-      
-    }
-  }
 }
 
 
-
-
-// index.html.erb 
-// .post-content {
-//   margin: 15px 70px;
-//   display: flex;
-//   justify-content: space-between;
-
-//   .main-content {
-//     height: 1000px;
-//     width: 74%;
-//     background: #aaa;
-//   }
-
-//   .aside-content {
-//     height: 500px;
-//     width: 22%;
-//     background: #aaa;
-//     position: sticky;
-//     top: 95px;
-//     z-index: 90;
-//   }
-// }
-
-// .page-top {
-//   right: 10px;
-//   bottom: 15px;
-//   position: fixed;
-//   opacity: 0;
-//   pointer-events: none;
-// }
-// .page-top.scroll {
-//   opacity: 1;
-//   transition: opacity 350ms ease; 
-//   pointer-events: all;
-//   a {
-//     display: block;
-//     font-size: 0;
-//     width: 50px;
-//     height: 50px;
-//     text-align: center;
-//     background: #7db4e6;
-//     border-radius: 50%;
-//     line-height: 50px;
-
-//     .icon-size {
-//       font-size: 26px;
-//       color:red;
-//       margin: 12px 0px;
-//       position: sticky;
-//     }
-//   }
-// }
-// //
-
-// .content {
-//   height: 1000px;
-// }

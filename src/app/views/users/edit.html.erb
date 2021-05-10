@@ -1,0 +1,20 @@
+<%= form_with model: @user, local: true do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+  <%= f.fields_for :profile do |f| %>
+    <%= f.label :avatar_img %>
+    <%= f.file_field :avatar_img %>
+
+    <%= f.label :self_introduction %>
+    <%= f.text_area :self_introduction %>
+  <% end %>
+
+  <p class="alert"><%= alert %></p>
+
+  <%= f.button "登録", type: 'button', onclick: 'submit();' %>
+<% end %>
