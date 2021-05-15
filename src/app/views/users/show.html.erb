@@ -1,15 +1,31 @@
-<p>こんにちは</p>
+<section class="user-profile">
+  <div class="user-field">
+    <div class="user-button">
+      <%= link_to root_path do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+      <% if @user.id == current_user.id %>
+        <%= link_to edit_user_path(@user) do %>
+          <i class="fas fa-cog"></i>
+        <% end %>
+      <% end %>
+    </div>
 
-<% if @user.email == 'guest@example.com' %>
-  <p>おはようございます</p>
-<% else %>
-  <%= link_to "編集", edit_user_path(@user) %>
-<% end %>
-<%= @user.email %>
-<%= @user.name %>
-<%= @user.profile.self_introduction %>
-<% if @user.profile.avatar_img? %>
-  <%= image_tag(@user.profile.avatar_img.url) %> 
-<% else %>
-  <%= image_tag("/assets/guest_img.jpg") %>
-<% end %>
+    <div class="user-img">
+      <% if @user.profile.avatar_img? %>
+        <%= image_tag(@user.profile.avatar_img.url) %> 
+      <% else %>
+        <%= image_tag("/assets/guest_img.jpg") %>
+      <% end %>
+    </div>
+
+    <div class="user-name">
+      <p><%= @user.name %></p>
+    </div>
+
+    <div class="user-introduction">
+      <p><%= @user.profile.self_introduction %></p>
+    </div>
+  </div>
+</section>
+
