@@ -4,7 +4,7 @@
       <div class="edit-title">
         <h1>アカウント設定</h1>
       </div>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <% render "devise/shared/error_messages", resource: resource %>
 
         <div>
@@ -56,7 +56,7 @@
         
 
         <div class="edit-button">
-          <%= f.submit "更新" %>
+          <%= f.button "登録", type: 'button', onclick: 'submit();' %>
         </div>
 
         <div>
