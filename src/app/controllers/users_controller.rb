@@ -22,9 +22,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id]) #特定のidを持つ情報を取得
+    @user = User.find(params[:id])
     @user.destroy
-    redirect_to :root #削除に成功すればrootページに戻る
+    redirect_to :root
   end
 
   private
