@@ -8,11 +8,11 @@
 
     <div class="post-content">
       <article class="article-content">
-        <p>こんにちは</p>
+        <%= render partial: 'posts/article' %> 
       </article>
 
       <aside class="aside-content">
-        <p>こんばんわ</p>
+        <%= render partial: 'posts/aside' %>
       </aside>
     </div>
 
@@ -22,5 +22,25 @@
       </a>
     </div>
     <%= javascript_pack_tag "user_scroll.js" %>
+    <%= javascript_pack_tag "like.js" %>
   </section>
+
+  <%# <button type="button" id="button_get">Fetch API : GET</button> %>
+  
+
+  <%# <script>
+    const button_get = document.getElementById('button_get');
+    button_get.addEventListener('click',function () {
+      fetch('/users', {
+        mode: 'cors',
+        method: 'GET'
+      })
+      .then(function(response) {
+        const response_message = response.status + ':' + response.statusText
+        console.log(response_message);
+        window.alert('response_message=' + response_message);
+      });
+    });
+  </script> %>
+  
 </html>

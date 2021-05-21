@@ -1,0 +1,17 @@
+<p>メイン記事です。</p>
+<% @posts.each do |post| %>
+  <%= post.title %>
+  <%= post.catchphrase %>
+  <%= post.servis_content %>
+  <%= post.evelopment_background %>
+  <%= post.thumbnail_img %>
+  <%= simple_time(post.created_at) %>
+  <%= post.url.github_url %>
+  <%= post.url.site_url %>
+  <%= post.user.name %>
+  <%= post.user.id %>
+  <%= render partial: "likes/like", locals: { post: post } %>
+<% end %>
+
+  
+

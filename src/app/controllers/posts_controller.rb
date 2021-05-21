@@ -9,9 +9,10 @@ class PostsController < ApplicationController
 
   def create
     @post = PostForm.new(post_params)
+    #newメソッドで、インスタンスを生成します。
 
     if @post.valid?
-      @post.save
+      @post.save #インスタンスをモデルに保存します。（newメソッドとワンセット）返り値は「boolean」
       redirect_to root_path
     else
       render :new
