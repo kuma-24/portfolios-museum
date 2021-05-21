@@ -2,7 +2,7 @@
   <%= form_with model: @post, url: posts_path, local: true do |form| %>
     <div>
       <%= form.label :name, "タイトル" %>
-      <%= form.text_field :title %>
+      <%= form.text_field :title, group:'keyword' %>
       <div class="error">
       <% if @post.errors.include?(:title) %> 
         <p class="error-messages"><%= @post.errors.messages_for(:title).first %></p>
@@ -11,7 +11,7 @@
 
     <div>
       <%= form.label :name, "キャッチフレーズ" %>
-      <%= form.text_field :catchphrase %>
+      <%= form.text_field :catchphrase, group:'keyword' %>
       <div class="error">
       <% if @post.errors.include?(:catchphrase) %> 
         <p class="error-messages"><%= @post.errors.messages_for(:catchphrase).first %></p>
@@ -20,7 +20,7 @@
 
     <div>
       <%= form.label :name, "サービス内容" %>
-      <%= form.text_field :servis_content %>
+      <%= form.text_field :servis_content, group:'keyword' %>
       <% if @post.errors.include?(:servis_content) %> 
         <p class="error-messages"><%= @post.errors.messages_for(:servis_content).first %></p>
       <% end %>
@@ -28,7 +28,7 @@
 
     <div>
       <%= form.label :name, "開発背景" %>
-      <%= form.text_field :evelopment_background %>
+      <%= form.text_field :evelopment_background, group:'keyword' %>
       <% if @post.errors.include?(:evelopment_background) %> 
         <p class="error-messages"><%= @post.errors.messages_for(:evelopment_background).first %></p>
       <% end %>
@@ -36,7 +36,7 @@
 
     <div>
       <%= form.label :name, "イメージ画像" %>
-      <%= form.file_field :thumbnail_img %>
+      <%= form.file_field :thumbnail_img, group:'keyword' %>
       <% if @post.errors.include?(:thumbnail_img) %> 
         <p class="error-messages"><%= @post.errors.messages_for(:thumbnail_img).first %></p>
       <% end %>
@@ -44,7 +44,7 @@
 
     <div>
       <%= form.label :name, "サイトのURL" %>
-      <%= form.text_field :site_url %>
+      <%= form.text_field :site_url, group:'keyword' %>
       <% if @post.errors.include?(:site_url) %> 
         <p class="error-messages"><%= @post.errors.messages_for(:site_url).first %></p>
       <% end %>
@@ -52,7 +52,7 @@
 
     <div>
       <%= form.label :name, "githubのURL" %>
-      <%= form.text_field :github_url %>
+      <%= form.text_field :github_url, group:'keyword' %>
       <% if @post.errors.include?(:github_url) %> 
         <p class="error-messages"><%= @post.errors.messages_for(:github_url).first %></p>
       <% end %>
@@ -63,4 +63,60 @@
         <%= form.button "登録", type: 'button', onclick: 'submit();' %>
       </div>
   <% end %>
+
+
+  <%# <button type="button" id="button_post">Fetch API : POST</button> %>
+
+  <%# <script> %>
+    <%# const button_post = document.getElementById('button_post');
+
+    // button_post.addEventListener('click', function() {
+    //   const post = {
+    //     title: "タイトルかmp",
+    //     catchphrase: "キャッチフレーズ",
+    //     servis_content: "サービス内容",
+    //     evelopment_background: "開発背景",
+    //     thumbnail_img: "saya160104294609_TP_V4.jpg"
+    //   };
+      
+      // const input_text = document.getElementById('post_form_title');
+      // post_data = input_text.value;
+
+      // const keyword_nodes = document.querySelectorAll("input[group='keyword']");
+      // const keyword_data = [];
+      // for (let keyword_node of keyword_nodes) {
+      //   const keyword = {keyword: keyword_node.value};
+      //   keyword_data.push(keyword);
+      // }
+      // post_data['keywords'] = keyword_data; 
+
+      fetch('/posts', {
+        method: 'post',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': getCsrfToken()
+        },
+        body: new FormData(postForm),
+      })
+
+      .then(function(response) {
+        const response_message = response.status + ':' + response.statusText
+        console.log(response_message);
+        window.alert('response_message=' + response_message);
+      });
+    });
+
+      const getCsrfToken = () => {
+      const metas = document.getElementsByTagName('meta');
+      for (let meta of metas) {
+        if (meta.getAttribute('name') === 'csrf-token') {
+          console.log('csrf-token:', meta.getAttribute('content'));
+          return meta.getAttribute('content');
+        }
+      }
+      return '';
+    } %>
+  <%# </script> %>
 </section>
+

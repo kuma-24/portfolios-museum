@@ -24,12 +24,14 @@ $pcMin: 1025px;
       }
     }
     .post-content {
-     
+      display: flex;
+      flex-direction: column;    
+      margin: auto 6vw; 
       .article-content {
-        height: 200vh;
+        order: 2;
       }
       .aside-content {
-  
+        order: 1;
       }
     }
     .page-top {

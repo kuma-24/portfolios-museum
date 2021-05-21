@@ -132,4 +132,37 @@
     </div>
   <% end %> 
   <%= javascript_pack_tag 'user_signup.js' %>
+<%# 
+  <button type="button" id="button_post">Fetch API : POST</button>
+
+  <script>
+
+    const button_post = document.getElementById('button_post');
+
+    button_post.addEventListener('click', function() {
+      fetch('/users', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'X-CSRF-Token': getCsrfToken()
+        },
+      })
+      .then(function(response) {
+        const response_message = response.status + ':' + response.statusText
+        console.log(response_message);
+        window.alert('response_message=' + response_message);
+      });
+    });
+
+    const getCsrfToken = () => {
+      const metas = document.getElementsByTagName('meta');
+      for (let meta of metas) {
+        if (meta.getAttribute('name') === 'csrf-token') {
+          console.log('csrf-token:', meta.getAttribute('content'));
+          return meta.getAttribute('content');
+        }
+      }
+      return '';
+    }
+  </script> %>
 </section>
