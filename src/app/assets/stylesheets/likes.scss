@@ -2,12 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
 .like {
+  padding: 0%;
   background-color: transparent;
   border: none;
   .fa-heart {
     pointer-events: none;
-    color: red;
+    color: #F596AA;
     animation: anime1 3s reverse;
   }
   @keyframes anime1{
@@ -18,12 +20,20 @@
     90% { transform: scale(1.3); }
     100% { transform: scale(1); }
   }
-}
-.unlike {
-  background-color: transparent;
-  border: none;
-  .fa-heart {
+  span {
     pointer-events: none;
-    color: whitesmoke;
   }
 }
+.unlike {
+  padding: 0%;
+  background-color: transparent;
+  border: none;
+  .fa-heart { 
+    pointer-events: none;
+    color: #FCFAF2;
+  }
+  span {   
+    pointer-events: none;
+  }
+}
+

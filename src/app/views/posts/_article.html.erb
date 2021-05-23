@@ -1,16 +1,30 @@
-<p>メイン記事です。</p>
-<% @posts.each do |post| %>
-  <%= post.title %>
-  <%= post.catchphrase %>
-  <%= post.servis_content %>
-  <%= post.evelopment_background %>
-  <%= post.thumbnail_img %>
-  <%= simple_time(post.created_at) %>
-  <%= post.url.github_url %>
-  <%= post.url.site_url %>
-  <%= post.user.name %>
-  <%= post.user.id %>
-  <%= render partial: "likes/like", locals: { post: post } %>
+<% @posts.map do |post| %>
+  <div class="post-article">
+
+    <div class="post-details">
+      <div class="post-img">
+        <%= image_tag(post.thumbnail_img.url) %>
+      </div>
+      <div class="post-content">
+        <p class="post-time"><%= simple_time(post.created_at) %></p>
+        <p class="post-title"><%= post.title %></p>
+        <p class="post-catchphrase"><%= post.catchphrase %></p>
+      </div>
+    </div>
+
+    <div class="post-status">
+      <div class="post-user">
+        <% if post.user.profile.avatar_img? %>
+          <%= image_tag(post.user.profile.avatar_img.url) %>
+        <% else %>
+          <%= image_tag("/assets/guest_img.jpg") %>
+        <% end %>
+        <p class="post-user-name"><%= post.user.name %></p>
+      </div>
+      <%= render partial: "likes/like", locals: { post: post } %>
+    </div>
+
+  </div>
 <% end %>
 
   

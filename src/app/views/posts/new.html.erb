@@ -42,81 +42,8 @@
       <% end %>
     </div>
 
-    <div>
-      <%= form.label :name, "サイトのURL" %>
-      <%= form.text_field :site_url, group:'keyword' %>
-      <% if @post.errors.include?(:site_url) %> 
-        <p class="error-messages"><%= @post.errors.messages_for(:site_url).first %></p>
-      <% end %>
-    </div>
-
-    <div>
-      <%= form.label :name, "githubのURL" %>
-      <%= form.text_field :github_url, group:'keyword' %>
-      <% if @post.errors.include?(:github_url) %> 
-        <p class="error-messages"><%= @post.errors.messages_for(:github_url).first %></p>
-      <% end %>
-    </div>
-
-    
     <div class="signup-button">
         <%= form.button "登録", type: 'button', onclick: 'submit();' %>
       </div>
   <% end %>
-
-
-  <%# <button type="button" id="button_post">Fetch API : POST</button> %>
-
-  <%# <script> %>
-    <%# const button_post = document.getElementById('button_post');
-
-    // button_post.addEventListener('click', function() {
-    //   const post = {
-    //     title: "タイトルかmp",
-    //     catchphrase: "キャッチフレーズ",
-    //     servis_content: "サービス内容",
-    //     evelopment_background: "開発背景",
-    //     thumbnail_img: "saya160104294609_TP_V4.jpg"
-    //   };
-      
-      // const input_text = document.getElementById('post_form_title');
-      // post_data = input_text.value;
-
-      // const keyword_nodes = document.querySelectorAll("input[group='keyword']");
-      // const keyword_data = [];
-      // for (let keyword_node of keyword_nodes) {
-      //   const keyword = {keyword: keyword_node.value};
-      //   keyword_data.push(keyword);
-      // }
-      // post_data['keywords'] = keyword_data; 
-
-      fetch('/posts', {
-        method: 'post',
-        credentials: 'same-origin',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRF-Token': getCsrfToken()
-        },
-        body: new FormData(postForm),
-      })
-
-      .then(function(response) {
-        const response_message = response.status + ':' + response.statusText
-        console.log(response_message);
-        window.alert('response_message=' + response_message);
-      });
-    });
-
-      const getCsrfToken = () => {
-      const metas = document.getElementsByTagName('meta');
-      for (let meta of metas) {
-        if (meta.getAttribute('name') === 'csrf-token') {
-          console.log('csrf-token:', meta.getAttribute('content'));
-          return meta.getAttribute('content');
-        }
-      }
-      return '';
-    } %>
-  <%# </script> %>
 </section>
-

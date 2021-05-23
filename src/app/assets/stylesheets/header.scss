@@ -22,14 +22,15 @@ $header-color: #FFBA84;
       a {
         text-decoration: none;
         h2 {
-          font-family: 'Philosopher', sans-serif;
+          font-family: 'Philosopher', "游ゴシック体", sans-serif;
           color: #64363C;
           margin: 0;
         }
       }
     }
     .main-nav {
-      margin-right: 3vw;
+      font-family: "游ゴシック体", sans-serif;
+      margin: auto 3vw;
       .top-menu {
         display: flex;
         .top-item {
@@ -57,41 +58,44 @@ $header-color: #FFBA84;
       }
       .nav-content {
         display: flex;
+        align-items: center;
         list-style: none;
-        text-align: center;
         .user-post {
+          height: 5em;
           a {
-            align-items: center;
             text-decoration: none;
             display: flex;
             flex-direction: column;
-            width: auto;
+            text-align: center;
+            align-items: center;
             .post-size {
-              height: 5vh;
-              padding: 0.5vh 0.25vw;
-              width: auto;
+              margin: 0.45em;
+              height: 2.5em;
+              width: 2.5em;
+              color: #C18A26;
             }
-            span {     
-              font-family: "游ゴシック体", sans-serif;
+            span {
+              color: #0F2540;
             }
           }
         }
         .user-icon {
+          height: 5em;
           margin-left: 5vw;
           .user-img {
-            display: flex;    
+            display: flex;
             flex-direction: column;
-            align-items: center;
             img {
-              height: 5vh;
-              width: 11vw;
-              border-radius: 5em;
+              margin: 0.25em auto;
+              height: 3em;
+              width: 3em;
+              border-radius: 50%;
               object-fit: cover;
             }
-          }
-          span {
-            font-family: "游ゴシック体", sans-serif;
-           
+            span {
+              
+              color: #0F2540;
+            }
           }
         }
       }
@@ -123,7 +127,7 @@ $header-color: #FFBA84;
         text-align: center;
         opacity: 1;
         width: 100%;
-        margin-top: 1vh;
+        margin-top: 0;
         transition: opacity .6s;
         .menu-item {
           .drop-item {

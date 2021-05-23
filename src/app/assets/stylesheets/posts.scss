@@ -17,25 +17,81 @@ $pcMin: 1025px;
       }
       h1 {
         position: absolute;
-        font-family: 'Philosopher', sans-serif;
+        font-family: 'Philosopher', "游ゴシック体", sans-serif;
         top: 0;
         margin: 1vh 2vw;
         font-size: 2.5vh;
       }
     }
-    .post-content {
-      display: flex;
-      flex-direction: column;    
-      margin: auto 6vw; 
-      .article-content {
+    .post-contents {
+      font-family: "游ゴシック体", sans-serif;
+      margin: auto 6vw;
+      display: flex;    
+      flex-direction: column;
+
+      .post-main {
         order: 2;
+
+        .post-article {
+          margin-top: 2vh;
+          border-bottom: 0.2vh solid #F75C2F;
+
+          .post-details {
+            display: flex;    
+            .post-img {
+              img {
+                height: 8em;
+                width: 10em;
+              }
+            }
+            .post-content {
+              width: 100%;
+              margin-left: 1.5vw;
+              .post-title {
+                margin: 0%;
+                
+              }
+              .post-catchphrase {
+                margin: 0%;
+              }
+              .post-time {
+                margin: 0%;
+                color: #FFFFFB;
+              }
+            }
+          }
+          .post-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1vh 0vw;
+            .post-user {
+              display: flex;
+              img {
+                height: 3em;
+                width: 3em;
+                border-radius: 50%;
+                
+                object-fit: cover;
+              }
+              .post-user-name {
+                margin: auto 1.5vw;
+              
+              }
+            }
+          }
+        }
+        .post-img {
+          img {
+            height: 12vh;
+            width: 30vw;
+            object-fit: cover;
+
+          }
+        }
       }
       .aside-content {
         order: 1;
-      }
-    }
-    .page-top {
-      a {
       }
     }
   }
