@@ -4,6 +4,8 @@ $tbMax: 1024px;
 $tbMin: 520px;
 $pcMin: 1025px;
 $header-color: #FFBA84;
+$font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+
 
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
   .page-header {
@@ -22,14 +24,14 @@ $header-color: #FFBA84;
       a {
         text-decoration: none;
         h2 {
-          font-family: 'Philosopher', "游ゴシック体", sans-serif;
+          font-family: 'Philosopher', $font_families;
           color: #64363C;
           margin: 0;
         }
       }
     }
     .main-nav {
-      font-family: "游ゴシック体", sans-serif;
+      font-family: "游ゴシック体", $font_families;
       margin: auto 3vw;
       .top-menu {
         display: flex;
@@ -50,7 +52,6 @@ $header-color: #FFBA84;
               color: #64363C;
             }
             span {
-              font-family: "游ゴシック体", sans-serif;
               color: #0F2540;
             }
           }

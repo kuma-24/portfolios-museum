@@ -35,7 +35,7 @@ class UsersController < ApplicationController
         :email,
         :password,
         :password_confirmation,
-        profile_attributes: %i[id self_introduction avatar_img]
+        profile_attributes: %i[id self_introduction avatar_img industry]
       )
     end
 end
