@@ -1,5 +1,4 @@
 class Post < ApplicationRecord
-
   belongs_to :user
   has_one :post_arbitrary, dependent: :destroy
   has_many :likes, dependent: :destroy

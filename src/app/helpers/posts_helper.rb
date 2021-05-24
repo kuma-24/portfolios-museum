@@ -1,5 +1,5 @@
 module PostsHelper
-  def category_box()
+  def category_box
     {
       'ビジネス': 'ビジネス',
       'ライフスタイル': 'ライフスタイル',

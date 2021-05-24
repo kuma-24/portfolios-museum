@@ -1,5 +1,5 @@
 module UsersHelper
-  def industry_box() 
+  def industry_box
     {
       'エンジニア': 'エンジニア',
       'デザイナー': 'デザイナー',

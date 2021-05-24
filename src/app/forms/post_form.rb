@@ -17,7 +17,7 @@ class PostForm
       category: category,
       catchphrase: catchphrase,
       servis_content: servis_content,
-      evelopment_background: evelopment_background,
+      evelopment_background: evelopment_background
     )
 
     PostArbitrary.create(
