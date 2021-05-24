@@ -3,11 +3,13 @@ $spMin: 320px;
 $tbMax: 1024px;
 $tbMin: 520px;
 $pcMin: 1025px;
+$font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+
 
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
   .user-profile { //ユーザー詳細画面
     font-size: calc(100vw / 32);
-    font-family: "游ゴシック体", sans-serif;
+    font-family: "游ゴシック体", $font_families;
     .user-field {
       background-color: aliceblue;
       padding: 0 6vw;
@@ -53,7 +55,7 @@ $pcMin: 1025px;
   .user-edit { //ユーザー編集画面
     form {
       font-size: calc(100vw / 32);
-      font-family: "游ゴシック体", sans-serif;
+      font-family: "游ゴシック体", $font_families;
       margin: auto 6vw;
       h1 {
         text-align: center;
@@ -226,7 +228,7 @@ $pcMin: 1025px;
           }
           .file-info {
             input {
-              font-family: "游ゴシック体", sans-serif;
+              font-family: "游ゴシック体", $font_families;
               color: #0F2540;
             }
             .info {

@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
-  mount_uploader :thumbnail_img, ThumbnailImgUploader
-  belongs_to :user
 
+  belongs_to :user
+  has_one :post_arbitrary, dependent: :destroy
   has_many :likes, dependent: :destroy
 
   def like_by(user)

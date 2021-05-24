@@ -4,6 +4,8 @@ $tbMax: 1024px;
 $tbMin: 520px;
 $pcMin: 1025px;
 
+$font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
   .main-content {
     font-size: calc(100vw / 32);
@@ -17,76 +19,104 @@ $pcMin: 1025px;
       }
       h1 {
         position: absolute;
-        font-family: 'Philosopher', "游ゴシック体", sans-serif;
+        font-family: 'Philosopher', $font_families;
         top: 0;
         margin: 1vh 2vw;
         font-size: 2.5vh;
       }
     }
     .post-contents {
-      font-family: "游ゴシック体", sans-serif;
+      font-family: "游ゴシック体", $font_families;
       margin: auto 6vw;
       display: flex;    
       flex-direction: column;
 
       .post-main {
         order: 2;
-
         .post-article {
-          margin-top: 2vh;
+          margin-top: 2.5vh;
           border-bottom: 0.2vh solid #F75C2F;
 
           .post-details {
-            display: flex;    
+            display: flex;
             .post-img {
               img {
-                height: 8em;
-                width: 10em;
+                height: 9em;
+                width: 11em;
+                object-fit: cover;
+                border-radius: 10px;
               }
             }
+            
             .post-content {
               width: 100%;
-              margin-left: 1.5vw;
+              margin-left: 1em;
+              display: flex;
+              flex-direction: column;
+              
+              .post-text {
+                font-size: 0.9em;
+                margin-top: 0.3em;
+                margin-bottom: 0%;
+              }
               .post-title {
-                margin: 0%;
+                text-align: center;
+                font-feature-settings: "palt" 1;
+                font-size: 1.3em;
+                margin: 0.5em auto;
                 
               }
-              .post-catchphrase {
-                margin: 0%;
+              .post-category {
+                text-align: center;
+                font-size: 0.8em;
+                margin-top: 0.25em;
+                margin-bottom: 0%;
+                color: #565656;
+                padding: 0.1em 0.25em;
+                background: #ffeaea;
+                box-shadow: 0em 0em 0em 0.1em #ffeaea;
+                border: dashed 0.2em #ffc3c3;
+                border-radius: 8px;
               }
+
               .post-time {
-                margin: 0%;
+                margin-top: auto;
+                margin-bottom: 0%;
+                font-size: 0.5em;
                 color: #FFFFFB;
+                text-align: end;
               }
             }
           }
           .post-status {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 1vh 0vw;
             .post-user {
               display: flex;
+              margin-top: 0.5em;
+
               img {
                 height: 3em;
                 width: 3em;
                 border-radius: 50%;
-                
                 object-fit: cover;
               }
               .post-user-name {
-                margin: auto 1.5vw;
-              
+                margin: auto 0.5em;
               }
             }
-          }
-        }
-        .post-img {
-          img {
-            height: 12vh;
-            width: 30vw;
-            object-fit: cover;
 
+            .post-sarvis-like {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+
+              .post-servis-content {
+                width: 80%;
+                margin-left: 0.5em;
+              }
+              button {
+                margin: auto 0%;
+              }
+            }
           }
         }
       }

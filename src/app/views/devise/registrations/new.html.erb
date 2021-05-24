@@ -79,11 +79,19 @@
       <details>
         <summary id="toggle">
           <p>任意項目の設定</p>
-          <p>&#xFF08;ユーザーアイコン・自己紹介&#xFF09;</p>
+          <p>&#xFF08;ユーザーアイコン・自己紹介・職種&#xFF09;</p>
         </summary>
         <%= f.fields_for :profile do |f| %>
           <div class="profile-field">
             <div class="any-field">
+              <div class="any-text">
+                <i class="fas fa-id-card-alt icon-img"></i>
+                <%= f.label :industry, "職種", class:"title" %>
+                <p class="any">【任意】</p>
+              </div>
+              <div class="any-text">
+                <%= f.select :industry, industry_box(), { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+              </div>
               <div class="any-text">
                 <i class="fas fa-image icon-img"></i>
                 <p class="title">ユーザーアイコン</p>

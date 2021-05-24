@@ -2,7 +2,7 @@
   <%= form_with model: @post, url: posts_path, local: true do |form| %>
     <div>
       <%= form.label :name, "タイトル" %>
-      <%= form.text_field :title, group:'keyword' %>
+      <%= form.text_field :title %>
       <div class="error">
       <% if @post.errors.include?(:title) %> 
         <p class="error-messages"><%= @post.errors.messages_for(:title).first %></p>
@@ -11,7 +11,7 @@
 
     <div>
       <%= form.label :name, "キャッチフレーズ" %>
-      <%= form.text_field :catchphrase, group:'keyword' %>
+      <%= form.text_field :catchphrase %>
       <div class="error">
       <% if @post.errors.include?(:catchphrase) %> 
         <p class="error-messages"><%= @post.errors.messages_for(:catchphrase).first %></p>
@@ -20,7 +20,7 @@
 
     <div>
       <%= form.label :name, "サービス内容" %>
-      <%= form.text_field :servis_content, group:'keyword' %>
+      <%= form.text_field :servis_content %>
       <% if @post.errors.include?(:servis_content) %> 
         <p class="error-messages"><%= @post.errors.messages_for(:servis_content).first %></p>
       <% end %>
@@ -28,7 +28,7 @@
 
     <div>
       <%= form.label :name, "開発背景" %>
-      <%= form.text_field :evelopment_background, group:'keyword' %>
+      <%= form.text_field :evelopment_background %>
       <% if @post.errors.include?(:evelopment_background) %> 
         <p class="error-messages"><%= @post.errors.messages_for(:evelopment_background).first %></p>
       <% end %>
@@ -36,9 +36,25 @@
 
     <div>
       <%= form.label :name, "イメージ画像" %>
-      <%= form.file_field :thumbnail_img, group:'keyword' %>
+      <%= form.file_field :thumbnail_img %>
       <% if @post.errors.include?(:thumbnail_img) %> 
         <p class="error-messages"><%= @post.errors.messages_for(:thumbnail_img).first %></p>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.label :name, "カテゴリー選択" %>
+      <%= form.select :category, category_box(), { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+      <% if @post.errors.include?(:category) %> 
+        <p class="error-messages"><%= @post.errors.messages_for(:category).first %></p>
+      <% end %>
+    <div>
+
+    <div>
+      <%= form.label :name, "サイトのリンク" %>
+      <%= form.text_field :site_url %>
+      <% if @post.errors.include?(:site_url) %> 
+        <p class="error-messages"><%= @post.errors.messages_for(:site_url).first %></p>
       <% end %>
     </div>
 
