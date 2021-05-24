@@ -3,13 +3,15 @@ $spMin: 320px;
 $tbMax: 1024px;
 $tbMin: 520px;
 $pcMin: 1025px;
+$font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+
 
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
   .section-login {
     font-size: calc(100vw / 32);
     .new_user {
       margin: auto 6vw;
-      font-family: "游ゴシック体", sans-serif;
+      font-family: "游ゴシック体", $font_families;
       h1 {
         text-align: center;
         margin: 1vh 0vw;

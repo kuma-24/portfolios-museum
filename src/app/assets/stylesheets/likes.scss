@@ -7,7 +7,12 @@
   padding: 0%;
   background-color: transparent;
   border: none;
+  display: flex;
+  align-items: center;
   .fa-heart {
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 0.4em;
     pointer-events: none;
     color: #F596AA;
     animation: anime1 3s reverse;
@@ -28,12 +33,18 @@
   padding: 0%;
   background-color: transparent;
   border: none;
+  display: flex;
+  align-items: center;
   .fa-heart { 
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 0.4em;
     pointer-events: none;
     color: #FCFAF2;
   }
   span {   
     pointer-events: none;
+    font-size: 1em;
   }
 }
 

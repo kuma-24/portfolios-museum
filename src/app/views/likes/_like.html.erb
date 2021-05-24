@@ -11,5 +11,8 @@
         <span class="js-like-button"><%= post.likes.count %></span>
       </button>
     <% end %>
+<% else %>
+  <i class="fas fa-heart"></i>
+  <%= post.likes.count %>
 <% end %>
 

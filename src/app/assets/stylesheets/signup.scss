@@ -3,6 +3,8 @@ $spMin: 320px;
 $tbMax: 1024px;
 $tbMin: 520px;
 $pcMin: 1025px;
+$font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+
 
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
   .signup-section {
@@ -13,7 +15,7 @@ $pcMin: 1025px;
         text-align: center;
         margin: 1vh 0vw;
         color: #64363C;
-        font-family: "游ゴシック体", sans-serif;
+        font-family: "游ゴシック体", $font_families;
       }
       .signup-field {
         .user-field {
@@ -26,7 +28,7 @@ $pcMin: 1025px;
               label {
                 font-size: 1.5em;
                 color: #0F2540;
-                font-family: "游ゴシック体", sans-serif;
+                font-family: "游ゴシック体", $font_families;
               }
               .mandatory {
                 font-size: 1em;
@@ -37,7 +39,7 @@ $pcMin: 1025px;
                 height: auto;
                 margin: 0;
                 font-size: 1em;
-                font-family: "游ゴシック体", sans-serif;
+                font-family: "游ゴシック体", $font_families;
                 span {
                   height: auto;
                 }
@@ -48,7 +50,7 @@ $pcMin: 1025px;
               }
               span {
                 display: flex;
-                font-family: "游ゴシック体", sans-serif;
+                font-family: "游ゴシック体", $font_families;
                 p {
                   margin: 0;
                 }
@@ -89,7 +91,7 @@ $pcMin: 1025px;
               .error-messages {
                 margin: 0;
                 color: red;
-                font-family: "游ゴシック体", sans-serif;
+                font-family: "游ゴシック体", $font_families;
               }
             }
           }
@@ -102,7 +104,7 @@ $pcMin: 1025px;
             border-radius: 1em;
             margin: 1vh 1vw;
             padding: 1vh 1vw;
-            font-family: "游ゴシック体", sans-serif;
+            font-family: "游ゴシック体", $font_families;
             background-color: #ffe0b6;
             border-bottom: 5px solid #9E7A7A;
             p {
@@ -120,7 +122,7 @@ $pcMin: 1025px;
             color: #0F2540;
             .any-field {
               text-align: center;
-              font-family: "游ゴシック体", sans-serif;
+              font-family: "游ゴシック体", $font_families;
               .any-text {
                 display: flex;
                 align-items: flex-end;
@@ -153,6 +155,12 @@ $pcMin: 1025px;
                 }
                 label {
                   font-size: 1.6em;
+                }
+                select {
+                  margin-top: 2vh;
+                  margin-bottom: 4vh;
+                  margin-left: 5vw;
+                  
                 }
               }
               .any-in {
@@ -237,7 +245,7 @@ $pcMin: 1025px;
             text-decoration: none;
             font-size: 1.5em;
             span {
-              font-family: "游ゴシック体", sans-serif;
+              font-family: "游ゴシック体", $font_families;
               color: #64363C;
             }
           }

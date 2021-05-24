@@ -3,6 +3,8 @@ $spMin: 320px;
 $tbMax: 1024px;
 $tbMin: 520px;
 $pcMin: 1025px;
+$font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+
 
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
   .footer-page {
@@ -18,7 +20,7 @@ $pcMin: 1025px;
     align-items: center;
     .footer-logo {
       p {
-        font-family: 'Philosopher', sans-serif;
+        font-family: 'Philosopher', $font_families;
       }
     }
   }
