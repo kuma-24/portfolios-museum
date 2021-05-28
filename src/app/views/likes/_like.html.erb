@@ -1,18 +1,20 @@
 <% if user_signed_in? %>
   <% like_button_color = post.liked_by?(current_user) ? Like::LIKED_COLOR : Like::UNLIKED_COLOR %>
-    <% if post.liked_by?(current_user) %>
-      <button class="js-like-button <%= like_button_color %>" id="<%= post.id %>" value="<%= post.like_by(current_user).id %>">
-        <i class="fas fa-heart"></i>
-        <span class="js-like-button"><%= post.likes.count %></span>
-      </button>
-    <% else %>
-      <button class="js-like-button <%= like_button_color %>" id="<%= post.id %>" value=" ">
-        <i class="fas fa-heart"></i>
-        <span class="js-like-button"><%= post.likes.count %></span>
-      </button>
-    <% end %>
+  <% if post.liked_by?(current_user) %>
+    <button class="js-like-button <%= like_button_color %>" id="<%= post.id %>" value="<%= post.like_by(current_user).id %>">
+      <i class="fas fa-heart"></i>
+      <span class="js-like-button"><%= post.likes.count %></span>
+    </button>
+  <% else %>
+    <button class="js-like-button <%= like_button_color %>" id="<%= post.id %>" value=" ">
+      <i class="fas fa-heart"></i>
+      <span class="js-like-button"><%= post.likes.count %></span>
+    </button>
+  <% end %>
 <% else %>
-  <i class="fas fa-heart"></i>
-  <%= post.likes.count %>
+  <div class="no-login-like">
+    <i class="fas fa-heart"></i>
+    <p class="no-login-heart"><%= post.likes.count %></p>
+  </div>
 <% end %>
 
