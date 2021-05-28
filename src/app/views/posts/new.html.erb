@@ -50,13 +50,13 @@
           <p class="info-mandatory">【必須】</p>
         </div>
         <div class="title-limit">
-          <span class="info-limit">※15文字以下&#xFF08;現在：<p class="limit-count">0</p>文字&#xFF09;</span>
+          <span class="info-limit">※30文字以下&#xFF08;現在：<p class="limit-count">0</p>文字&#xFF09;</span>
         </div>
       </div>
       <div class="title-text-in">
         <div class="text-in">
           <i class="fas fa-pencil-alt post-size"></i>
-          <%= form.text_field :title, id:"limit-input", class:"limit-text", maxlength: 15 %>
+          <%= form.text_field :title, id:"limit-input", class:"limit-text", maxlength: 30 %>
         </div>
         <% if @post.errors.include?(:title) %> 
           <p class="error-messages">※<%= @post.errors.messages_for(:title).first %></p>
