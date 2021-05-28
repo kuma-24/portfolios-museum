@@ -11,10 +11,9 @@ module UsersHelper
     }
   end
 
-  def self.random_alphanumeric 
-    alphabet = (0...3).map{('a'..'z').to_a[rand(26)]}.join 
-    int = (0...3).map{('0'..'9').to_a[rand(10)]}.join 
+  def self.random_alphanumeric
+    alphabet = (0...3).map { ('a'..'z').to_a[rand(26)] }.join
+    int = (0...3).map { ('0'..'9').to_a[rand(10)] }.join
     alphanumeric = alphabet + int
   end
-  
 end
