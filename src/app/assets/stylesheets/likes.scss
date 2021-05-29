@@ -1,5 +1,112 @@
-// Place all the styles related to the likes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+$spMax: 519px;
+$spMin: 320px;
+$tbMax: 1024px;
+$tbMin: 520px;
+$pcMin: 1025px;
+$header-color: #FFBA84;
+$font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 
+@media screen and (min-width: $spMin) and (max-width: $spMax) {
+  .js-like-button.like {
+    font-size: calc(100vw / 32);
+    display: flex;
+    align-items: flex-end;
+    border: none;
+    background-color: transparent;
+    padding-bottom: 1.5em;
+    .fa-heart {
+      height: 1.5em;
+      width: 1.5em;
+      color: #F596AA;
+      animation: anime1 3s reverse;
+    }
+    @keyframes anime1{
+      0% { transform: scale(1); }
+      60% { transform: scale(1); }
+      70% { transform: scale(1.3); }
+      80% { transform: scale(1); }
+      90% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+    span {
+      pointer-events: none;
+      margin-left: 0.5em;
+    }
+  }
 
+  .js-like-button.unlike {
+    font-size: calc(100vw / 32);
+    border: none;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    background-color: transparent;
+    .fa-heart {
+      height: 1.5em;
+      width: 1.5em;
+      color: #FCFAF2;
+    }
+    span {
+      pointer-events: none;
+      margin-left: 0.5em;
+    }
+  }
+}
+
+@media screen and (min-width: $pcMin) {
+  .js-like-button.like {
+    font-size: calc(100vw / 96);
+    border: none;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    background-color: transparent;
+
+    .fa-heart {
+      height: 1.5em;
+      width: 1.5em;
+      color: #F596AA;
+      animation: anime1 3s reverse;
+    } 
+    @keyframes anime1{
+      0% { transform: scale(1); }
+      60% { transform: scale(1); }
+      70% { transform: scale(1.3); }
+      80% { transform: scale(1); }
+      90% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+    span {
+      pointer-events: none;
+      margin-left: 0.5em;
+    }
+    
+  }
+  .js-like-button.unlike {
+    font-size: calc(100vw / 96);
+    border: none;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    background-color: transparent;
+
+    .fa-heart {
+      height: 1.5em;
+      width: 1.5em;
+      color: #FCFAF2;
+    }
+    span {
+      pointer-events: none;
+      margin-left: 0.5em;
+    }
+  } 
+}

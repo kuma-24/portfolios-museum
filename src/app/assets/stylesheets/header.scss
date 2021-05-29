@@ -16,7 +16,6 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
     justify-content: space-between;
     z-index: 100;
     top: 0vh;
-    margin-top: 0vh;
     align-items: center;
     .header-logo {
       margin: 3vh 0vw;
@@ -94,7 +93,6 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
               object-fit: cover;
             }
             span {
-              
               color: #0F2540;
             }
           }
@@ -146,7 +144,153 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
 }
 
 @media screen and (min-width: $tbMin) and (max-width: $tbMax) {
+  .page-header {
+    font-size: calc(100vw / 52);
+  }
 }
 
 @media screen and (min-width: $pcMin) {
+  .page-header {
+    font-size: calc(100vw / 96);
+    z-index: 100;
+    top: 0em;
+    background: $header-color;
+    display: flex;
+    position: sticky;
+    justify-content: space-between;
+
+    .header-logo {
+      margin: auto 3em;
+
+      a {
+        list-style: none;
+        text-decoration: none;
+
+        h2 {
+          font-family: 'Philosopher', $font_families;
+          color: #64363C;
+          margin: 0%;
+        }
+      }
+    }
+    .main-nav {
+      margin: 0.1em 3em;
+      font-family: "游ゴシック体", $font_families;
+
+      .top-menu {
+        display: flex;
+        list-style: none;
+
+        .top-item {
+          margin-left: 3em;
+
+          a {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+
+            .tooltip {
+              height: 3.7em;
+              width: 3.7em;
+              padding: 0.4em;
+              color: #F75C2F;
+            }
+            .tooltip.login {
+              color: #64363C;
+            }
+            span {
+              color: #0F2540;
+            } 
+          }
+        }
+      }
+      .nav-content {
+        list-style: none;
+        display: flex;
+
+        .user-post {
+          a {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+
+            .post-size {
+              height: 3.7em;
+              width: 3.7em;
+              padding: 0.4em;
+              margin: auto 0%;
+              color: #C18A26;
+            }
+            span {
+              margin: 0% auto;
+              color: #0F2540;
+            }
+          }
+        }
+        .user-icon {
+          margin-left: 3em;
+
+          .user-img {
+            display: flex;
+            flex-direction: column;
+
+            img {
+              height: 3.8em;
+              width: 3.8em;
+              padding: 0.3em;
+              margin: auto;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+            span {
+              margin: 0% auto;
+              color: #0F2540;
+            }
+          }
+        }
+      }
+      .user-menu {
+        background: #F7C242;
+        position: absolute;
+        overflow-x: hidden;
+        right: 0vw;
+        width: 0vw;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity .6s;
+      }
+      .user-menu.show {
+        position: absolute;
+        width: auto;
+        opacity: 1;
+        transform: translateY(0.4em);
+        transition: opacity .3s, transform .3s;
+
+        .menu-item {
+          margin: 3em 3em;
+
+          .drop-item {
+            margin: 2.5em 0%; 
+
+            a {
+              display: flex;
+              align-items: center;
+              text-decoration: none;
+
+              .user-size {
+                height: 1.5em;
+                width: 1.5em;
+                margin: auto 0%;
+              }
+              span {
+                font-size: 1.3em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

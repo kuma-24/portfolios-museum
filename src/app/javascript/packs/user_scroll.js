@@ -20,10 +20,11 @@
 {
   const logo = document.getElementById('logo');
   const header = document.querySelector('.page-header');
+  const logoSize = document.getElementById('logo-size')
   
   if (logo === null) {
     header.style.marginTop = "0vh";
   } else {
-    header.style.marginTop = "12vh";
+    header.style.marginTop = getComputedStyle(logoSize).height;
   }
 }
