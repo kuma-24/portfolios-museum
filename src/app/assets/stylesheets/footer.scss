@@ -9,17 +9,15 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
   .footer-page {
     font-size: calc(100vw / 32);
-    position: absolute;
-    bottom: 0;
-    height: 10vh;
-    width: 100%;
-    background: #FC9F4D;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #FC9F4D;
+    position: sticky;
+    bottom: 0%;
     .footer-logo {
-      p {
+      height: 4em;
+      display: flex;
+      .footer-name {
+        margin: auto;
+        color: #FFFFFB;
         font-family: 'Philosopher', $font_families;
       }
     }
@@ -32,5 +30,19 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
 }
 
 @media screen and (min-width: $pcMin) {
-
+  .footer-page {
+    font-size: calc(100vw / 96);
+    background-color: #FC9F4D;
+    position: sticky;
+    bottom: 0%;
+    .footer-logo {
+      height: 4.5em;
+      display: flex;
+      .footer-name {
+        margin: auto;
+        color: #FFFFFB;
+        font-family: 'Philosopher', $font_families;
+      }
+    }
+  }
 }
