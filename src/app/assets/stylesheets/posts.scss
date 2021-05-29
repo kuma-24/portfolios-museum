@@ -15,7 +15,6 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         top : 0;
         height: 12vh;
         width: 100%;
-        margin-bottom: 12vh;
       }
       h1 {
         position: absolute;
@@ -111,76 +110,24 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
 
             .post-sarvis-like {
               display: flex;
-              justify-content: space-between;
-              align-items: flex-end;
-
+              
               .post-servis-content {
-                width: 80%;
-                margin: 0.5em 0%;
-                margin-left: 1em;
-              }
-
-              .like {
-                margin: 0.5em 0;
-                padding: 0%;
-                background-color: transparent;
-                border: none;
-                display: flex;
-                align-items: center;
-                .fa-heart {
-                  height: 1.5em;
-                  width: 1.5em;
-                  margin-right: 0.4em;
-                  pointer-events: none;
-                  color: #F596AA;
-                  animation: anime1 3s reverse;
-                }
-                @keyframes anime1{
-                  0% { transform: scale(1); }
-                  60% { transform: scale(1); }
-                  70% { transform: scale(1.3); }
-                  80% { transform: scale(1); }
-                  90% { transform: scale(1.3); }
-                  100% { transform: scale(1); }
-                }
-                span {
-                  pointer-events: none;
-                }
-              }
-              .unlike {
-                margin: 0.5em 0;
-                padding: 0%;
-                background-color: transparent;
-                border: none;
-                display: flex;
-                align-items: center;
-                .fa-heart { 
-                  height: 1.5em;
-                  width: 1.5em;
-                  margin-right: 0.4em;
-                  pointer-events: none;
-                  color: #FCFAF2;
-                }
-                span {   
-                  pointer-events: none;
-                  font-size: 1em;
-                }
+                width: 85%;
+                margin: 1.5em 1.5em;
               }
 
               .no-login-like {
                 display: flex;
-                margin: auto 0;
-                .fa-heart {
-                  margin: 0.5em 0;
-                  margin-right: 0.4em;
-                  height: 2em;
-                  width: 2em;
+                align-items: flex-end;
+                margin: 0% auto;
+                padding-bottom: 1.5em;
+                .no-heart {
+                  height: 1.5em;
+                  width: 1.5em;
                   color: #F75C2F;
                 }
                 .no-login-heart {
-                  pointer-events: none;
-                  margin: auto;
-                  font-size: 1.4em;
+                  margin: 0% 0.5em;
                 }
               }
             }
@@ -595,7 +542,138 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
 
 @media screen and (min-width: $tbMin) and (max-width: $tbMax) {
 }
+
 @media screen and (min-width: $pcMin) {
+  .content {
+    
+    .main-content {
+      font-size: calc(100vw / 96);
+      .page-logo {
+        position: absolute;
+        object-fit: cover;
+        height: auto;
+        width: 100%;
+        top: 0%;
+  
+        img {
+          height: 15em;
+          width: 100%;
+        }
+      }
+      .post-contents {
+        display: flex;
+        font-family: "游ゴシック体", $font_families;
+        margin: 1.5em 8em;
+  
+        .post-main {
+          display: flex;    
+          flex-direction: column;
+          width: 75%;
+  
+          .post-article {
+            margin-bottom: 3em;
+            border-bottom: #565656 solid 0.1em;
+  
+            .post-details {
+              display: flex;
+  
+              .post-img {
+                img {
+                  height: 15em;
+                  width: 25em;
+                  object-fit: cover;
+                  border-radius: 10px;
+                }
+              }
+              .post-content {
+                display: flex;    
+                flex-direction: column;
+                width: 100%;
+                margin: auto;
+                margin-left: 1.5em;
+  
+                .post-text {
+                  margin: 0%;
+                  font-size: 1.3em;
+                }
+                .post-title {
+                  text-align: center;
+                  font-size: 1.6em;
+                  margin: 1em auto;
+                }
+                .post-category {
+                  text-align: center;
+                  margin-bottom: 0%;
+                  color: #565656;
+                  padding: 0.1em 0.25em;
+                  background: #ffeaea;
+                  box-shadow: 0em 0em 0em 0.1em #ffeaea;
+                  border: dashed 0.2em #ffc3c3;
+                  border-radius: 8px;
+                }
+              }
+            }
+            .post-status {
+              .post-user {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 1.5em;
+  
+                .post-user-img {
+                  display: flex;
+  
+                  img {
+                    height: 6em;
+                    width: 6em;
+                    object-fit: cover;
+                    border-radius: 50%;
+                  }
+                  .post-user-name {
+                    margin: auto 1.5em;
+                  }
+                }
+                .post-time {
+                  margin: auto 0%;
+                  color: #565656;
+                }
+              }
+              .post-sarvis-like {
+                display: flex;
+                margin-top: 1em;
+  
+                .post-servis-content {
+                  width: 85%;
+                  margin: 1.5em 1.5em;
+                }
+                .no-login-like {
+                  display: flex;
+                  align-items: flex-end;
+                  margin: 0% auto;
+                  padding-bottom: 1.5em;
+  
+                  .no-heart {
+                    height: 1.5em;
+                    width: 1.5em;
+                    color: #F75C2F;
+                  }
+                  .no-login-heart {
+                    margin: 0% 0.5em;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .aside-content {
+          width: 25%;
+        }
+      }
+      .page-top {
+  
+      }
+    }
+  }
 }
 
 
