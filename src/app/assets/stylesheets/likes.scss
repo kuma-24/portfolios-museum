@@ -10,14 +10,17 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
   .js-like-button.like {
     font-size: calc(100vw / 32);
     display: flex;
-    align-items: flex-end;
-    border: none;
+    align-items: center;
     background-color: transparent;
-    padding-bottom: 1.5em;
+    border: none;
+    margin: auto auto 1.3em auto;
+
     .fa-heart {
       height: 1.5em;
       width: 1.5em;
+      margin-right: 0.2em;
       color: #F596AA;
+      pointer-events: none;
       animation: anime1 3s reverse;
     }
     @keyframes anime1{
@@ -30,28 +33,26 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
     }
     span {
       pointer-events: none;
-      margin-left: 0.5em;
     }
   }
 
   .js-like-button.unlike {
     font-size: calc(100vw / 32);
-    border: none;
     display: flex;
-    margin-top: auto;
-    margin-bottom: 1.5em;
-    margin-left: auto;
-    margin-right: auto;
     align-items: center;
     background-color: transparent;
+    border: none;
+    margin: auto auto 1.3em auto;
+    
     .fa-heart {
       height: 1.5em;
       width: 1.5em;
+      margin-right: 0.2em;
       color: #FCFAF2;
+      pointer-events: none;
     }
     span {
       pointer-events: none;
-      margin-left: 0.5em;
     }
   }
 }
@@ -61,17 +62,16 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
     font-size: calc(100vw / 96);
     border: none;
     display: flex;
-    margin-top: auto;
-    margin-bottom: 1.5em;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto auto 1.3em auto;
     align-items: center;
     background-color: transparent;
 
     .fa-heart {
       height: 1.5em;
       width: 1.5em;
+      margin-right: 0.2em;
       color: #F596AA;
+      pointer-events: none;
       animation: anime1 3s reverse;
     } 
     @keyframes anime1{
@@ -92,17 +92,16 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
     font-size: calc(100vw / 96);
     border: none;
     display: flex;
-    margin-top: auto;
-    margin-bottom: 1.5em;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto auto 1.3em auto;
     align-items: center;
     background-color: transparent;
 
     .fa-heart {
       height: 1.5em;
       width: 1.5em;
+      margin-right: 0.2em;
       color: #FCFAF2;
+      pointer-events: none;
     }
     span {
       pointer-events: none;
