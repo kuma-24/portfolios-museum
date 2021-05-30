@@ -667,8 +667,27 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         width: 25%;
       }
     }
-    .page-top {
-
+    .page-top.scroll {
+      position: sticky;
+      height: auto;
+      width: 8em;
+      bottom: 5em;
+      transform: translateY(-1em);
+      transition: opacity .3s, transform .3s;
+      a {
+        display: flex;
+        height: 4em;
+        width: 4em;
+        margin: auto;
+        background-color: #FFBA84;
+        border-radius: 50%;
+        .icon-size {
+          margin: auto;
+          height: 1.5em;
+          width: 1.5em;
+          color: #64363C;
+        }
+      }
     }
   }
 }
