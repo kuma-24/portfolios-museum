@@ -1,20 +1,19 @@
 <% @posts.map do |post| %>
   <div class="post-article">
     <div class="post-details">
-
       <div class="post-img">
-        <% if post.post_arbitrary.thumbnail_img? %>
-          <%= image_tag(post.post_arbitrary.thumbnail_img.url) %>
-        <% else %>
-          <%= image_tag("/assets/no_img.jpg") %>
+        <%= link_to post_path(post.id) do %>
+          <% if post.post_arbitrary.thumbnail_img? %>
+            <%= image_tag(post.post_arbitrary.thumbnail_img.url) %>
+          <% else %>
+            <%= image_tag("/assets/no_img.jpg") %>
+          <% end %>
         <% end %>
       </div>
-
       <div class="post-content">
         <p class="post-text">タイトル：</p>
         <p class="post-title"><%= post.title %></p>
         <p class="post-category"><%= post.category %>
-        
       </div>
     </div>
 
@@ -30,9 +29,8 @@
         </div>
         <p class="post-time"><%= simple_time(post.created_at) %></p>
       </div>
-
       <div class="post-sarvis-like">
-        <p class="post-servis-content"><%= post.servis_content%></p>
+        <p class="post-servis-content"><%= post.servis_content %></p>
         <%= render partial: "likes/like", locals: { post: post } %>
       </div>
     </div>

@@ -476,9 +476,11 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           display: flex;
           align-items: baseline;
           justify-content: space-between;
+          
           .evelopment-info {
             display: flex;
             align-items: baseline;
+
             .title-size {
               margin: auto 0;
             }
