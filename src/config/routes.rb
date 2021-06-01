@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   resources :users
-  resources :posts, only: %i[index new create destroy]
+  resources :posts, only: %i[index show new create destroy]
 
   namespace :api, format: :json do
     namespace :v1 do
