@@ -10,11 +10,14 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
   .footer-page {
     font-size: calc(100vw / 32);
     background-color: #FC9F4D;
+    margin-top: auto;
     position: sticky;
     bottom: 0%;
+    
     .footer-logo {
       height: 4em;
       display: flex;
+      
       .footer-name {
         margin: auto;
         color: #FFFFFB;
