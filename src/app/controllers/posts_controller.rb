@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     @posts = Post.all.includes(:user).order(created_at: :desc)
   end
 
-  def show 
+  def show
     @post = Post.includes(:user).find(params[:id])
   end
 
