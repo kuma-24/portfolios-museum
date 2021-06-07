@@ -52,7 +52,7 @@
           <p class="show-evelopment-background-content"><%= @post.evelopment_background %></p>
         </div>
       </div>
-      
+
       <div class="show-like">
         <%= render partial: "likes/like", locals: { post: @post } %>
         <%= javascript_pack_tag "like.js" %>
@@ -74,7 +74,12 @@
           </div>
         </div>
       </div>
+
+      <%= render partial: 'comments/comment', locals: { post: @post } %>
+      
     </div>
+
+    
 
     <div class="aside-show">
       <%= render partial: 'posts/aside' %>
