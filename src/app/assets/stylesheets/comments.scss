@@ -1,0 +1,91 @@
+$spMax: 519px;
+$spMin: 320px;
+$tbMax: 1024px;
+$tbMin: 520px;
+$pcMin: 1025px;
+$font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+
+@media screen and (min-width: $pcMin) {
+  .show-comment {
+    font-size: calc(100vw / 96);
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5em;
+
+    .comment-content {
+      padding: 1em 5em;
+      border-top: 0.1em solid #C18A26;
+
+      .comment-user-status {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1em;
+
+        .comment-user-img {
+          display: flex;
+
+          .comment-avaterImg {
+            list-style: none;
+
+            img {
+              height: 3em;
+              width: 3em;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
+          .comment-userName {
+            margin: auto 0.5em;
+          }
+        }
+        .comment-postTime-destroy {
+          display: flex;
+
+          .comment-dayTime {
+            margin: 0%;
+          }
+          .destroy-button {
+            margin: 0 0 0 0.5em;
+            .fa-trash-alt {
+              pointer-events: none;
+            }
+          }
+        }
+      }
+      .commentText {
+        margin: 1em 0 1em 0.5em;
+        .comment-content-text {
+          margin: 0% 1em;
+        }
+      }
+    }
+    .comment-inputText {
+      display: flex;
+      align-items: flex-end;
+      margin: 1em 5em 0 5em;
+      
+      #comment {
+        width: 80%;
+        border: 0.3em solid #B47157;
+        border-radius: 5px;
+        background-color: #FCFAF2;
+      }
+      .comment-input {
+        height: 3em;
+        width: 10em;
+        margin: 0 auto;
+
+        color: #fff;
+        background-color: #eb6100;
+        border-bottom: 5px solid #b84c00;
+        &:hover {
+          margin-top: 3px;
+          color: #fff;
+          background: #f56500;
+          border-bottom: 2px solid #b84c00;
+        }
+      }
+    }
+  }
+}
