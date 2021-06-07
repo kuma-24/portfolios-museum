@@ -66,12 +66,25 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
       margin: 1em 5em 0 5em;
       
       #comment {
-       width: 80%;
+        width: 80%;
+        border: 0.3em solid #B47157;
+        border-radius: 5px;
+        background-color: #FCFAF2;
       }
       .comment-input {
         height: 3em;
         width: 10em;
         margin: 0 auto;
+
+        color: #fff;
+        background-color: #eb6100;
+        border-bottom: 5px solid #b84c00;
+        &:hover {
+          margin-top: 3px;
+          color: #fff;
+          background: #f56500;
+          border-bottom: 2px solid #b84c00;
+        }
       }
     }
   }

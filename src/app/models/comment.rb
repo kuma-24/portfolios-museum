@@ -4,8 +4,7 @@ class Comment < ApplicationRecord
 
   validates :comment_content, presence: true, length: { maximum: 150 }
 
-
-  def dayTime
-    self.created_at.strftime('%Y-%m-%d %H:%M ')
+  def day_time
+    created_at.strftime('%Y-%m-%d %H:%M ')
   end
 end

@@ -38,12 +38,14 @@
       
       const commentButton = event.target;
       const commentPostId = commentButton.id;
-      const commentText = document.getElementById('comment').value;
+      const commentTextForm = document.getElementById('comment');
+      const commentText = commentTextForm.value;
       const commentShow = document.getElementById('showComment');
       
       const createComment = (commentPostId, commentText) => {
         sendRequest(commentEndpoint, 'POST', { post_id: commentPostId, comment_content: commentText })
         .then((data) => {
+          commentTextForm.value = '';
           
           let fragment = document.createDocumentFragment();
           
@@ -110,6 +112,8 @@
 
           childDestroyButton.addEventListener('click', commentItem)
         });
+
+        
       }
       createComment(commentPostId, commentText);
     });
