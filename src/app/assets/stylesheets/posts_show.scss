@@ -262,7 +262,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
             }
           }
           .catchphrase-content {
-            margin: 1em auto 1em 1.3em;
+            margin: 1.8em auto;
             font-size: 1.5em;
           }
         }
@@ -344,6 +344,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           flex-direction: column;
 
           .show-servis-content {
+            margin: 1.8em 0%;
             .show-title-name {
               margin-top: 1.5em;
               display: flex;
@@ -367,6 +368,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           .show-evelopment-background {
             display: flex;    
             flex-direction: column;
+            margin: 1.8em 0%;
 
             .show-title-name {
               margin-top: 1.5em;
@@ -394,7 +396,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           display: flex;
           border-bottom: 0.15em solid #64363C;
           button {
-            margin: 0 0 0.5em auto;
+            margin: 0 0 1em auto;
           }
         }
 
