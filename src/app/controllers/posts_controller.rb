@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.includes(:user).order(created_at: :desc)
+    @posts = Post.all.includes(:user, :likes, :post_arbitrary).order(created_at: :desc)
+    @posts_like_order = Post.includes(:liked_users, :user, :post_arbitrary).limit(3).sort { |a, b| b.liked_users.size <=> a.liked_users.size }
+    @posts_create_order = Post.all.includes(:liked_users, :user, :post_arbitrary).limit(3).order(created_at: :desc)
   end
 
   def show
-    @post = Post.includes(:user).find(params[:id])
+    @post = Post.includes(:user, :likes, :post_arbitrary, :comments).find(params[:id])
   end
 
   def new
@@ -20,6 +22,13 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def search
+    @posts = Post.search(params[:keyword])
+    @posts = Post.sort_category(params[:category_keyword])
+    @posts_like_order = Post.includes(:liked_users, :user, :post_arbitrary).limit(3).sort { |a, b| b.liked_users.size <=> a.liked_users.size }
+    @posts_create_order = Post.all.includes(:liked_users, :user, :post_arbitrary).limit(3).order(created_at: :desc)
   end
 
   private

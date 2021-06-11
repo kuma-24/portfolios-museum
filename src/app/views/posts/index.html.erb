@@ -12,7 +12,9 @@
       </article>
 
       <aside class="aside-content">
-        <%= render partial: 'posts/aside' %>
+        <%= render partial: "searches/post_category" %>
+        <%= render partial: "searches/post_like_order", locals: { post: @posts_like_order } %>
+        <%= render partial: "searches/post_create_order", locals: { post: @posts_create_order } %>
       </aside>
     </div>
 

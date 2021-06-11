@@ -9,6 +9,12 @@
     
     <div class="main-nav">
     <% if user_signed_in? %>
+
+      <%= form_with url: search_posts_path, method: :get, local: true do |f| %>
+        <%= f.text_field :keyword %>
+        <%= f.submit :"検索" %>
+      <% end %>
+
       <div class="nav-content">
         <li class="user-post">
           <%= link_to new_post_path do %>
@@ -43,6 +49,7 @@
           </li>
         </ul>
       </nav>
+
     <% else %>
       <div class="top-menu">
         <li class="top-item">
