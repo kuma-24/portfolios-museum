@@ -1,0 +1,26 @@
+<section class="main-content">
+  <div class="page-logo" id="logo" >
+    <img src="/assets/page_logo.jpg" art="本のロゴ" id="logo-size">
+    <%# <h1>portfolios~museum</h1> %>
+  </div>
+
+  <div class="post-contents">
+    <article class="post-main">
+      <%= render partial: 'posts/article' %> 
+    </article>
+
+    <aside class="aside-content">
+      <%= render partial: "searches/post_category" %>
+      <%= render partial: "searches/post_like_order", locals: { post: @posts_like_order } %>
+      <%= render partial: "searches/post_create_order", locals: { post: @posts_create_order } %>
+    </aside>
+  </div>
+
+  <div class="page-top">
+    <a href="#">
+      <i class="fas fa-arrow-up icon-size"></i>
+    </a>
+  </div>
+  <%= javascript_pack_tag "user_scroll.js" %>
+  <%= javascript_pack_tag "like.js" %>
+</section>

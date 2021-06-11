@@ -3,7 +3,7 @@ module Api
     class LikesController < ApplicationController
       def create
         like = current_user.likes.create!(user_id: current_user, post_id: params[:post_id])
-        post_count = Like.where(post_id: params[:post_id]).count
+        post_count = Like.where(post_id: params[:post_id]).includes(:post, :user).count
         render json: {
           like_id: like.id,
           post_id: post_count

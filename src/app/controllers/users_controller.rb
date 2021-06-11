@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all.includes(:profile)
-  end
-
   def show
     @user = User.includes(:profile).find(params[:id])
+    @posts = @user.posts.includes(:likes)
   end
 
   def edit

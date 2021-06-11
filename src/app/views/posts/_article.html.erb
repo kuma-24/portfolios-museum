@@ -20,10 +20,12 @@
     <div class="post-status">
       <div class="post-user">
         <div class="post-user-img">
-          <% if post.user.profile.avatar_img? %>
-            <%= image_tag(post.user.profile.avatar_img.url) %>
-          <% else %>
-            <%= image_tag("/assets/guest_img.jpg") %>
+          <%= link_to "/users/#{post.user.id}" do %>
+            <% if post.user.profile.avatar_img? %>
+              <%= image_tag(post.user.profile.avatar_img.url) %>
+            <% else %>
+              <%= image_tag("/assets/guest_img.jpg") %>
+            <% end %>
           <% end %>
           <p class="post-user-name"><%= post.user.name %></p>
         </div>

@@ -1,0 +1,9 @@
+<% @posts_create_order.each do |post| %>
+  <% if post.user.profile.avatar_img? %>
+    <%= image_tag(post.user.profile.avatar_img.url) %>
+  <% else %>
+    <%= image_tag("/assets/guest_img.jpg") %>
+  <% end %>
+  <%= post.user.name %>
+  <%= post.title %>
+<% end %>
