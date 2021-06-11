@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     @posts_like_order = Post.includes(:liked_users, :user, :post_arbitrary).limit(3).sort { |a, b| b.liked_users.size <=> a.liked_users.size }
     @posts_create_order = Post.all.includes(:liked_users, :user, :post_arbitrary).limit(3).order(created_at: :desc)
   end
-  
+
   def new
     @post = PostForm.new
   end
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy!
-    redirect_to("/")
+    redirect_to('/')
   end
 
   def search
