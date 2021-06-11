@@ -78,8 +78,10 @@
       <%= render partial: 'comments/comment', locals: { post: @post } %>
       
     </div>
-
-    
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+      <%= link_to '編集', edit_post_path(@post.id) %>
+      <%= link_to '削除', post_path(@post.id), method: :delete, data: { confirm: '本当にいいですか?' } %>
+    <% end %>
 
     <div class="aside-show">
       <%= render partial: 'posts/aside' %>
