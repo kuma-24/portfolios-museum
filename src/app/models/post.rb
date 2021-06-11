@@ -1,8 +1,11 @@
 class Post < ApplicationRecord
+  include PostSearch
+
   belongs_to :user
   has_one :post_arbitrary, dependent: :destroy
-  has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
 
   def like_by(user)
     likes.where(likes: { user_id: user }).last
@@ -10,13 +13,5 @@ class Post < ApplicationRecord
 
   def liked_by?(user)
     like_by(user).present?
-  end
-
-  def comment_by(user)
-    comments.where(comments: { user_id: user }).last
-  end
-
-  def comment_by?(user)
-    comment_by(user).present?
   end
 end

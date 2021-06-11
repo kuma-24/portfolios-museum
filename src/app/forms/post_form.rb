@@ -1,5 +1,6 @@
 class PostForm
   include ActiveModel::Model
+
   attr_accessor :title, :category, :catchphrase, :servis_content, :evelopment_background, :user_id, :site_url, :thumbnail_img, :post_id
 
   with_options presence: true do
