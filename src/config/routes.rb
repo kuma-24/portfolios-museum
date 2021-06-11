@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   resources :users
-  resources :posts, only: %i[index show new create destroy] do
+  resources :posts do
     get :search, on: :collection
   end
 
