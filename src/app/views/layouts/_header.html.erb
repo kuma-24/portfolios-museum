@@ -1,74 +1,69 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <header class="page-header">
-    <div class="header-logo">
-      <%= link_to root_path do %>
-        <h2>portfolios-museum</h2>
-      <% end %>
-    </div>
-    
-    <div class="main-nav">
-    <% if user_signed_in? %>
-
-      <%= form_with url: search_posts_path, method: :get, local: true do |f| %>
-        <%= f.text_field :keyword %>
-        <%= f.submit :"検索" %>
-      <% end %>
-
-      <div class="nav-content">
-        <li class="user-post">
-          <%= link_to new_post_path do %>
-            <i class="fas fa-feather-alt post-size"></i>
-            <span>投稿</span>
-          <% end %>
-        </li>
-        <div class="user-icon" id="open" >
-          <li class="user-img">
-            <% if current_user.profile.avatar_img? %>
-              <%= image_tag(current_user.profile.avatar_img.url) %> 
-            <% else %>
-              <%= image_tag("/assets/guest_img.jpg") %>
-            <% end %>
-            <span>メニュー</span>
-          </li>
-        </div>
-      </div>
-      <nav class="user-menu">
-        <ul class="menu-item">
-          <li class="drop-item">
-            <%= link_to "/users/#{current_user.id}" do %>
-                <i class="fas fa-user-edit user-size"></i>
-                <span>マイページ</span>
-            <% end %>
-          </li>
-          <li class="drop-item">
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fas fa-sign-out-alt user-size"></i>
-              <span>ログアウト</span>
-            <% end %>
-          </li>
-        </ul>
-      </nav>
-
-    <% else %>
-      <div class="top-menu">
-        <li class="top-item">
-          <%= link_to new_user_session_path do %>
-            <i class="fas fa-sign-in-alt sign-in-size tooltip login"></i>
-            <span>ログイン</span>
-          <% end %>
-        </li>
-        <li class="top-item">
-          <%= link_to new_user_registration_path do %>
-            <i class="fas fa-user-plus new-user-size tooltip"></i>
-            <span>新規登録</span>
-          <% end %>
-        </li>
-      </div>
+<header class="header-page" id="page-target">
+  <div class="header-logo">
+    <%= link_to root_path, {class:'header-logo-top'} do %>
+      <h1 class="header-app-name">portfolios-museum</h2>
     <% end %>
+  </div>
+
+  <div class="header-search-trigger">
+    <i class="fas fa-search icon-size"></i>
+    <span class="header-search-name">検索</span>
+  </div>
+
+  <div class="header-search">
+    <%= form_with class:'header-search-content', url: search_posts_path, method: :get, local: true do |f| %>
+      <i class="fas fa-search icon-size"></i>
+      <%= f.text_field :keyword, class:'header-search-text' %>
+      <%= f.submit :"検索", class:'header-search-button' %>
+    <% end %>
+  </div>
+
+  <% if user_signed_in? %>
+    <div class="header-post-item">
+      <%= link_to new_post_path, {class:'header-post-link'} do %>
+        <i class="fas fa-feather-alt icon-size"></i>
+        <span class="header-new-post">投稿</span>
+      <% end %>
     </div>
-    <%= javascript_pack_tag 'user_menu.js' %>
-  </header>
-</html>
 
+    <div class="header-user-item" id="user-menu-trigger">
+      <% if current_user.profile.avatar_img? %>
+        <%= image_tag current_user.profile.avatar_img.url, class:'header-user-img' %> 
+      <% else %>
+        <%= image_tag "/assets/guest_img.jpg", class:'header-user-img' %>
+      <% end %>
+      <span class="header-user-menu">メニュー</span>
+    </div>
 
+    <div class="header-user-nav" id="nav-menu-target">
+      <div class="header-mypage-item">
+        <%= link_to "/users/#{current_user.id}", {class:'header-mypage-link'} do %>
+          <i class="fas fa-user-edit icon-size"></i>
+          <span class="header-user-mypage">マイページ</span>
+        <% end %>
+      </div>
+
+      <div class="header-signout-item">
+        <%= link_to destroy_user_session_path, method: :delete, class:'header-signout-link', data: { confirm: "ログアウトしますか？" } do %>
+          <i class="fas fa-sign-out-alt icon-size"></i>
+          <span class="header-user-signout">ログアウト</span>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <div class="header-user-signin">
+      <%= link_to new_user_session_path, {class:'header-signin-link'} do %>
+        <i class="fas fa-sign-in-alt icon-size"></i>
+        <span class="header-signin">ログイン</span>
+      <% end %>
+    </div>
+
+    <div class="header-user-signup">
+      <%= link_to new_user_registration_path, {class:'header-signup-link'} do %>
+        <i class="fas fa-user-plus icon-size"></i>
+        <span class="header-signup">新規登録</span>
+      <% end %>
+    </div>
+  <% end %>
+  <%= javascript_pack_tag 'user_menu.js' %>
+</header>

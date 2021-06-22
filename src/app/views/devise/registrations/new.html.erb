@@ -1,143 +1,158 @@
-<section class="signup-section">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>    
-    <h1>新規登録</h1>
-    <div class="signup-field">
-      <div class="user-field">
-        <div class="input-field">
-          <div class="text">
-            <%= f.label :name %>
-            <p class="mandatory">【必須】</p>
-            <span>※15文字以下&#xFF08;現在：<p id="mandatory-count">0</p>文字&#xFF09;</span>
+<section class='signup-page'>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <h1 class='signup-page-title'>新規登録</h1>
+    <div class='signup-form'>
+      <div class='signup-mandatory-form'>
+        <div class='signup-name-form'>
+          <div class='signup-name-info'>
+            <%= f.label :name, class:'signup-item-name' %>
+            <span class='signup-item-mandatory'>【必須】</span>
+            <span class="signup-item-info">※15文字以下&#xFF08;現在：<p id="name-count">0</p>文字&#xFF09;</span>
           </div>
-          <div class="fill-in">
-            <div class="signup-text">
-              <i class="fas fa-user-edit icon-img"></i>
-              <%= f.text_field :name, id:"mandatory-input", autofocus: true, autocomplete: "name", maxlength: 15 %>
-            </div>
+          <div class='signup-name-input'>
+            <i class="fas fa-user-edit icon-size"></i>
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", maxlength: 15 %>
+          </div>
+          <div class='signup-name-error'>
             <% if @user.errors.include?(:name) %> 
-              <p class="error-messages">※<%= @user.errors.full_messages_for(:name).first %></p>
+              <span class="error-messages">※<%= @user.errors.full_messages_for(:name).first %></span>
             <% end %>
           </div>
         </div>
 
-        <div class="input-field">
-          <div class="text">
-            <%= f.label :email %>
-            <p class="mandatory">【必須】</p>
-            <div class="text-info">
-              <p class="info">※有効なアドレス</p>
-              <p class="info">例：sample@sample.com</p>
-            </div>
+        <div class='signup-email-form'>
+          <div class='signup-email-info'>
+            <%= f.label :email, class:'signup-item-email' %>
+            <span class='signup-item-mandatory'>【必須】</span>
+            <span class='signup-item-info'>
+              <span class='info-text'>有効例：sample@sample.com</span>
+            </span>
           </div>
-          <div class="fill-in">
-            <div class="signup-text">
-              <i class="fas fa-envelope icon-img"></i>
-              <%= f.text_field :email, autofocus: true, autocomplete: "name" %>
-            </div>
+          <div class='signup-email-input'>
+            <i class="fas fa-envelope icon-size"></i>
+            <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+          <div class='signup-email-error'>
             <% if @user.errors.include?(:email) %> 
-              <p class="error-messages">※<%= @user.errors.full_messages_for(:email).first %></p>
+              <span class='error-messages'>※<%= @user.errors.full_messages_for(:email).first %></span>
             <% end %>
           </div>
         </div>
 
-        <div class="input-field">
-          <div class="text">
-            <%= f.label :password %>
-            <p class="mandatory">【必須】</p>
-            <p class="info">※半角英数字６桁</p>
+        <div class='signup-password-form'>
+          <div class='signup-password-info'>
+            <%= f.label :password, class:'signup-item-password' %>
+            <span class='signup-item-mandatory'>【必須】</span>
+            <span class="signup-item-info">※半角英数字６桁</span>
           </div>
-          <div class="fill-in">
-            <div class="signup-text">
-              <i class="fas fa-lock icon-img"></i>
-              <%= f.password_field :password, autocomplete: "new-password", maxlength: 6 %>
-              <button type="button" id="btn_passview">表示</button>
-            </div>
+          <div class='signup-password-input'>
+            <i class="fas fa-lock icon-size"></i>
+            <%= f.password_field :password, autocomplete: "new-password", maxlength: 6 %>
+            <button type="button" id="btn_passview">表示</button>
+          </div>
+          <div class='signup-password-error'>
             <% if @user.errors.include?(:password) %> 
-              <p class="error-messages">※<%= @user.errors.full_messages_for(:password).first %></p>
+              <span class="error-messages">※<%= @user.errors.full_messages_for(:password).first %></span>
             <% end %>
           </div>
         </div>
 
-        <div class="input-field">
-          <div class="text">
-            <%= f.label :password_confirmation, "パスワード再確認" %>
-            <p class="mandatory">【必須】</p>
-            <p class="info">※設定したパスワード</p>
+        <div class='signup-password-confirmation-form'>
+          <div class='signup-password-confirmation-info'>
+            <%= f.label :password_confirmation, 'パスワード確認', class:'signup-item-password-confirmation' %>
+            <span class='signup-item-mandatory'>【必須】</span>
+            <span class="signup-item-info">※設定したパスワード</span>
           </div>
-          <div class="fill-in">
-            <div class="signup-text">
-              <i class="fas fa-key icon-img"></i>
-              <%= f.password_field :password_confirmation, maxlength: 6 %>
-            </div>
+          <div class='signup-password-confirmation-input'>
+            <i class="fas fa-key icon-size"></i>
+            <%= f.password_field :password_confirmation, maxlength: 6 %>
+          </div>
+          <div class='signup-password-confirmation-error'>
             <% if @user.errors.include?(:password_confirmation) %> 
-              <p class="error-messages">※<%= @user.errors.full_messages_for(:password_confirmation).first %></p>
+              <span class="error-messages">※<%= @user.errors.full_messages_for(:password_confirmation).first %></span>
             <% end %>
           </div>
         </div>
       </div>
-    
-      <details>
-        <summary id="toggle">
-          <p>任意項目の設定</p>
-          <p>&#xFF08;ユーザーアイコン・自己紹介・職種&#xFF09;</p>
-        </summary>
+
+      <div class='signup-any-form' id='any-form'>
         <%= f.fields_for :profile do |f| %>
-          <div class="profile-field">
-            <div class="any-field">
-              <div class="any-text">
-                <i class="fas fa-id-card-alt icon-img"></i>
-                <%= f.label :industry, "職種", class:"title" %>
-                <p class="any">【任意】</p>
-              </div>
-              <div class="any-text">
-                <%= f.select :industry, industry_box(), { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
-              </div>
-              <div class="any-text">
-                <i class="fas fa-image icon-img"></i>
-                <p class="title">ユーザーアイコン</p>
-                <p class="any">【任意】</p>
-              </div>
-              <div class="any-in" id="file-select">
-                <%= f.label :avatar_img, id:"file-list" do %>
-                  <i class="fas fa-camera-retro size"></i>
-                <% end %>
-                <div class="file-info">
-                  <%= f.file_field :avatar_img %>
-                  <p class="info">※自動でリサイズされます。</p>
-                  <p class="info">※特になければデフォルト画像が適応されます。</p>
-                </div>
+          <div class='signup-avatar-img-form'>
+            <div class='signup-avatar-img-info'>
+              <i class="fas fa-user-circle icon-size"></i>
+              <div class="signup-avatar-img-name">
+                <span class="signup-avatar-img-title">ユーザーアイコン</span>
+                <span class="signup-item-any">【任意】</span>
               </div>
             </div>
-
-            <div class="any-field">
-              <div class="any-text">
-                <i class="fas fa-address-card icon-img"></i>
-                <%= f.label :self_introduction, "自己紹介" %>
-                <p class="any">【任意】</p>
-                <div class="count-info">
-                  <span>※150文字以下&#xFF08;現在：<p id="any-count">0</p>文字&#xFF09;</span>
-                </div>
-              </div>
-              <div class="fill-in">
-                <%= f.text_area :self_introduction, id:"any-input", maxlength: 150 %>
-                <% if @user.profile.errors.include?(:self_introduction) %> 
-                  <p class="error-messages">※<%= @user.profile.errors.messages_for(:self_introduction).first %></p>
-                <% end %>
-              </div>
+            <div class='signup-avatar-file' id="file-select">
+              <%= f.label :avatar_img, class:'signup-item-avatar-img', id:"file-list" do %>
+                <i class="fas fa-camera-retro size"></i>
+              <% end %>
+            </div>
+            <div class='signup-avatar-img-input'>
+              <%= f.file_field :avatar_img %>
+            </div>
+            <div class='signup-avatar-img-note'>
+              <span class="signup-item-info">※自動でリサイズされます。</span>
+              <span class="signup-item-info">※特になければデフォルト画像が適応されます。</span>
             </div>
           </div>
-        <% end %> 
-      </details>
-      <div class="signup-button">
-        <%= f.button "登録", type: 'button', onclick: 'submit();' %>
-      </div>
-      <div class="signup-guest">
-        <%= link_to users_guest_sign_in_path, method: :post do %>
-          <i class="fas fa-user-tie guest-icon " ></i>
-          <span>ゲストログイン</span>
-        <% end %> 
+
+          <div class='signup-industry-form'>
+            <div class='signup-industry-info'>
+              <i class="fas fa-id-card-alt icon-size"></i>
+              <div class='signup-industry-name'>
+                <%= f.label :industry, "職種", class:'signup-item-industry' %>
+                <span class="signup-item-any">【任意】</span>
+              </div>
+            </div>
+            <div class='signup-industry-input'>
+              <%= f.select :industry, industry_box(), { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+            </div>
+          </div>
+
+          <div class='signup-self-introduction-form'>
+            <div class='signup-self-introduction-info'>
+              <i class="fas fa-address-card icon-size"></i>
+              
+              <%= f.label :self_introduction, "自己紹介", class:'signup-item-self-introduction' %>
+              <span class="signup-item-any">【任意】</span>
+              <span class="signup-item-info">※150文字以下&#xFF08;現在：<p id="self-introduction-count">0</p>文字&#xFF09;</span>
+              
+            </div>
+            <div class='signup-self-introduction-input'>
+              <%= f.text_area :self_introduction, id:"self-introduction-input", maxlength: 150 %>
+            </div>
+            <div class='signup-self-introduction-error'>
+              <% if @user.profile.errors.include?(:self_introduction) %> 
+                <span class="error-messages">※<%= @user.profile.errors.messages_for(:self_introduction).first %></span>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-  <% end %> 
+
+    <div class='signup-any-form-check'>
+      <%= check_box_tag :check1 %>
+      <%= label_tag :check1, "任意項目の設定をしますか？", class:'check-text', id:'check1-content' %>
+    </div>
+
+    <div class="signup-form-button">
+      <%= f.button "登録", type: 'button', onclick: 'submit();', class:'signup-button' %>
+    </div>
+
+    <div class='other-link'>
+      <%= link_to new_user_session_path, class:'session-link' do %>
+        <i class="fas fa-sign-in-alt icon-size"></i>
+        <span class="session-signin">アカウントをお持ちの方</span>
+      <% end %>
+      <%= link_to users_guest_sign_in_path, method: :post, class:'guest-link' do %>
+        <i class="fas fa-user-tie icon-size"></i>
+        <span class="guest-signin">ゲストログイン</span>
+      <% end %> 
+    </div>
+  <% end %>
   <%= javascript_pack_tag 'user_signup.js' %>
 </section>
