@@ -1,9 +1,17 @@
-<% @posts_like_order.each do |post| %>
-  <%= post.title %>
-  <% if post.user.profile.avatar_img? %>
-    <%= image_tag(post.user.profile.avatar_img.url) %>
-  <% else %>
-    <%= image_tag("/assets/guest_img.jpg") %>
-  <% end %>
-  <%= post.likes.count %>
-<% end %>
+<%# <% @posts_like_order.each do |post| %> 
+   <%# <%= post.title %>  
+  <%# <% if post.user.profile.avatar_img? %>  
+    <%# <%= image_tag(post.user.profile.avatar_img.url) %> 
+  <%# <% else %>  
+    <%# <%= image_tag("/assets/guest_img.jpg") %>  
+  <%# <% end %>  
+  <%# <%= post.likes.count %>  
+<%# <% end %>  
+
+<%# <% @posts_like_order.each do |post| %>   
+  <%# <%= post %>   
+<%# <% end %> 
+
+<% @posts_like_order.map do |post|%> 
+  <%= image_tag(post.post_arbitrary.thumbnail_img.url) %> 
+<% end %> 

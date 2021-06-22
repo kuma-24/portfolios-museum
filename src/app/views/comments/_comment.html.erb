@@ -27,7 +27,11 @@
 
   <div class="comment-inputText">
     <textarea id="comment"  maxlength="200", rows="5"></textarea>
-    <button class="comment-input" type="button" id="<%= @post.id %>" value="<%= current_user.id %>">コメント！</button>
+    <% if user_signed_in? %>
+      <button class="comment-input" type="button" id="<%= @post.id %>" value="<%= current_user.id %>">コメント！</button>
+    <% else %>
+      <button class="no-comment-input" type="button">コメント！（ログインをお願いします）</button>
+    <% end %>
   </div>
 
   <%= javascript_pack_tag 'comment.js' %>

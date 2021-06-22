@@ -6,136 +6,235 @@ $pcMin: 1025px;
 $header-color: #FFBA84;
 $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 
-
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
-  .page-header {
-    font-size: calc(100vw / 32); /* width=320px: font-size=10px */
+  .header-page {
+    font-size: calc(100vw / 32);
     background: $header-color;
     display: flex;
     position: sticky;
-    justify-content: space-between;
-    z-index: 100;
-    top: 0vh;
     align-items: center;
+    height: auto;
+    z-index: 100;
+    top: 0em;
+
     .header-logo {
-      margin: 3vh 0vw;
-      margin-left: 3vw;
-      a {
+      margin: 1em 1em;
+
+      .header-logo-top {
         text-decoration: none;
-        h2 {
+
+        .header-app-name {
           font-family: 'Philosopher', $font_families;
           color: #64363C;
-          margin: 0;
+          font-size: 1.5em;
         }
       }
     }
-    .main-nav {
+    .header-search-trigger {
       font-family: "游ゴシック体", $font_families;
-      margin: auto 3vw;
-      .top-menu {
-        display: flex;
-        .top-item {
-          margin-left: 5vw;
-          list-style: none;
-          a {
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            .tooltip {
-              margin: 0 auto;
-              height: 4vh;
-              width: 7vw;
-              color: #F75C2F;
-            }
-            .tooltip.login {
-              color: #64363C;
-            }
-            span {
-              color: #0F2540;
-            }
-          }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 4.5em;
+      margin-left: auto;
+
+      .icon-size {
+        color: #E98B2A;
+        background-color: white;
+        height: 3em;
+        width: 3em;
+        padding: .65em;
+        border: .1em solid #E98B2A;
+        border-radius: 50%;
+      }
+      .header-search-name {
+        color: #0F2540;
+      }
+    }
+
+    .header-search {
+      display: none;
+    }
+
+    .header-search.show {
+      display: flex;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.5);
+      width: 100%;
+      top: 0%;
+      
+      .header-search-content {
+        background-color: white;
+        padding: 0.3em;
+        border: 0.2em solid #B47157;
+        border-radius: 20px;
+        margin: 1em auto;
+
+        .icon-size {
+          margin: auto .3em;
+          color: #E98B2A;
+        }
+        .header-search-text {
+          outline: none;
+          border: none;
+          align-items: center;
+          box-shadow: 0 0 0 1000px white inset;
+          font-size: 1.2em;
+        }
+        .header-search-button {
+          outline: none;
+          border: none;
+          background-color: transparent;
         }
       }
-      .nav-content {
+    }
+    .header-user-signin {
+      font-family: "游ゴシック体", $font_families;
+      width: 4em;
+      margin: 0 1.5em;
+      
+      .header-signin-link {
         display: flex;
+        flex-direction: column;
+        text-decoration: none;
         align-items: center;
-        list-style: none;
-        .user-post {
-          height: 5em;
-          a {
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            align-items: center;
-            .post-size {
-              margin: 0.45em;
-              height: 2.5em;
-              width: 2.5em;
-              color: #C18A26;
-            }
-            span {
-              color: #0F2540;
-            }
-          }
+
+        .icon-size {
+          color: #64363C;
+          background-color: white;
+          height: 3em;
+          width: 3em;
+          padding: .65em;
+          border: .1em solid #64363C;
+          border-radius: 50%;
         }
-        .user-icon {
-          height: 5em;
-          margin-left: 5vw;
-          .user-img {
-            display: flex;
-            flex-direction: column;
-            img {
-              margin: 0.25em auto;
-              height: 3em;
-              width: 3em;
-              border-radius: 50%;
-              object-fit: cover;
-            }
-            span {
-              color: #0F2540;
-            }
-          }
+        .header-signin {
+          color: #0F2540;
         }
       }
-      .user-menu {
-        background: #F7C242;
-        position: absolute;
-        overflow-x: hidden;
-        right: 0vw;
-        width: 0vw;
-        z-index: 1;
-        opacity: 0;
-        transition: opacity .6s;
-        .menu-item {
-          padding: 0vw;
-          margin: 3vh 3vw;
-          .drop-item {
-            list-style: none;
-            margin: 3vh 1vw;
-            opacity: 0;
-            transform: translateY(10vw);
-            transition: opacity .3s, transform .3s;
-            a {
-              text-decoration: none;
-            }
-          }
+    }
+    .header-user-signup {
+      font-family: "游ゴシック体", $font_families;
+      width: 4em;
+      margin-right: 1em;
+
+      .header-signup-link {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        align-items: center;
+
+        .icon-size {
+          color: #F75C2F;
+          background-color: white;
+          height: 3em;
+          width: 3em;
+          padding: .65em;
+          border: .1em solid #F75C2F;
+          border-radius: 50%;
+        }
+        .header-signup {
+          color: #0F2540;
         }
       }
-      .user-menu.show {
+    }
+    .header-post-item {
+      font-family: "游ゴシック体", $font_families;
+      width: 4.5em;
+      margin: 0 .5em;
+
+      .header-post-link {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        align-items: center;
+
+        .icon-size {
+          color: #C18A26;
+          background-color: white;
+          height: 3em;
+          width: 3em;
+          padding: .65em;
+          border: .1em solid #C18A26;
+          border-radius: 50%;
+        }
+        .header-new-post {
+          color: #0F2540;
+        }
+      }
+    }
+    .header-user-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: "游ゴシック体", $font_families;
+      margin-right: 1em;
+
+      .header-user-img {
+        object-fit: cover;
+        height: 3em;
+        width: 3em;
+        border-radius: 50%;
+        border: solid #F75C2F;
+      }
+      .header-user-menu {
+        width: 4.5em;
         text-align: center;
-        opacity: 1;
-        width: 100%;
-        margin-top: 0;
-        transition: opacity .6s;
-        .menu-item {
-          .drop-item {
-            list-style: none;
-            opacity: 1;
-            transform: none;
-            a {
-              opacity: 1;
-            }
+        color: #0F2540;
+      }
+    }
+    .header-user-nav {
+      position: fixed;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .header-user-nav.show {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.95);
+      font-family: "游ゴシック体", $font_families;
+      pointer-events: auto;
+      opacity: 1;
+      top: 0em;
+      right: 0em;
+
+      .header-mypage-item {
+        font-family: "游ゴシック体", $font_families;
+        margin: 1.5em 2.5em 0 2.5em;
+
+        .header-mypage-link {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+
+          .icon-size {
+            color: #F75C2F;
+            height: 1.7em;
+            width: 1.7em;
+          }
+          .header-user-mypage {
+            color: #0F2540;
+            font-size: 1.3em;
+          }
+        }
+      }
+      .header-signout-item {
+        font-family: "游ゴシック体", $font_families;
+        margin: 1.5em 2.5em 1.5em 2.5em;
+        .header-signout-link {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          .icon-size {
+            color: #64363C;
+            height: 1.7em;
+            width: 1.7em;
+          }
+          .header-user-signout {
+            color: #0F2540;
+            font-size: 1.3em;
           }
         }
       }
@@ -150,144 +249,200 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
 }
 
 @media screen and (min-width: $pcMin) {
-  .page-header {
+  .header-page {
     font-size: calc(100vw / 96);
-    z-index: 100;
-    top: 0em;
     background: $header-color;
     display: flex;
     position: sticky;
-    justify-content: space-between;
-
+    align-items: center;
+    z-index: 100;
+    height: auto;
+    top: 0em;
+   
     .header-logo {
-      margin: auto 3em;
-
-      a {
-        list-style: none;
+      margin-left: 5em;
+      .header-logo-top {
         text-decoration: none;
-
-        h2 {
+        .header-app-name {
           font-family: 'Philosopher', $font_families;
           color: #64363C;
-          margin: 0%;
         }
       }
     }
-    .main-nav {
-      margin: 0.1em 3em;
+    .header-search-trigger {
+      display: none;
+    }
+    .header-search {
+      display: flex;
+      margin-left: auto;
+
+      .header-search-content {
+        background-color: white;
+        padding: 0.3em;
+        border: 0.2em solid #B47157;
+        border-radius: 20px;
+
+        .icon-size {
+          margin: auto .3em;
+          color: #F75C2F;
+        }
+        .header-search-text {
+          outline: none;
+          border: none;
+          align-items: center;
+          box-shadow: 0 0 0 1000px white inset;
+          font-size: 1.2em;
+        }
+        .header-search-button {
+          outline: none;
+          border: none;
+          background-color: transparent;
+        }
+        
+      }
+    }
+    .header-user-signin {
       font-family: "游ゴシック体", $font_families;
+      margin: 0 3em;
 
-      .top-menu {
+      .header-signin-link {
         display: flex;
-        list-style: none;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
 
-        .top-item {
-          margin-left: 3em;
-
-          a {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-
-            .tooltip {
-              height: 3.7em;
-              width: 3.7em;
-              padding: 0.4em;
-              color: #F75C2F;
-            }
-            .tooltip.login {
-              color: #64363C;
-            }
-            span {
-              color: #0F2540;
-            } 
-          }
+        .icon-size {
+          color: #64363C;
+          background-color: white;
+          height: 3em;
+          width: 3em;
+          padding: .65em;
+          border: .1em solid #64363C;
+          border-radius: 50%;
+        }
+        .header-signin {
+          color: #0F2540;
         }
       }
-      .nav-content {
-        list-style: none;
+    }
+    .header-user-signup {
+      font-family: "游ゴシック体", $font_families;
+      margin-right: 5em;
+
+      .header-signup-link {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
 
-        .user-post {
-          a {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-
-            .post-size {
-              height: 3.7em;
-              width: 3.7em;
-              padding: 0.4em;
-              margin: auto 0%;
-              color: #C18A26;
-            }
-            span {
-              margin: 0% auto;
-              color: #0F2540;
-            }
-          }
+        .icon-size {
+          color: #F75C2F;
+          background-color: white;
+          height: 3em;
+          width: 3em;
+          padding: .65em;
+          border: .1em solid #F75C2F;
+          border-radius: 50%;
         }
-        .user-icon {
-          margin-left: 3em;
+        .header-signup {
+          color: #0F2540;
+        }
+      }
+    }
+    .header-post-item {
+      font-family: "游ゴシック体", $font_families;
+      margin: 0 3em;
 
-          .user-img {
-            display: flex;
-            flex-direction: column;
+      .header-post-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
 
-            img {
-              height: 3.8em;
-              width: 3.8em;
-              padding: 0.3em;
-              margin: auto;
-              border-radius: 50%;
-              object-fit: cover;
-            }
-            span {
-              margin: 0% auto;
-              color: #0F2540;
-            }
+        .icon-size {
+          color: #C18A26;
+          background-color: white;
+          height: 3em;
+          width: 3em;
+          padding: .65em;
+          border: .1em solid #C18A26;
+          border-radius: 50%;
+        }
+        .header-new-post {
+          color: #0F2540;
+        }
+      }
+    }
+    .header-user-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      font-family: "游ゴシック体", $font_families;
+      margin-right: 5em;
+
+      .header-user-img {
+        object-fit: cover;
+        height: 3.1em;
+        width: 3.1em;
+        border-radius: 50%;
+        border: solid #F75C2F;
+      }
+      .header-user-menu {
+        width: 4.5em;
+        text-align: center;
+        color: #0F2540;
+      }
+    }
+    .header-user-nav {
+      position: fixed;
+      pointer-events: none;
+      opacity: 0;
+    }
+    .header-user-nav.show {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.95);
+      font-family: "游ゴシック体", $font_families;
+      pointer-events: auto;
+      opacity: 1;
+      top: 0em;
+      right: 0em;
+
+      .header-mypage-item {
+        font-family: "游ゴシック体", $font_families;
+        margin: 1.5em 2.5em 0 2.5em;
+
+        .header-mypage-link {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+
+          .icon-size {
+            height: 1.7em;
+            width: 1.7em;
+          }
+          .header-user-mypage {
+            font-size: 1.3em;
           }
         }
       }
-      .user-menu {
-        background: #F7C242;
-        position: absolute;
-        overflow-x: hidden;
-        right: 0vw;
-        width: 0vw;
-        z-index: 1;
-        opacity: 0;
-        transition: opacity .6s;
-      }
-      .user-menu.show {
-        position: absolute;
-        width: auto;
-        opacity: 1;
-        transform: translateY(0.4em);
-        transition: opacity .3s, transform .3s;
+      .header-signout-item {
+          font-family: "游ゴシック体", $font_families;
+          margin: 1.5em 2.5em 1.5em 2.5em;
 
-        .menu-item {
-          margin: 3em 3em;
+        .header-signout-link {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
 
-          .drop-item {
-            margin: 2.5em 0%; 
-
-            a {
-              display: flex;
-              align-items: center;
-              text-decoration: none;
-
-              .user-size {
-                height: 1.5em;
-                width: 1.5em;
-                margin: auto 0%;
-              }
-              span {
-                font-size: 1.3em;
-              }
-            }
+          .icon-size {
+            height: 1.7em;
+            width: 1.7em;
+          }
+          .header-user-signout {
+            font-size: 1.3em;
           }
         }
       }

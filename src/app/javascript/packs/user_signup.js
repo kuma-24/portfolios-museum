@@ -1,6 +1,6 @@
 'use strict';
 
-{
+{ //ユーザーアイコンプレビュー機能
   const fileElem = document.getElementById('user_profile_attributes_avatar_img');
   const fileList = document.getElementById('file-list');
 
@@ -8,7 +8,7 @@
   
   function handleFiles() {
     if (!this.files.length) {
-      fileList.innerHTML = "<i class=\"fas fa-camera-retro size\"></i>"
+      fileList.innerHTML = "<i class=\"fas fa-camera-retro size\"></i>";
     } else {
       fileList.innerHTML = "";
       const list = document.createElement("ul"); 
@@ -30,44 +30,51 @@
   }
 }
 
-{
-  let any_input = document.getElementById("any-input");
-  let any_count = document.getElementById("any-count");
-  
-  any_input.addEventListener("keyup", function() {
-    any_count.textContent = any_input.value.length;
+{ //文字数カウント機能
+  let mandatoryInput = document.getElementById('user_name');
+  let mandatoryCount = document.getElementById('name-count');
+
+  let anyInput = document.getElementById('self-introduction-input');
+  let anyCount = document.getElementById('self-introduction-count');
+
+  mandatoryInput.addEventListener('keyup', () => {
+    mandatoryCount.textContent = mandatoryInput.value.length;
   });
+
+  anyInput.addEventListener('keyup', () => {
+    anyCount.textContent = anyInput.value.length;
+  })
 }
 
-{
-  let mandatory_input = document.getElementById("mandatory-input");
-  let mandatory_count = document.getElementById("mandatory-count");
+{ //パスワード表示切り替え機能
+  let btnPassview = document.getElementById("btn_passview");
+  let inputPass = document.getElementById("user_password");
 
-  mandatory_input.addEventListener("keyup", function() {
-    mandatory_count.textContent = mandatory_input.value.length;
-  });
-}
-
-{
-  let btn_passview = document.getElementById("btn_passview");
-  let input_pass = document.getElementById("user_password");
-
-  btn_passview.addEventListener("click", (e) => {
+  btnPassview.addEventListener("click", (e) => {
     e.preventDefault();
 
-    if (input_pass.type === "password") {
-      input_pass.type = "text";
-      btn_passview.textContent = "非表示";
+    if (inputpass.type === "password") {
+      inputPass.type = "text";
+      btnPassview.textContent = "非表示";
     } else {
-      input_pass.type = 'password';
-      btn_passview.textContent = '表示';
+      inputPass.type = 'password';
+      btnPassview.textContent = '表示';
     }
   });
 }
 
-{
-  const button = document.getElementById('toggle');
-  button.addEventListener('click', () => {
-    button.classList.toggle('lock');
+{ //任意項目切り替え機能
+  let checkbox = document.getElementById('check1');
+  let labelText = document.getElementById('check1-content');
+  let anyForm = document.getElementById('any-form');
+
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      labelText.innerHTML = '任意項目の設定を閉じますか？';
+      anyForm.style.display = 'flex';
+    } else {
+      labelText.innerHTML = '任意項目の設定をしますか？';
+      anyForm.style.display = 'none';
+    }
   });
 }
