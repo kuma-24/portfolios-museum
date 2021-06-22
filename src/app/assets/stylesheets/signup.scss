@@ -7,256 +7,590 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
 
 
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
-  .signup-section {
-    font-size: calc(100vw / 32);
+}
+
+@media screen and (min-width: $tbMin) and (max-width: $tbMax) {
+}
+
+@media screen and (min-width: $pcMin) {
+  .signup-page {
+    font-size: calc(100vw / 96);
+    font-family: "游ゴシック体", $font_families;
+    display: flex;
+    flex-direction: column;
+
     .new_user {
-      margin: auto 6vw;
-      h1 {
+      display: flex;
+      flex-direction: column;
+      background-color: #FAD689;
+      width: 60em;
+      height: 40em;
+      margin: 1em auto;
+      border: #FAD689 solid .25em;
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+      border-radius: 20px;
+
+      .signup-page-title {
         text-align: center;
-        margin: 1vh 0vw;
-        color: #64363C;
-        font-family: "游ゴシック体", $font_families;
+        color: #0F2540;
+        font-size: 1.5em;
       }
-      .signup-field {
-        .user-field {
-          .input-field {
-           margin-top: 2.5vh;
-            .text {
+
+      .signup-form {
+        display: flex;
+        justify-content: space-around;
+        
+        .signup-mandatory-form {
+          display: flex;
+          flex-direction: column;
+          width: 22em;
+
+          .signup-name-form {
+            display: flex;
+            flex-direction: column;
+            height: 5.7em;
+            margin-bottom: 1.5em;
+
+            .signup-name-info {
               display: flex;
-              align-items: flex-end;
-              height: 5vh;
-              label {
-                font-size: 1.5em;
-                color: #0F2540;
-                font-family: "游ゴシック体", $font_families;
+              align-items: baseline;
+              height: 1.4em;
+
+              .signup-item-name {
+                font-size: 1.1em;
               }
-              .mandatory {
-                font-size: 1em;
-                margin: 0;
+              .field_with_errors {
+                display: flex;
+                height: 1.4em;
+
+                .signup-item-name {
+                  font-size: 1.1em;
+                }
+              }
+              .signup-item-mandatory {
+                font-size: 0.6em;
                 color: red;
               }
-              .info {
-                height: auto;
-                margin: 0;
-                font-size: 1em;
-                font-family: "游ゴシック体", $font_families;
-                span {
-                  height: auto;
-                }
-                .br::before {
-                  content: "\A" ;
-                  white-space: pre ;
-                }
-              }
-              span {
+              .signup-item-info {
                 display: flex;
-                font-family: "游ゴシック体", $font_families;
-                p {
-                  margin: 0;
+                font-size: 0.6em;
+                margin-left: auto;
+
+                #name-count {
+                  font-size: 0.6em;
+                  margin: 0%;
                 }
               }
             }
-            .fill-in {
-              height: 6vh;
-              .signup-text {
+            .signup-name-input {
+              display: flex;
+              background-color: white;
+              padding: 0.3em;
+              border: 0.2em solid #B47157;
+              border-radius: 10px;
+
+              .icon-size {
+                height: 1.1em;
+                width: 1.1em;
+                margin: auto .3em;
+                color: #F75C2F;
+              }
+              #user_name {
+                outline: none;
+                border: none;
+                box-shadow: 0 0 0 1000px white inset;
+                font-size: 1.1em;
+                width: 100%;
+              }
+              .field_with_errors {
                 display: flex;
-                align-items: center;
-                height: 6vh;
-                border: 0.4vh solid #B47157;
-                border-radius: 5px;
-                background: #FFFFFB;
-                .icon-img {
-                  height: 3vh;
-                  width: 6vw;
-                  margin: auto 3vw;
-                  color: #F75C2F;
-                }
-                input {
-                  width: 100%;
+                width: 100%;
+
+                #user_name {
                   outline: none;
-                  border: 0;
-                  font-size: 1.5em;
-                  background-color: #FFFFFB;
+                  border: none;
+                  box-shadow: 0 0 0 1000px white inset;
+                  font-size: 1.2em;
                 }
-                button {
-                  width: 30vw;
-                  margin: auto 2vw;
-                  border-radius: 2.5em;
-                  background: #FFBA84;
+              }
+            }
+            .signup-name-error {
+              display: flex;
+
+              .error-messages {
+                font-size: .8em;
+                color: red;
+              }
+            }
+          }
+          .signup-email-form {
+            display: flex;
+            flex-direction: column;
+            height: 5.7em;
+            margin-bottom: 1.5em;
+
+            .signup-email-info {
+              display: flex;
+              align-items: baseline;
+              height: 1.4em;
+
+              .signup-item-email {
+                font-size: 1.1em;
+              }
+              .field_with_errors {
+                display: flex;
+                height: 1.4em;
+
+                .signup-item-email {
+                  font-size: 1.1em;
                 }
-                .field_with_errors {
+              }
+              .signup-item-mandatory {
+                font-size: 0.6em;
+                color: red;
+              }
+              .signup-item-info {
+                display: flex;
+                flex-direction: column;
+                margin-left: auto;
+
+                .info-text {
+                  font-size: 0.6em;
+                }
+              }
+            }
+            .signup-email-input {
+              display: flex;
+              background-color: white;
+              padding: 0.3em;
+              border: 0.2em solid #B47157;
+              border-radius: 10px;
+
+              .icon-size {
+                height: 1.1em;
+                width: 1.1em;
+                margin: auto .3em;
+                color: #F75C2F;
+              }
+              #user_email {
+                outline: none;
+                border: none;
+                box-shadow: 0 0 0 1000px white inset;
+                font-size: 1.1em;
+                width: 100%;
+              }
+              .field_with_errors {
+                #user_email {
+                  outline: none;
+                  border: none;
+                  box-shadow: 0 0 0 1000px white inset;
+                  font-size: 1.2em;
                   width: 100%;
                 }
-              }   
+              }
+            }
+            .signup-email-error {
+              display: flex;
+
               .error-messages {
-                margin: 0;
+                font-size: .8em;
                 color: red;
-                font-family: "游ゴシック体", $font_families;
+              }
+            }
+          }
+          .signup-password-form {
+            display: flex;
+            flex-direction: column;
+            height: 5.7em;
+            margin-bottom: 1.5em;
+
+            .signup-password-info {
+              display: flex;
+              align-items: baseline;
+              height: 1.4em;
+
+              .signup-item-password {
+                font-size: 1.1em;
+              }
+              .field_with_errors {
+                display: flex;
+                height: 1.4em;
+
+                .signup-item-password {
+                  font-size: 1.1em;
+                }
+              }
+              .signup-item-mandatory {
+                font-size: 0.6em;
+                color: red;
+              }
+              .signup-item-info {
+                display: flex;
+                font-size: 0.6em;
+                margin-left: auto;
+              }
+            }
+            .signup-password-input {
+              display: flex;
+              background-color: white;
+              padding: 0.3em;
+              border: 0.2em solid #B47157;
+              border-radius: 10px;
+
+              .icon-size {
+                height: 1.1em;
+                width: 1.45em;
+                margin: auto .3em;
+                color: #F75C2F;
+              }
+              #user_password {
+                outline: none;
+                border: none;
+                box-shadow: 0 0 0 1000px white inset;
+                font-size: 1.1em;
+                width: 100%;
+              }
+              #btn_passview {
+                outline: none;
+                border: none;
+                background-color: transparent;
+                width: 5em;
+              }
+              .field_with_errors {
+                display: flex;
+                width: 100%;
+
+                #user_password {
+                  outline: none;
+                  border: none;
+                  box-shadow: 0 0 0 1000px white inset;
+                  font-size: 1.2em;
+                }
+              }
+            }
+            .signup-password-error {
+              display: flex;
+              .error-messages {
+                font-size: .8em;
+                color: red;
+              }
+            }
+          }
+          .signup-password-confirmation-form {
+            display: flex;
+            flex-direction: column;
+            height: 5.7em;
+
+            .signup-password-confirmation-info {
+              display: flex;
+              align-items: baseline;
+              height: 1.4em;
+
+              .signup-item-password-confirmation {
+                font-size: 1.1em;
+              }
+              .field_with_errors {
+                display: flex;
+                height: 1.4em;
+
+                .signup-item-password-confirmation {
+                  font-size: 1.1em;
+                }
+              }
+              .signup-item-mandatory {
+                font-size: 0.6em;
+                color: red;
+              }
+              .signup-item-info {
+                display: flex;
+                font-size: 0.6em;
+                margin-left: auto;
+              }
+            }
+            .signup-password-confirmation-input {
+              display: flex;
+              background-color: white;
+              padding: 0.3em;
+              border: 0.2em solid #B47157;
+              border-radius: 10px;
+
+              .icon-size {
+                height: 1.1em;
+                width: 1.1em;
+                margin: auto .3em;
+                color: #F75C2F;
+              }
+              #user_password_confirmation {
+                outline: none;
+                border: none;
+                box-shadow: 0 0 0 1000px white inset;
+                font-size: 1.1em;
+                width: 100%;
+              }
+              .field_with_errors {
+                width: 100%;
+                
+                #user_password_confirmation {
+                  outline: none;
+                  border: none;
+                  box-shadow: 0 0 0 1000px white inset;
+                  font-size: 1.2em;
+                }
+              }
+            }
+            .signup-password-confirmation-error {
+              display: flex;
+
+              .error-messages {
+                font-size: .8em;
+                color: red;
               }
             }
           }
         }
-        details {
-          margin-top: 5vh;
-          summary {
-            display: block;
-            text-align: center;
-            border-radius: 1em;
-            margin: 1vh 1vw;
-            padding: 1vh 1vw;
-            font-family: "游ゴシック体", $font_families;
-            background-color: #ffe0b6;
-            border-bottom: 5px solid #9E7A7A;
-            p {
-              margin: 0;
+        .signup-any-form {
+          display: none;
+          flex-direction: column;
+          justify-content: space-between;
+          animation: SlideIn 1.5s;
+          width: 22em;
+          @keyframes SlideIn {
+            0% {
+              opacity: 0;
+              transform: translateX(-30px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateX(0);
             }
           }
-          summary.lock {
-            margin-top: 3px;
-            color: #43341B;
-            background: #ffe0b6;
-            border-bottom: 2px solid #9E7A7A;
-          }
-          .profile-field {
-            margin-top: 3vh;
-            color: #0F2540;
-            .any-field {
-              text-align: center;
-              font-family: "游ゴシック体", $font_families;
-              .any-text {
+
+          .signup-avatar-img-form {
+            display: flex;
+            flex-direction: column;
+
+            .signup-avatar-img-info {
+              display: flex;
+              align-items: center;
+
+              .icon-size {
+                height: 1.1em;
+                width: 1.1em;
+                margin: auto .2em auto 0;
+              }
+              .signup-avatar-img-name {
                 display: flex;
-                align-items: flex-end;
-                .icon-img {
-                  height: auto;
-                  width: 5.5vw;
-                  margin-bottom: 0.6vh;
+                align-items: baseline;
+
+                .signup-avatar-img-title {
+                  font-size: 1.1em;
                 }
-                .title {
-                  margin: 0;
-                  font-size: 1.6em;
-                }
-                .any {
-                  margin: 0;
-                }
-                .count-info {
-                  p {
-                    margin: 0;
-                  }
-                }
-                .info {
-                  margin: 0;
-                  padding-top: 0.6vh;
-                }
-                span {
-                  display: flex;
-                  p {
-                    margin: 0;
-                  }
-                }
-                label {
-                  font-size: 1.6em;
-                }
-                select {
-                  margin-top: 2vh;
-                  margin-bottom: 4vh;
-                  margin-left: 5vw;
-                  
+                .signup-item-any {
+                  font-size: 0.6em;
                 }
               }
-              .any-in {
-                #file-list {
-                  .size {
-                    height: auto;
-                    width: 16vw;
-                    margin-top: 2.5vh;
-                    margin-bottom: 1.5vh;
-                  }
-                  ul {
-                    text-align: center;
-                    padding: 0;
-                    li {
-                      list-style: none;
-                      height: auto;
-                      margin-top: 2.5vh;
-                      margin-bottom: 1.5vh;
-                      img {
-                        border-radius: 50%;
-                        object-fit: cover;
-                      }
+            }
+            .signup-avatar-file {
+              display: flex;
+              height: 6em;
+              margin: .5em auto;
+
+              .signup-item-avatar-img {
+                display: flex;
+
+                .size {
+                  height: 6em;
+                  width: 6em;
+                  border: dashed #F75C2F;
+                  border-radius: 50%;
+                  padding: 1.5em;
+                }
+                ul {
+                  padding: 0%;
+                  margin: 0%;
+
+                  li {
+                    list-style: none;
+
+                    img {
+                      object-fit: cover;
+                      height: 6em;
+                      width: 6em;
+                      border-radius: 50%;
+                      border: solid #F75C2F;
                     }
                   }
                 }
-                .file-info {
-                  margin-bottom: 4vh;
-                  p {
-                    margin: 0;
-                  }
-                }
-                input {
-                  top: 10vh;
-                }
               }
-              .fill-in {
-                height: auto;
-                #any-input {
-                  width: 100%;
-                  height: 11vh;
-                  border: 0.4vh solid #B47157;
-                  font-size: 1.5em
-                }
+            }
+            .signup-avatar-img-input {
+              margin: 0 auto;
+            }
+            .signup-avatar-img-note {
+              display: flex;
+              flex-direction: column;
+              margin: 0 auto;
+
+              .signup-item-info {
+                font-size: 0.6em;
               }
             }
           }
-        }
-        details[open] .profile-field {
-          animation: fadeIn 0.5s ease;
-        }
-        @keyframes fadeIn {
-          0% {
-            opacity: 0;
-            transform: translateY(-10px);
+          .signup-industry-form {
+            display: flex;
+            flex-direction: column;
+            margin: 1em 0;
+
+            .signup-industry-info {
+              display: flex;
+              align-items: center;
+
+              .icon-size {
+                height: 1.1em;
+                width: 1.1em;
+                margin: auto .2em auto 0;
+              }
+              .signup-industry-name {
+                display: flex;
+                align-items: baseline;
+
+                .signup-item-industry {
+                  font-size: 1.1em;
+                }
+                .signup-item-any {
+                  font-size: 0.6em;
+                }
+              }
+            }
+            .signup-industry-input {
+              display: flex;
+              flex-direction: column;
+
+              #user_profile_attributes_industry {
+                display: flex;
+                margin: 1em auto; 
+                background-color: white;
+                padding: 0.3em;
+                border: 0.2em solid #B47157;
+                border-radius: 10px;
+              }
+            }
           }
-          100% {
-            opacity: 1;
-            transform: none;
+          .signup-self-introduction-form {
+            display: flex;
+            flex-direction: column;
+            height: 7.37em;
+
+            .signup-self-introduction-info {
+              display: flex;
+              align-items: baseline;
+              height: 1.4em;
+
+              .icon-size {
+                display: flex;
+                height: 1.1em;
+                width: 1.1em;
+                margin: auto .2em 0 0;
+               
+              }
+              .signup-item-self-introduction {
+                font-size: 1.1em;
+              }
+              .signup-item-any {
+                font-size: 0.6em;
+              }
+              .signup-item-info {
+                display: flex;
+                font-size: 0.6em;
+                margin-left: auto;
+      
+                #self-introduction-count {
+                  font-size: 0.6em;
+                  margin: auto;
+                }
+              }
+            }
+            .signup-self-introduction-input {
+              display: flex;
+              background-color: white;
+              padding: 0.3em;
+              border: 0.2em solid #B47157;
+              border-radius: 10px;
+
+              #self-introduction-input {
+                outline: none;
+                border: none;
+                box-shadow: 0 0 0 1000px white inset;
+                font-size: 1em;
+                width: 100%;
+              }
+            }
+            .signup-self-introduction-error {
+              display: flex;
+              
+              .error-messages {
+                font-size: .8em;
+                color: red;
+              }
+            }
           }
+        }  
+      }
+      .signup-any-form-check {
+        display: flex;
+        align-items: center;
+        margin: 0 auto 1em auto;
+
+        #check1 {
+          margin-right: .5em;
         }
+        .check-text {
+          color: #0F2540;
+        }
+      }
+      .signup-form-button {
+        display: flex;
+        margin: 0 auto;
+
         .signup-button {
-          text-align: center;
-          button {
-            border: 0;
-            margin-top: 5vh;
-            font-size: 1.5em;
-            background: #FFBA84;
-            border-radius: 1em;
-            padding: 1vh 25vw;
-            box-shadow: 0px 1px 0px 1.5px #64363C;
+          outline: none;
+          background-color: transparent;
+          border: 0.2em solid #F75C2F;
+          border-radius: 10px;
+          font-size: 1.3em;
+          color: #F75C2F;
+          padding: 0% 2em;
+          transition: .4s;
+          box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+          
+          &:hover {
+            color: white;
+            background-color: #F75C2F;
+            border-radius: 10px;
           }
         }
-        .signup-guest {
-          text-align: center;
-          margin: 5vh auto;
-          border-bottom: 0.25vh solid #F75C2F;
-          width: 60vw;
-          .guest-icon {
+      }
+      .other-link {
+        display: flex;
+        justify-content: space-around;
+        
+        .session-link {
+          .icon-size {
             color: #64363C;
           }
-          a {
-            text-decoration: none;
-            font-size: 1.5em;
-            span {
-              font-family: "游ゴシック体", $font_families;
-              color: #64363C;
-            }
+          .session-signin {
+            color: #0F2540;
+          }
+        }
+        .guest-link {
+          .icon-size {
+            color: #F75C2F;
+          }
+          .guest-signin {
+            color: #0F2540;
           }
         }
       }
     }
   }
-}
-
-
-@media screen and (min-width: $tbMin) and (max-width: $tbMax) {
-}
-@media screen and (min-width: $pcMin) {
 }

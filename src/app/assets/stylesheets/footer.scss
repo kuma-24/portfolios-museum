@@ -38,9 +38,12 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
     background-color: #FC9F4D;
     position: sticky;
     bottom: 0%;
+    margin-top: auto;
+
     .footer-logo {
       height: 4.5em;
       display: flex;
+
       .footer-name {
         margin: auto;
         color: #FFFFFB;

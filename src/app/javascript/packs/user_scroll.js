@@ -19,7 +19,7 @@
 
 {
   const logo = document.getElementById('logo');
-  const header = document.querySelector('.page-header');
+  const header = document.querySelector('.header-page');
   const logoSize = document.getElementById('logo-size')
   
   if (logo === null) {
