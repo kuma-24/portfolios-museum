@@ -109,4 +109,160 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
 @media screen and (min-width: $tbMin) and (max-width: $tbMax) {
 }
 @media screen and (min-width: $pcMin) {
+  .login-page {
+    font-size: calc(100vw / 96);
+    font-family: "游ゴシック体", $font_families;
+    display: flex;
+    flex-direction: column;
+    width: 60em;
+    height: 40em;
+    margin: auto;
+
+    .new_user {
+      display: flex;
+      flex-direction: column;
+      background-color: #FAD689;
+      height: 25em;
+      width: 45em;
+      margin: auto;
+      border: #FAD689 solid .25em;
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+      border-radius: 20px;
+
+      .login-page-title {
+        text-align: center;
+        color: #0F2540;
+        font-size: 1.5em;
+      }
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        width: 22em;
+        margin: 0 auto;
+        
+        .login-email-form {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 1.5em;
+
+          .login-email-info {
+            display: flex;
+            align-items: baseline;
+            height: 1.4em;
+
+            .login-email-name {
+              font-size: 1.1em;
+            }
+          }
+          .login-email-input {
+            display: flex;
+            background-color: white;
+            padding: 0.3em;
+            border: 0.2em solid #B47157;
+            border-radius: 10px;
+
+            .icon-size {
+              height: 1.1em;
+              width: 1.1em;
+              margin: auto .3em;
+              color: #64363C;
+            }
+            #user_email {
+              outline: none;
+              border: none;
+              box-shadow: 0 0 0 1000px white inset;
+              font-size: 1.1em;
+              width: 100%;
+            }
+          }
+        }
+        .login-password-form {
+          display: flex;
+          flex-direction: column;
+
+          .login-password-info {
+            display: flex;
+            align-items: baseline;
+            height: 1.4em;
+
+            .login-password-name {
+              font-size: 1.1em;
+            }
+          }
+          .login-password-input {
+            display: flex;
+            background-color: white;
+            padding: 0.3em;
+            border: 0.2em solid #B47157;
+            border-radius: 10px;
+            
+            .icon-size {
+              height: 1.1em;
+              width: 1.1em;
+              margin: auto .3em;
+              color: #64363C;
+            }
+            #user_password {
+              outline: none;
+              border: none;
+              box-shadow: 0 0 0 1000px white inset;
+              font-size: 1.1em;
+              width: 100%;
+            }
+          }
+        }
+      }
+      .login-form-button {
+        display: flex;
+        flex-direction: column;
+        height: 8em;
+        margin: 0% auto;
+
+        .login-button {
+          outline: none;
+          background-color: transparent;
+          border: 0.2em solid #64363C;
+          border-radius: 10px;
+          font-size: 1.3em;
+          color: #64363C;
+          width: 9em;
+          margin: 1.25em auto;
+          padding: 0% 2em;
+          transition: .4s;
+          box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+          &:hover {
+            color: white;
+            background-color: #64363C;
+            border-radius: 10px;
+          }
+        }
+        .error {
+          .error-messages {
+            color: red;
+          }
+        }
+      }
+      .other-link {
+        display: flex;
+        justify-content: space-around;
+
+        .registration-link {
+          .icon-size {
+            color: #F75C2F;
+          }
+          .registration-signup {
+            color: #0F2540;
+          }
+        }
+        .guest-link {
+          .icon-size {
+            color: #F75C2F;
+          }
+          .guest-signin {
+            color: #0F2540;
+          }
+        }
+      }
+    }
+  }
 }
