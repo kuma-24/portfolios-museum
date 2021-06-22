@@ -49,7 +49,7 @@ class PostsController < ApplicationController
     @posts_like_order = Post.includes(:user, :post_arbitrary).joins(:likes).group('likes.post_id').order('count(post_id) DESC')
   end
 
-  private 
+  private
 
     def post_params
       params.require(:post_form).permit(
