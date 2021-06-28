@@ -1,4 +1,10 @@
 version: '3'
+
+volumes: 
+  tmp-data:
+  public-data:
+
+
 services:
   db:
     image: mysql:8.0
@@ -8,6 +14,7 @@ services:
       - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf 
     environment:
       MYSQL_ROOT_PASSWORD: password
+
   web:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
@@ -21,3 +28,16 @@ services:
       - db
     stdin_open: true
     tty: true
+
+  nginx:
+    build:
+      context: ./src/nginx
+      dockerfile: Dockerfile
+    ports:
+        - 80:80
+    restart: always
+    volumes:
+      - tmp-data:/portfolios-museum/src/tmp/sockets
+      - public-data:/myproject/public
+    depends_on:
+      - web
