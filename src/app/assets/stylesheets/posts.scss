@@ -548,6 +548,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
 @media screen and (min-width: $pcMin) {
   .main-content {
     font-size: calc(100vw / 96);
+    
     .page-logo {
       position: absolute;
       object-fit: cover;
