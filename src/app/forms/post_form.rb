@@ -4,12 +4,14 @@ class PostForm
   attr_accessor :title, :category, :catchphrase, :servis_content, :evelopment_background, :user_id, :site_url, :thumbnail_img, :post_id
 
   with_options presence: true do
-    validates :title,                 presence: { message: 'タイトルを入力してください' }
-    validates :catchphrase,           presence: { message: 'キャッチフレーズを入力してください' }
-    validates :servis_content,        presence: { message: 'サービス内容を入力してください' }
-    validates :evelopment_background, presence: { message: '開発背景を入力してください' }
+    validates :title,                 presence: { message: 'タイトルを入力してください' }, length: { maximum: 50 }
+    validates :catchphrase,           presence: { message: 'キャッチフレーズを入力してください' }, length: { maximum: 50 }
+    validates :servis_content,        presence: { message: 'サービス内容を入力してください' }, length: { maximum: 500 }
+    validates :evelopment_background, presence: { message: '開発背景を入力してください' }, length: { maximum: 500 }
     validates :category,              presence: { message: 'カテゴリーを選択してください' }
   end
+
+  validates :site_url, length: { maximum: 100 }
 
   def save
     @post = Post.create(

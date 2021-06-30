@@ -31,12 +31,13 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
       }
     }
     .header-search-trigger {
-      font-family: "游ゴシック体", $font_families;
       display: flex;
       flex-direction: column;
+      text-decoration: none;
       align-items: center;
-      width: 4.5em;
+      font-family: "游ゴシック体", $font_families;
       margin-left: auto;
+      width: 4em;
 
       .icon-size {
         color: #E98B2A;
@@ -91,7 +92,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
     .header-user-signin {
       font-family: "游ゴシック体", $font_families;
       width: 4em;
-      margin: 0 1.5em;
+      margin: 0 1em;
       
       .header-signin-link {
         display: flex;
@@ -140,8 +141,8 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
     }
     .header-post-item {
       font-family: "游ゴシック体", $font_families;
-      width: 4.5em;
-      margin: 0 .5em;
+      width: 4em;
+      margin: 0 1em;
 
       .header-post-link {
         display: flex;
@@ -175,10 +176,10 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         height: 3em;
         width: 3em;
         border-radius: 50%;
-        border: solid #F75C2F;
+        border: solid .1em #F75C2F;
       }
       .header-user-menu {
-        width: 4.5em;
+        width: 4em;
         text-align: center;
         color: #0F2540;
       }
@@ -223,10 +224,12 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
       .header-signout-item {
         font-family: "游ゴシック体", $font_families;
         margin: 1.5em 2.5em 1.5em 2.5em;
+
         .header-signout-link {
           display: flex;
           align-items: center;
           text-decoration: none;
+
           .icon-size {
             color: #64363C;
             height: 1.7em;
@@ -261,8 +264,10 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
    
     .header-logo {
       margin-left: 5em;
+
       .header-logo-top {
         text-decoration: none;
+
         .header-app-name {
           font-family: 'Philosopher', $font_families;
           color: #64363C;
@@ -310,6 +315,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         flex-direction: column;
         align-items: center;
         text-decoration: none;
+        text-align: center;
 
         .icon-size {
           color: #64363C;
@@ -322,6 +328,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         }
         .header-signin {
           color: #0F2540;
+          width: 4em;
         }
       }
     }
@@ -334,6 +341,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         flex-direction: column;
         align-items: center;
         text-decoration: none;
+        text-align: center;
 
         .icon-size {
           color: #F75C2F;
@@ -346,6 +354,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         }
         .header-signup {
           color: #0F2540;
+          width: 4em;
         }
       }
     }
@@ -358,6 +367,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         flex-direction: column;
         align-items: center;
         text-decoration: none;
+        text-align: center;
 
         .icon-size {
           color: #C18A26;
@@ -370,6 +380,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         }
         .header-new-post {
           color: #0F2540;
+          width: 4em;
         }
       }
     }
@@ -383,13 +394,13 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
 
       .header-user-img {
         object-fit: cover;
-        height: 3.1em;
-        width: 3.1em;
+        height: 3em;
+        width: 3em;
         border-radius: 50%;
         border: solid #F75C2F;
       }
       .header-user-menu {
-        width: 4.5em;
+        width: 4em;
         text-align: center;
         color: #0F2540;
       }
