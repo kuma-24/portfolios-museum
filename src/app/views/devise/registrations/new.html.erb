@@ -115,11 +115,9 @@
           <div class='signup-self-introduction-form'>
             <div class='signup-self-introduction-info'>
               <i class="fas fa-address-card icon-size"></i>
-              
               <%= f.label :self_introduction, "自己紹介", class:'signup-item-self-introduction' %>
               <span class="signup-item-any">【任意】</span>
               <span class="signup-item-info">※150文字以下&#xFF08;現在：<p id="self-introduction-count">0</p>文字&#xFF09;</span>
-              
             </div>
             <div class='signup-self-introduction-input'>
               <%= f.text_area :self_introduction, id:"self-introduction-input", maxlength: 150 %>
