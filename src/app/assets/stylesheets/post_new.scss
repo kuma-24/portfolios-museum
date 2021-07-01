@@ -555,9 +555,8 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
       display: flex;
       flex-direction: column;
       background-color: #FAD689;
-      width: 80em;
+      width: 60em;
       margin: 1em auto;
-      align-items: center;
       border: #FAD689 solid .25em;
       box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
       border-radius: 20px;
@@ -571,7 +570,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         display: flex;
         flex-direction: column;
         height: 5em;
-        width: 75%;
+        margin: 0 2em;
 
         .post-catchphrase-info {
           display: flex;
@@ -638,14 +637,14 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         }
       }
       .post-main-section {
-        display: flex;        
-        width: 75%;
-        margin: 1em 0;
+        display: flex;     
+        justify-content: space-around;  
+        margin: .5em 2em; 
 
         .post-thumbnail-img-form {
           display: flex;
           flex-direction: column;
-          margin-left: 3em;
+          width: 25em;
     
           .post-thumbnail-img-info {
             display: flex;
@@ -667,6 +666,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           .post-thumbnail-img-file {
             display: flex;
             flex-direction: column;
+            margin: 0% auto;
 
             #thumbnail-img {
               display: flex;
@@ -716,13 +716,13 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           display: flex;
           flex-direction: column;
           justify-content: space-around;
+          width: 25em;
          
           .post-title-form {
             display: flex;
             flex-direction: column;
             height: 5em;
-            width: 85%;
-            margin: 0 3em 0 auto;
+            margin: 0% auto;
 
             .post-title-info {
               display: flex;
@@ -792,8 +792,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
             display: flex;
             flex-direction: column;
             height: 5em;
-            width: 85%;
-            margin: 0 3em 0 auto;
+            margin: 0% auto;
 
             .post-site-url-info {
               display: flex;
@@ -863,9 +862,6 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
             display: flex;
             flex-direction: column;
             height: 5em;
-            width: 85%;
-            margin: 0 3em 0 auto;
-            
 
             .post-category-info {
               display: flex;
@@ -930,7 +926,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         display: flex;
         flex-direction: column;
         height: 11em;
-        width: 75%;
+        margin: 0 2em;
 
         .post-servis-content-info {
           display: flex;
@@ -1001,7 +997,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         display: flex;
         flex-direction: column;
         height: 11em;
-        width: 75%;
+        margin: 0 2em;
 
         .post-evelopment-background-info {
           display: flex;
@@ -1069,6 +1065,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
       }
       .post-form-button {
         margin: 1em auto;
+
         .post-button {
           outline: none;
           background-color: transparent;

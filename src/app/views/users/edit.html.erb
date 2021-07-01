@@ -1,110 +1,114 @@
-<section class="user-edit">
+<section class="userEdit-page">
   <%= form_with model: @user, local: true do |f| %>
     <%= f.fields_for :profile do |i| %>
-      <h1>アカウント編集</h1>
+      <h1 class='userEdit-page-title'>アカウント編集</h1>
 
-      <div class="name-edit">
-        <div class="name-field">
-          <%= f.label :name %>
-          <div class="count-info">
-            <span>※15文字以下&#xFF08;現在：<p id="name-count">0</p>文字&#xFF09;</span>
+      <div class='userEdit-input-forms'>
+        <div class='userEdit-name-email-industry-area'>
+          <div class='userEdit-name-form'>
+            <div class='userEdit-name-info'>
+              <i class="fas fa-user-edit icon-size"></i>
+              <%= f.label :name, class:'userEdit-item-name' %>
+              <span class="userEdit-item-info">※50文字以下&#xFF08;現在：<span class="limit-count">0</span>文字&#xFF09;</span>
+            </div>
+            <div class='userEdit-name-input'>
+              <%= f.text_field :name, class:"limit-text", autofocus: true, autocomplete: "name", maxlength: 50 %>
+            </div>
+            <div class='userEdit-name-error'>
+              <% if @user.errors.include?(:name) %> 
+                <span class="error-messages">※<%= @user.errors.full_messages_for(:name).first %></span>
+              <% end %>
+            </div>
+          </div>
+
+          <div class='userEdit-email-form'>
+            <div class='userEdit-email-info'>
+              <i class="fas fa-envelope icon-size"></i>
+              <%= f.label :email, class:'userEdit-item-email' %>
+              <span class='userEdit-item-info'>※有効例：sample@sample.com</span>
+            </div>
+            <div class='userEdit-email-input'>
+              <%= f.email_field :email, class:'userEdit-email-text', autofocus: true, autocomplete: "email" %>
+            </div>
+            <div class='userEdit-email-error'>
+              <% if @user.errors.include?(:email) %> 
+                <span class="error-messages">※<%= @user.errors.full_messages_for(:email).first %></span>
+              <% end %>
+            </div>
+          </div>
+
+          <div class='userEdit-industry-form'>
+            <div class='userEdit-industry-info'>
+              <i class="fas fa-id-card-alt icon-size"></i>
+              <%= i.label :industry, "職種", class:'userEdit-item-industry' %>
+            </div>
+            <div class='userEdit-industry-input'>
+              <%= i.select :industry, industry_box(), { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+            </div>
           </div>
         </div>
-        <div class="edit-input">
-          <div class="edit-text">
-            <i class="fas fa-user-edit edit-icon"></i>
-            <%= f.text_field :name, id:"name-input", autofocus: true, autocomplete: "name", maxlength: 15 %>
+
+        <div class='userEdit-avatarImg-area'>
+          <div class='userEdit-avatarImg-form'>
+            <div class='userEdit-avatarImg-info'>
+              <i class="fas fa-user-circle icon-size"></i>
+              <span class="userEdit-avatarImg-title">ユーザーアイコン</span>
+            </div>
+            <%= i.label :avatar_img,class:'userEdit-item-avatarImg', id:"file-list" do %>
+              <i class="fas fa-camera-retro size"></i>
+            <% end %>
+            <div class='userEdit-avatarImg-input'>
+              <%= i.file_field :avatar_img %>
+            </div>
+            <div class='userEdit-avatarImg-note'>
+              <span class="userEdit-item-info">※自動でリサイズされます。</span>
+              <span class="userEdit-item-info">※特になければデフォルト画像が適応されます。</span>
+            </div>
           </div>
-          <% if @user.errors.include?(:name) %> 
-            <p class="error-messages">※<%= @user.errors.full_messages_for(:name).first %></p>
-          <% end %>
         </div>
       </div>
 
-      <div class="email-edit">
-        <div class="email-field">
-          <%= f.label :email %>
-          <div class="text-info">
-            <p class="info">※有効なアドレス</p>
-            <p class="info-address">例：sample@sample.com</p>
-          </div>
+      <div class='userEdit-selfIntroduction-form'>
+        <div class='userEdit-selfIntroduction-info'>
+          <i class="fas fa-address-card icon-size"></i>
+          <%= i.label :self_introduction, "自己紹介",class:'userEdit-item-selfIntroduction' %>
+          <span class="userEdit-item-info">※150文字以下&#xFF08;現在：<span class="limit-count">0</span>文字&#xFF09;</span>
         </div>
-        <div class="edit-input">
-          <div class="edit-text">
-            <i class="fas fa-envelope edit-icon"></i>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
-          <% if @user.errors.include?(:email) %> 
-            <p class="error-messages">※<%= @user.errors.full_messages_for(:email).first %></p>
-          <% end %>
+        <div class='userEdit-selfIntroduction-input'>
+          <%= i.text_area :self_introduction, class:"limit-text", autofocus: true, maxlength: 150 %>
         </div>
-      </div>
-
-      <div class="icon-edit">
-        <div class="edit-title">
-          <i class="fas fa-image title-img"></i>
-          <p>ユーザーアイコン</p>
-        </div>
-        <div class="icon-input">
-          <%= i.label :avatar_img, id:"file-list" do %>
-            <i class="fas fa-camera-retro size"></i>
-          <% end %>
-          <div class="file-info">
-            <%= i.file_field :avatar_img %>
-            <p class="info">※自動でリサイズされます。</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="introduction-edit">
-        <div class="introduction-field">
-          <div class="edit-text">
-            <i class="fas fa-address-card title-img"></i>
-            <%= i.label :self_introduction, "自己紹介" %>
-          </div>
-          <div class="count-info">
-            <span>※150文字以下&#xFF08;現在：<p id="introduction-count">0</p>文字&#xFF09;</span>
-          </div>
-        </div>
-        <div class="edit-input">
-          <%= i.text_area :self_introduction, id:"introduction-input", autofocus: true, maxlength: 150 %>
+        <div class='userEdit-selfIntroduction-error'>
           <% if @user.profile.errors.include?(:self_introduction) %> 
-            <p class="error-messages">※<%= @user.profile.errors.messages_for(:self_introduction).first %></p>
+            <span class="error-messages">※<%= @user.profile.errors.messages_for(:self_introduction).first %></span>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="userEdit-form-button">
+        <% if @user.email == 'guest@example.com' %>
+          <p>申し訳ありません、ゲストユーザーの更新・退会はできません。</p>
+        <% else %>
+          <%= f.button "更新", type: 'button', onclick: 'submit();', class:'userEdit-button' %>
+        <% end %>
+      </div>
+
+      <div class='userEdit-action-button'>
+        <div class='userEdit-back-button'>
+          <% if @user.email == 'guest@example.com' %>
+            <i class="fas fa-angle-left icon-size"></i>
+            <%= link_to "戻る", { controller: 'users', action: 'show' }, method: :get, class:'userEdit-back' %>
+          <% else %>
+            <i class="fas fa-angle-left icon-size"></i>
+            <%= link_to "戻る", { controller: 'users', action: 'show' }, method: :get, class:'userEdit-back', data: { confirm: "変更が反映されませんがよろしいですか？" } %>
+          <% end %>
+        </div>
+        <div class='userEdit-destroy-button'>
+          <% unless @user.email == 'guest@example.com' %>
+            <%= link_to "退会", user_path(current_user.id), class: "userEdit-destroy", method: :delete, data: { confirm: "本当に退会しますか？" } %>
           <% end %>
         </div>
       </div>
     <% end %>
-
-    <div class="button-edit">
-      <% if @user.email == 'guest@example.com' %>
-        <p>申し訳ありません、ゲストユーザーの更新・退会はできません。</p>
-      <% else %>
-        <%= f.button "更新", type: 'button', onclick: 'submit();', class:'edit-button' %>
-      <% end %>
-    </div>
   <% end %>
-
-    <div class="button-action">
-      <% if @user.email == 'guest@example.com' %>
-        <%= link_to "戻る", { controller: 'users', action: 'show' }, method: :get, class:'back-button' %>
-      <% else %>
-        <%= link_to "戻る", { controller: 'users', action: 'show' }, method: :get, class:'back-button', data: { confirm: "変更が反映されませんがよろしいですか？" } %>
-      <% end %>
-      <% unless @user.email == 'guest@example.com' %>
-        <%= link_to "退会", user_path(current_user.id), class: "destroy-user", method: :delete, data: { confirm: "本当に退会しますか？" } %>
-      <% end %>
-    </div>
-
-    <%= javascript_pack_tag "user_edit.js" %>
+  <%= javascript_pack_tag "user_edit.js" %>
 </section>
-
-
-
-
-
-
-  <%# <% if @user.email == 'guest@example.com' %>
-    <%# <p>おはようございます</p> %>
-  <%# <% end %> 
-
-

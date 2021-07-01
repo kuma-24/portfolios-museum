@@ -45,11 +45,12 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         height: 3em;
         width: 3em;
         padding: .65em;
-        border: .1em solid #E98B2A;
+        border: solid #E98B2A;
         border-radius: 50%;
       }
       .header-search-name {
         color: #0F2540;
+        font-size: .8em;
       }
     }
 
@@ -106,11 +107,12 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           height: 3em;
           width: 3em;
           padding: .65em;
-          border: .1em solid #64363C;
+          border: solid #64363C;
           border-radius: 50%;
         }
         .header-signin {
           color: #0F2540;
+          font-size: .8em;
         }
       }
     }
@@ -131,11 +133,12 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           height: 3em;
           width: 3em;
           padding: .65em;
-          border: .1em solid #F75C2F;
+          border: solid #F75C2F;
           border-radius: 50%;
         }
         .header-signup {
           color: #0F2540;
+          font-size: .8em;
         }
       }
     }
@@ -156,11 +159,12 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           height: 3em;
           width: 3em;
           padding: .65em;
-          border: .1em solid #C18A26;
+          border: solid #C18A26;
           border-radius: 50%;
         }
         .header-new-post {
           color: #0F2540;
+          font-size: .8em;
         }
       }
     }
@@ -170,18 +174,19 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
       align-items: center;
       font-family: "游ゴシック体", $font_families;
       margin-right: 1em;
+      width: 4em;
 
       .header-user-img {
         object-fit: cover;
         height: 3em;
         width: 3em;
         border-radius: 50%;
-        border: solid .1em #F75C2F;
+        border: solid #F75C2F;
       }
       .header-user-menu {
-        width: 4em;
         text-align: center;
         color: #0F2540;
+        font-size: .8em;
       }
     }
     .header-user-nav {
@@ -323,7 +328,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           height: 3em;
           width: 3em;
           padding: .65em;
-          border: .1em solid #64363C;
+          border: solid #64363C;
           border-radius: 50%;
         }
         .header-signin {
@@ -349,7 +354,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           height: 3em;
           width: 3em;
           padding: .65em;
-          border: .1em solid #F75C2F;
+          border: solid #F75C2F;
           border-radius: 50%;
         }
         .header-signup {
@@ -375,7 +380,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           height: 3em;
           width: 3em;
           padding: .65em;
-          border: .1em solid #C18A26;
+          border: solid #C18A26;
           border-radius: 50%;
         }
         .header-new-post {

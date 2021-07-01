@@ -23,7 +23,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile
 
   with_options presence: true do
-    validates :name, length: { maximum: 15 }
+    validates :name, length: { maximum: 50 }
     validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
     validates :password, length: { minimum: 6 }, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }, on: :create
   end
