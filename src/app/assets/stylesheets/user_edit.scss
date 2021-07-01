@@ -1,0 +1,406 @@
+$spMax: 519px;
+$spMin: 320px;
+$tbMax: 1024px;
+$tbMin: 520px;
+$pcMin: 1025px;
+$font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+
+
+@media screen and (min-width: $spMin) and (max-width: $spMax) {
+  .userEdit-page {
+    font-size: calc(100vw / 96);
+  }
+}
+
+@media screen and (min-width: $tbMin) and (max-width: $tbMax) {
+  .userEdit-page {
+    font-size: calc(100vw / 52);
+  }
+}
+
+@media screen and (min-width: $pcMin) {
+  .userEdit-page {
+    font-size: calc(100vw / 96);
+    font-family: "游ゴシック体", $font_families;
+    display: flex;
+    flex-direction: column;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      background-color: #FAD689;
+      margin: 1em auto;
+      border: #FAD689 solid .25em;
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+      border-radius: 20px;
+
+      .userEdit-page-title {
+        color: #0F2540;
+        font-size: 1.5em;
+        margin: 1em auto;
+      }
+      .userEdit-input-forms {
+        display: flex;
+        
+        .userEdit-name-email-industry-area {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 25em;
+  
+          .userEdit-name-form {
+            display: flex;
+            flex-direction: column;
+            height: 5.3em;
+            margin: 0 2em;
+            
+            .userEdit-name-info {
+              display: flex;
+              align-items: baseline;
+              height: 1.4em;
+              
+              .icon-size {
+                color: #F75C2F;
+                height: 0.9em;
+                width: 0.9em;
+                margin-right: .2em;
+              }
+              .userEdit-item-name {
+                font-size: 1.1em;
+              }
+              .userEdit-item-info {
+                display: flex;
+                font-size: 0.6em;
+                margin-left: auto;
+              }
+              .field_with_errors {
+                display: flex;
+                height: 1.4em;
+                
+                .userEdit-item-name {
+                  font-size: 1.1em;
+                }
+              }
+            }
+            .userEdit-name-input {
+              display: flex;
+              background-color: white;
+              padding: 0.3em;
+              border: 0.2em solid #B47157;
+              border-radius: 10px;
+              
+              .limit-text {
+                outline: none;
+                border: none;
+                box-shadow: 0 0 0 1000px white inset;
+                font-size: 1.1em;
+                width: 100%;
+              }
+              .field_with_errors {
+                display: flex;
+                
+                .limit-text {
+                  outline: none;
+                  border: none;
+                  box-shadow: 0 0 0 1000px white inset;
+                  font-size: 1.1em;
+                }
+              }
+            }
+            .userEdit-name-error {
+              display: flex;
+              
+              .error-messages {
+                font-size: .8em;
+                color: red;
+              }
+            }
+          }
+          .userEdit-email-form {
+            display: flex;
+            flex-direction: column;
+            height: 5.3em;
+            margin: 0 2em;
+            
+            .userEdit-email-info {
+              display: flex;
+              align-items: baseline;
+              height: 1.4em;
+              
+              .icon-size {
+                color: #F75C2F;
+                height: 0.9em;
+                width: 0.9em;
+                margin-right: .2em;
+              }
+              .userEdit-item-email {
+                font-size: 1.1em;
+              }
+              .userEdit-item-info {
+                display: flex;
+                font-size: 0.6em;
+                margin-left: auto;
+              }
+              .field_with_errors {
+                display: flex;
+                height: 1.4em;
+                
+                .userEdit-item-email {
+                  font-size: 1.1em;
+                }
+              }
+            }
+            .userEdit-email-input {
+              display: flex;
+              background-color: white;
+              padding: 0.3em;
+              border: 0.2em solid #B47157;
+              border-radius: 10px;
+              
+              .userEdit-email-text {
+                outline: none;
+                border: none;
+                box-shadow: 0 0 0 1000px white inset;
+                font-size: 1.1em;
+              }
+              .field_with_errors {
+                display: flex;
+                
+                .userEdit-email-text {
+                  outline: none;
+                  border: none;
+                  box-shadow: 0 0 0 1000px white inset;
+                  font-size: 1.1em;
+                }
+              }
+            }
+            .userEdit-email-error {
+              display: flex;
+              
+              .error-messages {
+                font-size: .8em;
+                color: red;
+              }
+            }
+          }
+          .userEdit-industry-form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            margin-left: 2em;
+            
+            .userEdit-industry-info {
+              display: flex;
+              align-items: baseline;
+              height: 1.4em;
+              
+              .icon-size {
+                color: #F75C2F;
+                height: 0.9em;
+                width: 0.9em;
+                margin-right: .2em;
+              }
+              .userEdit-item-industry {
+                font-size: 1.1em;
+              }
+            }
+            .userEdit-industry-input {
+              display: flex;
+              flex-direction: column;
+              
+              .form-control {
+                display: flex;
+                background-color: white;
+                padding: 0.3em;
+                border: .25em solid #B47157;
+                border-radius: 10px;
+              }
+            }
+          }
+        }
+        .userEdit-avatarImg-area {
+          display: flex;
+          flex-direction: column;
+          width: 25em;
+          
+          .userEdit-avatarImg-form {
+            display: flex;
+            flex-direction: column;
+            margin: 0 2em;
+    
+            .userEdit-avatarImg-info {
+              display: flex;
+              align-items: center;
+              height: 1.4em;
+    
+              .icon-size {
+                color: #F75C2F;
+                height: 0.9em;
+                width: 0.9em;
+                margin-right: .2em;
+              }
+              .userEdit-avatarImg-title {
+                font-size: 1.1em;
+              }
+            }
+            .userEdit-item-avatarImg {
+              display: flex;
+              margin: 1.5em auto;
+
+              .size {
+                height: 6em;
+                width: 6em;
+                border: dashed #F75C2F;
+                border-radius: 50%;
+                padding: 1.5em;
+              }
+              ul {
+                padding: 0%;
+                margin: 0%;
+    
+                li {
+                  list-style: none;
+    
+                  img {
+                    object-fit: cover;
+                    height: 6em;
+                    width: 6em;
+                    border-radius: 50%;
+                    border: solid #F75C2F;
+                  }
+                }
+              }
+            }
+            .userEdit-avatarImg-input {
+              display: flex;
+
+              #user_profile_attributes_avatar_img {
+                margin: 0 auto;
+              }
+            }
+            .userEdit-avatarImg-note {
+              display: flex;
+              flex-direction: column;
+              margin: 0 auto;
+    
+              .userEdit-item-info {
+                font-size: 0.6em;
+              }
+            }
+          }
+        }
+      }
+      .userEdit-selfIntroduction-form {
+        display: flex;
+        flex-direction: column;
+        margin: 1.5em 2em 0 2em;
+
+        .userEdit-selfIntroduction-info {
+          display: flex;
+          align-items: baseline;
+          height: 1.4em;
+
+          .icon-size {
+            color: #F75C2F;
+            height: 0.9em;
+            width: 0.9em;
+            margin-right: .2em;
+          }
+          .userEdit-item-selfIntroduction {
+            font-size: 1.1em;
+          }
+          .userEdit-item-info {
+            display: flex;
+            font-size: 0.6em;
+            margin-left: auto;
+          }
+        }
+        .userEdit-selfIntroduction-input {
+          display: flex;
+          background-color: white;
+          padding: 0.3em;
+          border: 0.2em solid #B47157;
+          border-radius: 10px;
+          height: 7em;
+
+          .limit-text {
+            outline: none;
+            border: none;
+            box-shadow: 0 0 0 1000px white inset;
+            font-size: 1em;
+            width: 100%;
+          }
+          .field_with_errors {
+            display: flex;
+
+            .limit-text {
+              outline: none;
+              border: none;
+              box-shadow: 0 0 0 1000px white inset;
+              font-size: 1em;
+              width: 100%;
+            }
+          }
+        }
+        .userEdit-selfIntroduction-error {
+          display: flex;
+
+          .error-messages {
+            font-size: .8em;
+            color: red;
+          }
+        }
+      }
+      .userEdit-form-button {
+        display: flex;
+        margin: 1.5em auto;
+
+        .userEdit-button {
+          outline: none;
+          background-color: transparent;
+          border: 0.2em solid #F75C2F;
+          border-radius: 10px;
+          font-size: 1.3em;
+          color: #F75C2F;
+          padding: 0% 2em;
+          transition: .4s;
+          box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+
+          &:hover {
+            color: white;
+            background-color: #F75C2F;
+            border-radius: 10px;
+          }
+        }
+      }
+      .userEdit-action-button {
+        display: flex;
+        align-items: center;
+        margin: 1em 0;
+
+        .userEdit-back-button {
+          display: flex;
+          margin: 0 auto 0 2em;
+
+          .icon-size {
+            color: #0F2540;
+            margin: auto .2em auto 0;
+          }
+          .userEdit-back {
+            text-decoration: none;
+            color: #0F2540;
+          }
+        }
+        .userEdit-destroy-button {
+          display: flex;
+          margin: 0 2em 0 auto;
+
+          .userEdit-destroy {
+            text-decoration: none;
+            color: #77969A;
+          }
+        }
+      }
+    }
+  }
+}

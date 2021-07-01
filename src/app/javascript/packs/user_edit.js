@@ -1,23 +1,17 @@
 'use strict';
 
 {
-  let name_input = document.getElementById("name-input");
-  let name_count = document.getElementById("name-count");
-  
-  name_count.textContent = name_input.value.length;
+  const input = document.getElementsByClassName("limit-text");
+  const count = document.getElementsByClassName("limit-count");
 
-  name_input.addEventListener("keyup", function() {
-    name_count.textContent = name_input.value.length;
-  });
-
-  let introduction_input = document.getElementById("introduction-input");
-  let introduction_count = document.getElementById("introduction-count");
-
-  introduction_count.textContent = introduction_input.value.length;
-
-  introduction_input.addEventListener("keyup", function () {
-    introduction_count.textContent = introduction_input.value.length;
-  });
+  for (let i = 0, j = 0; i < input.length, j < count.length; i++, j++) {
+    count[j].textContent = input[i].value.length;
+    
+    input[i].addEventListener('keyup', () => {
+      let inputText = input[i].value.length;
+      count[j].innerHTML = inputText;
+    })
+  }
 }
 
 {
