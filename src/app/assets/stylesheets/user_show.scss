@@ -1,0 +1,247 @@
+$spMax: 519px;
+$spMin: 320px;
+$tbMax: 1024px;
+$tbMin: 520px;
+$pcMin: 1025px;
+$font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+
+@media screen and (min-width: $spMin) and (max-width: $spMax) {
+  .userShow-page {
+    font-size: calc(100vw / 32);
+  }
+}
+
+@media screen and (min-width: $tbMin) and (max-width: $tbMax) {
+  .userShow-page {
+    font-size: calc(100vw / 52);
+  }
+}
+
+@media screen and (min-width: $pcMin) {
+  .userShow-page {
+    font-size: calc(100vw / 96);
+    font-family: "游ゴシック体", $font_families;
+    display: flex;
+
+    .userShow-profileArea-title {
+      color: #0F2540;
+      font-size: 1.5em;
+      margin: 1em auto;
+    }
+
+    .userShow-profile-area {
+      display: flex;
+      flex-direction: column;
+      background-color: #FAD689;
+      margin: 1em auto 1em 8em;
+      height: fit-content;
+      width: 30%;
+      border: #FAD689 solid .25em;
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+      border-radius: 20px;
+      position: sticky;
+      top: 6.7em;
+
+      .userShow-avatarImg-info {
+        display: flex;
+        margin: 0 auto;
+
+        img {
+          object-fit: cover;
+          height: 10em;
+          width: 10em;
+          border-radius: 50%;
+          border: solid #F75C2F;
+        }
+      }
+      .userShow-name-info {
+        display: flex;
+        margin: 1em auto;
+
+        .userShow-name {
+          font-size: 1.3em;
+          color: #0F2540;
+        }
+      }
+      .userShow-industry-info {
+        display: flex;
+        margin: 0 auto;
+
+        .userShow-industry {
+          text-align: center;
+          font-size: .9em;
+          color: #565656;
+          padding: .1em 3em;
+          background: #ffeaea;
+          border: dashed 0.2em #ffc3c3;
+          border-radius: 8px;
+          box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+        }
+      }
+      .userShow-selfIntroduction-info {
+        display: flex;
+        margin: 2em 2em;
+      }
+      .userShow-edit-link {
+        margin: 0 auto 1em auto;
+        text-decoration: none;
+
+        .userShow-edit-linkText {
+          border: 0.2em solid #565656;
+          border-radius: 10px;
+          font-size: 1em;
+          color: #565656;
+          padding: .5em 1em;
+          transition: .4s;
+          box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+
+          &:hover {
+            color: white;
+            background-color: #565656;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+    .userShow-post-area {
+      display: flex;
+      flex-direction: column;
+      background-color: #FAD689;
+      margin: 1em 8em 1em 4em;
+      padding: 0 0 2em 0;
+      height: fit-content;
+      width: 70%;
+      border: #FAD689 solid .25em;
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+      border-radius: 20px;
+
+      .userShow-postArea-title {
+        color: #0F2540;
+        font-size: 1.5em;
+        margin: 1em auto;
+      }
+      .userShow-post-content {
+        display: flex;
+        flex-direction: column;
+        padding: 2em 0;
+        border-top: #EFBB24 solid .05em;
+        border-bottom: #EFBB24 solid .025em;
+
+
+        .userShow-post-firstInformation {
+          display: flex;
+          margin: 0 2em;
+
+          .userShow-post-img-main {
+            display: flex;
+            width: 50%;
+
+            .userShow-post-thumbnailImg {
+              object-fit: cover;
+              height: 10em;
+              width: 23em;
+              border-radius: 5px;
+              border: solid #C18A26;
+            }
+          }
+          .userShow-post-other-sub {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+
+            .userShow-post-createTime {
+              margin-left: auto;
+            }
+            .userShow-post-title-content {
+              display: flex;
+              flex-direction: column;
+
+              .userShow-post-title-info {
+                display: flex;
+                align-items: center;
+                
+                .icon-size {
+                  color: #C18A26;
+                }
+                .userShow-post-title-text {
+                  text-decoration: underline;
+                  text-decoration-color: #C18A26;
+                }
+              }
+              .userShow-post-title {
+                font-size: 1.3em;
+                margin: .2em auto;
+              }
+            }
+            .userShow-post-category-content {
+              display: flex;
+              flex-direction: column;
+
+              .userShow-post-category-info {
+                display: flex;
+                align-items: center;
+
+                .icon-size {
+                  color: #C18A26;
+                }
+                .userShow-post-category-text {
+                  text-decoration: underline;
+                  text-decoration-color: #C18A26;
+                }
+              }
+              .userShow-post-category {
+                font-size: 1em;
+                color: #565656;
+                padding: .1em 3em;
+                background: #ffeaea;
+                border: dashed 0.2em #ffc3c3;
+                border-radius: 8px;
+                box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+                margin: .2em auto;
+              }
+            }
+          }
+        }
+        .userShow-post-secondInformation {
+          margin: 1em 2em 0 2em;
+
+          .userShow-post-servisContent-content {
+            display: flex;
+            flex-direction: column;
+
+            .userShow-post-servisContent-info {
+              display: flex;
+              align-items: center;
+
+              .icon-size {
+                color: #C18A26;
+              }
+              .userShow-post-servisContent-text {
+                text-decoration: underline;
+                text-decoration-color: #C18A26;
+              }
+            }
+            .userShow-post-servisContent-like {
+              display: flex;
+
+              .userShow-post-servisContent {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                width: 85%;
+                margin: .5em 1em 0 1em;
+              }
+              button {
+                width: 10%;
+                margin-right: 0;
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
