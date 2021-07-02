@@ -7,9 +7,15 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
 
 
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
+  .signup-page {
+    font-size: calc(100vw / 32);
+  }
 }
 
 @media screen and (min-width: $tbMin) and (max-width: $tbMax) {
+  .signup-page {
+    font-size: calc(100vw / 52);
+  }
 }
 
 @media screen and (min-width: $pcMin) {

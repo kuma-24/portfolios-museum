@@ -251,7 +251,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
 }
 
 @media screen and (min-width: $tbMin) and (max-width: $tbMax) {
-  .page-header {
+  .header-page {
     font-size: calc(100vw / 52);
   }
 }

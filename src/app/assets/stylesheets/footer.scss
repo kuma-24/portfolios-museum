@@ -27,9 +27,10 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
   }
 }
   
-
 @media screen and (min-width: $tbMin) and (max-width: $tbMax) {
-
+  .footer-page {
+    font-size: calc(100vw / 52);
+  }
 }
 
 @media screen and (min-width: $pcMin) {
