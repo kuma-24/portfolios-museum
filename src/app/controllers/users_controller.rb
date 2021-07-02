@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.includes(:profile).find(params[:id])
-    @posts = @user.posts.includes(:likes)
+    @posts = @user.posts.includes(:user, :likes, :post_arbitrary).order(created_at: :desc)
   end
 
   def edit

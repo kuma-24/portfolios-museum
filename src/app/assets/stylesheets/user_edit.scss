@@ -8,7 +8,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
 
 @media screen and (min-width: $spMin) and (max-width: $spMax) {
   .userEdit-page {
-    font-size: calc(100vw / 96);
+    font-size: calc(100vw / 32);
   }
 }
 

@@ -11,7 +11,11 @@ class PostForm
     validates :category,              presence: { message: 'カテゴリーを選択してください' }
   end
 
-  validates :site_url, length: { maximum: 100 }
+  with_options allow_blank: true do
+    validates :site_url,
+              length: { maximum: 100, message: '100文字以下で入力してください' },
+              format: { with: /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/, message: 'http/httpsの形式で入力してください' }
+  end
 
   def save
     @post = Post.create(
