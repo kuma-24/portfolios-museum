@@ -8,26 +8,29 @@
         <%= image_tag("/assets/guest_img.jpg") %>
       <% end %>
     </div>
-
     <div class='userShow-name-info'>
       <span class='userShow-name'><%= @user.name %></span>
     </div>
-
     <div class='userShow-industry-info'>
-      <span class='userShow-industry'><%= @user.profile.industry %></span>
+      <% if @user.profile.industry? %>
+        <span class='userShow-industry'><%= @user.profile.industry %></span>
+      <% else %>
+        <span class='userShow-industry'>その他</span>
+      <% end %>
     </div>
-
     <div class='userShow-selfIntroduction-info'>
-      <span class='userShow-selfIntroduction'><%= @user.profile.self_introduction %></span>
+      <% if @user.profile.self_introduction? %>
+        <span class='userShow-selfIntroduction'><%= @user.profile.self_introduction %></span>
+      <% else %>
+        <span class='userShow-selfIntroduction'>よろしくお願いします。</span>
+      <% end %>
     </div>
-
-    <% if @user.id == current_user.id %>
+    <% if user_signed_in? && @user.id == current_user.id %>
       <%= link_to edit_user_path(@user), class:'userShow-edit-link' do %>
         <span class='userShow-edit-linkText'>アカウント編集</span>
       <% end %>
     <% end %>
   </div>
-
   <div class='userShow-post-area'>
     <h2 class='userShow-postArea-title'><%= @user.name %>さんの制作一覧</h2>
     <% @posts.map do |post| %>
@@ -42,7 +45,6 @@
               <% end %>
             <% end %>
           </div>
-
           <div class='userShow-post-other-sub'>
             <span class='userShow-post-createTime'><%= simple_time(post.created_at) %></span>
             <div class='userShow-post-title-content'>
@@ -61,7 +63,6 @@
             </div>
           </div>
         </div>
-
         <div class='userShow-post-secondInformation'>
           <div class='userShow-post-servisContent-content'>
             <div class='userShow-post-servisContent-info'>

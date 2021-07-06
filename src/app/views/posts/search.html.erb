@@ -1,27 +1,92 @@
-<section class="main-content">
-  <div class="page-logo" id="logo" >
-    <img src="/assets/page_logo.jpg" art="本のロゴ" id="logo-size">
-    <%# <h1>portfolios~museum</h1> %>
+<section class="postIndex-page">
+  <div class="postIndex-page-logo">
+    <img src="/assets/page_logo.jpg" art="本のロゴ" class='page-logo-img' id="page-logo-size">
   </div>
-
-  <div class="post-contents">
-    <article class="post-main">
-      <%= render partial: 'posts/article' %> 
-      <%= paginate @posts %>
-    </article>
-
-    <aside class="aside-content">
-      <%= render partial: "searches/post_category" %>
-      <%= render partial: "searches/post_like_order", locals: { post: @posts_like_order } %>
-      <%= render partial: "searches/post_create_order", locals: { post: @posts_create_order } %>
-    </aside>
-  </div>
-
-  <div class="page-top">
-    <a href="#">
-      <i class="fas fa-arrow-up icon-size"></i>
-    </a>
+  <div class='postIndex-main-content'>
+    <div class='postIndex-article-area'>
+      <h1 class='postIndex-posts-areaTitle'>作品投稿一覧</h1>
+      <% if @posts.present? %>
+        <% @posts.map do |post| %>
+          <div class='postIndex-posts-content'>
+            <div class='postIndex-posts-firstInformation'>
+              <div class='postIndex-posts-img-main'>
+                <%= link_to post_path(post.id), { class:'postIndex-postShow-link' } do %>
+                  <% if post.post_arbitrary.thumbnail_img? %>
+                    <%= image_tag(post.post_arbitrary.thumbnail_img.url, class:'postIndex-posts-thumbnailImg') %>
+                  <% else %>
+                    <%= image_tag("/assets/no_img.jpg", class:'postIndex-posts-thumbnailImg') %>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class='postIndex-posts-other-sub'>
+                <div class='postIndex-posts-title-content'>
+                  <div class='postIndex-posts-title-info'>
+                    <i class="fas fa-pencil-alt icon-size"></i>
+                    <span class='postIndex-posts-title-text'>タイトル</span>
+                  </div>
+                  <span class='postIndex-posts-title'><%= post.title %></span>
+                </div>
+                <div class='postIndex-posts-category-content'>
+                  <div class='postIndex-posts-category-info'>
+                    <i class="fas fa-tag icon-size"></i>
+                    <span class='postIndex-posts-category-text'>カテゴリー</span>
+                  </div>
+                  <span class='postIndex-posts-category'><%= post.category %></span>
+                </div>
+              </div>
+            </div>
+            <div class='postIndex-posts-secondInformation'>
+              <%= link_to "/users/#{post.user.id}", {class:'postIndex-userShow-link'} do %>
+                <% if post.user.profile.avatar_img? %>
+                  <%= image_tag(post.user.profile.avatar_img.url, class:'postIndex-posts-avatarImg') %>
+                <% else %>
+                  <%= image_tag("/assets/guest_img.jpg", class:'postIndex-posts-avatarImg') %>
+                <% end %>
+              <% end %>      
+              <span class="postIndex-posts-userName"><%= post.user.name %></span>
+              <span class='postIndex-posts-createTime'><%= simple_time(post.created_at) %></span>
+            </div>
+            <div class='postIndex-posts-thirdInformation'>
+              <div class='postIndex-posts-servisContent-info'>
+                <i class="fas fa-pencil-alt icon-size"></i>
+                <span class='postIndex-posts-servisContent-text'>サービス内容</span>      
+              </div>
+              <div class='postIndex-posts-servisContent-like'>
+                <span class='postIndex-posts-servisContent'><%= post.servis_content %></span>
+                <%= render partial: "likes/like", locals: { post: post } %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class='postIndex-posts-unSearch'>
+          <span class='postIndex-posts-unSearch-text'>見つかりませんでした。</span>
+          <%= link_to root_path, {class:'root-top-link'} do %>
+            <i class="fas fa-chevron-left icon-size"></i>
+            <span class='postIndex-posts-unSearch-linkText'>トップページに戻る</span>
+          <% end %>
+        </div>
+      <% end %>
+      <div class='postIndex-paginate'>
+        <%= paginate @posts %>
+      </div>
+      <%= javascript_pack_tag "like.js" %>
+    </div>
+    <div class='postIndex-aside-area'>
+      <div class='postIndex-search-category'>
+        <div class='postIndex-category-areaTitle'>
+          <i class="fas fa-search icon-size"></i>
+          <h2 class='postIndex-category-title-text'>カテゴリー検索</h2>
+        </div>
+        <%= render partial: "searches/post_category_order" %>
+      </div>
+      <div class='postIndex-search-create'>
+        <%= render partial: "searches/post_create_order", locals: { post: @posts_create_order } %>
+      </div>
+      <div class='postIndex-search-like'>
+        <%= render partial: "searches/post_like_order", locals: { post: @posts_like_order } %>
+      </div>
+    </div>
   </div>
   <%= javascript_pack_tag "user_scroll.js" %>
-  <%= javascript_pack_tag "like.js" %>
 </section>
