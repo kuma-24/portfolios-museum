@@ -1,9 +1,51 @@
-<% @posts_create_order.each do |post| %>
-  <% if post.user.profile.avatar_img? %>
-    <%= image_tag(post.user.profile.avatar_img.url) %>
-  <% else %>
-    <%= image_tag("/assets/guest_img.jpg") %>
+<div class='postIndex-createOrder-area'>
+  <div class='postIndex-createOrder-titleName'>
+    <i class="far fa-clock icon-size"></i>
+    <h2 class='postIndex-createOrder-areaTitle'>新着順</h2>
+  </div>
+  <% @posts_create_order.map do |post| %>
+    <div class='postIndex-createOrder-content'>
+      <div class='postIndex-createOrder-firstInformation'>
+        <div class='postIndex-createOrder-img-main'>
+          <%= link_to post_path(post.id), { class:'postIndex-postShow-link' } do %>
+            <% if post.post_arbitrary.thumbnail_img? %>
+              <%= image_tag(post.post_arbitrary.thumbnail_img.url, class:'postIndex-createOrder-thumbnailImg') %>
+            <% else %>
+              <%= image_tag("/assets/no_img.jpg", class:'postIndex-createOrder-thumbnailImg') %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class='postIndex-createOrder-other-sub'>
+          <span class='postIndex-createOrder-createTime'><%= simple_time(post.created_at) %></span>
+          <div class='postIndex-createOrder-title-content'>
+            <div class='postIndex-createOrder-title-info'>
+              <i class="fas fa-pencil-alt icon-size"></i>
+              <span class='postIndex-createOrder-title-text'>タイトル</span>
+            </div>
+            <span class='postIndex-createOrder-title'><%= post.title %></span>
+          </div>
+          <div class='postIndex-createOrder-category-content'>
+            <div class='postIndex-createOrder-category-info'>
+              <i class="fas fa-tag icon-size"></i>
+              <span class='postIndex-createOrder-category-text'>カテゴリー</span>
+            </div>
+            <span class='postIndex-createOrder-category'><%= post.category %></span>
+          </div>
+        </div>
+      </div>
+
+      <div class='postIndex-createOrder-secondInformation'>
+        <%= link_to "/users/#{post.user.id}", {class:'postIndex-userShow-link'} do %>
+          <% if post.user.profile.avatar_img? %>
+            <%= image_tag(post.user.profile.avatar_img.url, class:'postIndex-createOrder-avatarImg') %>
+          <% else %>
+            <%= image_tag("/assets/guest_img.jpg", class:'postIndex-createOrder-avatarImg') %>
+          <% end %>
+        <% end %>      
+        <span class="postIndex-createOrder-userName"><%= post.user.name %></span>
+        <%= render partial: "likes/like", locals: { post: post } %>
+      </div>
+    </div>
   <% end %>
-  <%= post.user.name %>
-  <%= post.title %>
-<% end %>
+</div>

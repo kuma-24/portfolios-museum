@@ -65,6 +65,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
     margin: auto auto 1.3em auto;
     align-items: center;
     background-color: transparent;
+    cursor: pointer;
 
     .fa-heart {
       height: 1.5em;
@@ -95,6 +96,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
     margin: auto auto 1.3em auto;
     align-items: center;
     background-color: transparent;
+    cursor: pointer;
 
     .fa-heart {
       height: 1.5em;
@@ -107,5 +109,22 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
       pointer-events: none;
       margin-left: 0.5em;
     }
-  } 
+  }
+  .no-login-like {
+    font-size: calc(100vw / 96);
+    display: flex;
+    align-items: center;
+
+    .no-heart {
+      height: 1.5em;
+      width: 1.5em;
+      margin-right: 0.2em;
+      color: #E2943B;
+      pointer-events: none;
+    }
+    .no-login-heart {
+      pointer-events: none;
+      margin-left: 0.5em;
+    }
+  }
 }
