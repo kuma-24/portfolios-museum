@@ -1,0 +1,304 @@
+$spMax: 519px;
+$spMin: 320px;
+$tbMax: 1024px;
+$tbMin: 520px;
+$pcMin: 1025px;
+
+$font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+
+@media screen and (min-width: $spMin) and (max-width: $spMax) {
+}
+
+@media screen and (min-width: $tbMin) and (max-width: $tbMax) {
+}
+
+@media screen and (min-width: $pcMin) {
+  .postIndex-createOrder-area {
+    font-size: calc(100vw / 96);
+    display: flex;
+    flex-direction: column;
+
+    .postIndex-createOrder-titleName {
+      display: flex;
+      align-items: center;
+     
+      .icon-size {
+        color: #C18A26;
+      }
+      .postIndex-createOrder-areaTitle {
+        font-size: 1.2em;
+        margin: 0%;
+      }
+    }
+    .postIndex-createOrder-content {
+      display: flex;
+      flex-direction: column;
+      padding: 1.3em .1em .3em .1em;
+      border-top: #EFBB24 solid .05em;
+      border-bottom: #EFBB24 solid .025em;
+
+      .postIndex-createOrder-firstInformation {
+        display: flex;
+
+        .postIndex-createOrder-img-main {
+          display: flex;
+
+          .postIndex-postShow-link {
+            height: 7em;
+            width: 10.5em;
+
+            .postIndex-createOrder-thumbnailImg {
+              object-fit: cover;
+              height: 7em;
+              width: 10.5em;
+              border-radius: 5px;
+              border: solid #C18A26;
+            }
+          }
+        }
+        .postIndex-createOrder-other-sub {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          width: 100%;
+
+          .postIndex-createOrder-createTime {
+            margin: 0 0 0 auto;
+            font-size: .5em;
+          }
+          .postIndex-createOrder-title-content {
+            display: flex;
+            flex-direction: column;
+
+            .postIndex-createOrder-title-info {
+              display: flex;
+              align-items: center;
+              margin-right: auto;
+              margin-left: .5em;
+
+              .icon-size {
+                height: .6em;
+                width: .6em;
+              }
+              .postIndex-createOrder-title-text {
+                text-decoration: underline;
+                text-decoration-color: #C18A26;
+                font-size: .7em;
+              }
+            }
+            .postIndex-createOrder-title {
+              font-size: .8em;
+              margin: .5em 1em;
+              text-align: center;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+            }
+          }
+          .postIndex-createOrder-category-content {
+            display: flex;
+            flex-direction: column;
+
+            .postIndex-createOrder-category-info {
+              display: flex;
+              align-items: center;
+              margin-right: auto;
+              margin-left: .5em;
+
+              .icon-size {
+                height: .6em;
+                width: .6em;
+              }
+              .postIndex-createOrder-category-text {
+                text-decoration: underline;
+                text-decoration-color: #C18A26;
+                font-size: .7em;
+              }
+            }
+            .postIndex-createOrder-category {
+              font-size: .7em;
+              color: #565656;
+              padding: .05em 1em;
+              background: #ffeaea;
+              border: dashed .2em #ffc3c3;
+              border-radius: 8px;
+              box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+              margin: .3em auto;
+            }
+          }
+        }
+      }
+      .postIndex-createOrder-secondInformation {
+        display: flex;
+        align-items: center;
+        margin: .3em 1em 0 1em;
+
+        .postIndex-userShow-link {
+          display: flex;
+
+          .postIndex-createOrder-avatarImg {
+            object-fit: cover;
+            height: 2.7em;
+            width: 2.7em;
+            border-radius: 50%;
+            border: solid #F75C2F;
+          }
+        }
+        .postIndex-createOrder-userName {
+          font-size: .9em;
+          margin: 0 auto 0 .5em;
+        }
+        button {
+          margin: auto 0 auto auto;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+  .postIndex-likeOrder-area {
+    font-size: calc(100vw / 96);
+    display: flex;
+    flex-direction: column;
+
+    .postIndex-likeOrder-titleName {
+      display: flex;
+      align-items: center;
+
+      .icon-size {
+        color: #F596AA;;
+      }
+      .postIndex-likeOrder-areaTitle {
+        font-size: 1.2em;
+        margin: 0%;
+      }
+    }
+    .postIndex-likeOrder-content {
+      display: flex;
+      flex-direction: column;
+      padding: 1.3em .1em .3em .1em;
+      border-top: #EFBB24 solid .05em;
+      border-bottom: #EFBB24 solid .025em;
+
+      .postIndex-likeOrder-firstInformation {
+        display: flex;
+
+        .postIndex-likeOrder-img-main {
+          display: flex; 
+
+          .postIndex-postShow-link {
+            height: 7em;
+            width: 10.5em;
+
+            .postIndex-likeOrder-thumbnailImg {
+              object-fit: cover;
+              height: 7em;
+              width: 10.5em;
+              border-radius: 5px;
+              border: solid #C18A26;
+            }
+          }
+        }
+        .postIndex-likeOrder-other-sub {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          width: 100%;
+
+          .postIndex-likeOrder-createTime {
+            margin: 0 0 0 auto;
+            font-size: .5em;
+          }
+          .postIndex-likeOrder-title-content {
+            display: flex;
+            flex-direction: column;
+
+            .postIndex-likeOrder-title-info {
+              display: flex;
+              align-items: center;
+              margin-right: auto;
+              margin-left: .5em;
+
+              .icon-size {
+                height: .6em;
+                width: .6em;
+              }
+              .postIndex-likeOrder-title-text {
+                text-decoration: underline;
+                text-decoration-color: #C18A26;
+                font-size: .7em;
+              }
+            }
+            .postIndex-likeOrder-title {
+              font-size: .8em;
+              margin: .3em 1em;
+              text-align: center;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+            }
+          }
+          .postIndex-likeOrder-category-content {
+            display: flex;
+            flex-direction: column;
+
+            .postIndex-likeOrder-category-info {
+              display: flex;
+              align-items: center;
+              margin-right: auto;
+              margin-left: .5em;
+
+              .icon-size {
+                height: .6em;
+                width: .6em;
+              }
+              .postIndex-likeOrder-category-text {
+                text-decoration: underline;
+                text-decoration-color: #C18A26;
+                font-size: .7em;
+              } 
+            }
+            .postIndex-likeOrder-category {
+              font-size: .7em;
+              color: #565656;
+              padding: .05em 1em;
+              background: #ffeaea;
+              border: dashed .2em #ffc3c3;
+              border-radius: 8px;
+              box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+              margin: .3em auto;
+            }
+          }
+        }
+      }
+      .postIndex-likeOrder-secondInformation {
+        display: flex;
+        align-items: center;
+        margin: .3em 1em auto 1em;
+
+        .postIndex-userShow-link {
+          display: flex;
+
+          .postIndex-likeOrder-avatarImg {
+            object-fit: cover;
+            height: 2.7em;
+            width: 2.7em;
+            border-radius: 50%;
+            border: solid #F75C2F;
+          }
+        }
+        .postIndex-likeOrder-userName {
+          font-size: .9em;
+          margin: 0 auto 0 .5em;
+        }
+        button {
+          margin: auto 0 auto auto;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
