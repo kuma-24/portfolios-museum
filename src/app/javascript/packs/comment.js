@@ -31,108 +31,97 @@
     }
   }
 
-  const commentInput = document.getElementsByClassName("comment-input");
+  const commentInput = document.getElementsByClassName("commentText-input");
   
   for (let i = 0; i < commentInput.length; i++) {
     commentInput[i].addEventListener('click', event => {
       
       const commentButton = event.target;
       const commentPostId = commentButton.id;
-      const commentTextForm = document.getElementById('comment');
+      const commentTextForm = document.getElementById('commentText');
       const commentText = commentTextForm.value;
-      const commentShow = document.getElementById('showComment');
+      const commentShow = document.getElementById('commentText-output');
+      const TextCount = document.getElementById('limit-count');
       
       const createComment = (commentPostId, commentText) => {
         sendRequest(commentEndpoint, 'POST', { post_id: commentPostId, comment_content: commentText })
         .then((data) => {
           commentTextForm.value = '';
+          TextCount.textContent = '0';
           
-          let fragment = document.createDocumentFragment();
-          
-          let childCommentContent = document.createElement("div");
-          childCommentContent.className = 'comment-content';
-          childCommentContent.setAttribute("id", data.comments.id);
-          
-          let childCommentUserStatus = document.createElement("div");
-          childCommentUserStatus.className = 'comment-user-status';
-          
-          let childCommentUserImg = document.createElement("div");
-          childCommentUserImg.className = 'comment-user-img';
-          
-          let childCommentText = document.createElement("div");
-          childCommentText.className = 'commentText';
-          
-          let childCommentPostTime_destroy = document.createElement('div');
-          childCommentPostTime_destroy.className = 'comment-postTime-destroy';
-          
-          let childText = document.createElement("p");
-          childText.className = 'comment-content-text';
-          childText.textContent = data.comments.comment_content;
-          
-          let childCommentAvaterImg = document.createElement('li');
-          childCommentAvaterImg.className = 'comment-avaterImg';
-          
-          let childImg = document.createElement('img');
-          childImg.src = `/uploads/profile/avatar_img/${data.comments.user_id}/${data.profiles}`
-          
-          let childCommentUserName = document.createElement('p');
-          childCommentUserName.className = 'comment-userName';
-          childCommentUserName.textContent = data.users;
-          
-          let childCommentDayTime = document.createElement('p');
-          childCommentDayTime.className = 'comment-dayTime';
-          childCommentDayTime.textContent = data.commentTime;
-          
-          let childDestroyButton = document.createElement('button');
-          childDestroyButton.className = 'destroy-button';
-          childDestroyButton.id = data.comments.id;
-          
-          let childIcon = document.createElement('i');
-          childIcon.className = 'fas fa-trash-alt';
-          
-          childCommentAvaterImg.prepend(childImg);
-          childCommentUserImg.prepend(childCommentAvaterImg);
-          childCommentUserImg.appendChild(childCommentUserName);
-          
-          childDestroyButton.prepend(childIcon)
-          
-          childCommentPostTime_destroy.prepend(childCommentDayTime);
-          childCommentPostTime_destroy.appendChild(childDestroyButton);
-          
-          childCommentUserStatus.prepend(childCommentUserImg);
-          childCommentUserStatus.appendChild(childCommentPostTime_destroy);
-          
-          childCommentText.appendChild(childText);
-          
-          childCommentContent.prepend(childCommentUserStatus);
-          childCommentContent.appendChild(childCommentText);
-          
-          fragment.prepend(childCommentContent);
-          commentShow.prepend(fragment);
+          if (data.error == undefined) {
+            let fragment = document.createDocumentFragment();
+            let childMainContent = document.createElement("div");
+            let childFirstInformation = document.createElement("div");
+            let childSecondInformation = document.createElement("div");
+            let childUserShowLink = document.createElement('a');
+            let childAvatarImg = document.createElement('img');
+            let childIcon = document.createElement('i');
+            let childCommentDestroy = document.createElement('button');
+            let childUserName = document.createElement('span');
+            let childCommentTime = document.createElement('span');
+            let childCommentText = document.createElement('span');
 
-          childDestroyButton.addEventListener('click', commentItem)
+            childMainContent.className = 'post-commentText-mainContent';
+            childFirstInformation.className = 'post-comment-firstInformation';
+            childSecondInformation.className = 'post-comment-secondInformation';
+            childUserShowLink.className = 'commentUser-userShow-link';
+            childUserShowLink.href = `/users/${data.comments.user_id}`;
+            childUserName.className = 'commentUser-userName';
+            childUserName.textContent = data.users;
+            childCommentTime.className = 'commentUser-commentTime';
+            childCommentTime.textContent = data.commentTime;
+            childCommentDestroy.className = 'commentUser-commentDestroy';
+            childCommentDestroy.setAttribute("id", data.comments.id);
+            childIcon.className = 'fas fa-trash-alt icon-size';
+            childCommentText.className = 'commentUser-commentText';
+            childCommentText.textContent = data.comments.comment_content;
+           
+            if (data.profiles[0] == null) {
+              childAvatarImg.className = 'commentUser-avatarImg'
+              childAvatarImg.src = '/assets/guest_img.jpg'
+            } else {
+              childAvatarImg.className = 'commentUser-avatarImg'
+              childUserShowLink.src = `/uploads/profile/avatar_img/${data.comments.user_id}/${data.profiles}`
+            }
+
+            childCommentDestroy.prepend(childIcon);
+            childUserShowLink.prepend(childAvatarImg);
+            childSecondInformation.prepend(childCommentText);
+            childFirstInformation.append(childUserShowLink, childUserName, childCommentTime, childCommentDestroy);
+            childMainContent.append(childFirstInformation, childSecondInformation);
+            fragment.prepend(childMainContent);
+            
+            commentShow.prepend(fragment);
+            childCommentDestroy.addEventListener('click', commentItem);
+            const commentErrorNote = document.querySelector('.post-commentInput-error-info');
+            commentErrorNote == null ? false : commentErrorNote.remove();
+          } else {
+            const commentNote = document.querySelector('.post-commentInput-contentNote');
+            let childErrorinfo = document.createElement('span');
+            childErrorinfo.className = 'post-commentInput-error-info';
+            childErrorinfo.textContent = data.error.comment_content;
+            commentNote.prepend(childErrorinfo);
+          }
         });
-
-        
       }
       createComment(commentPostId, commentText);
     });
   }
-    
-  const commentDelete = document.getElementsByClassName("destroy-button");
+  const commentDelete = document.getElementsByClassName("commentUser-commentDestroy");
   for (let j = 0; j < commentDelete.length; j++) {
-    commentDelete[j].addEventListener('click', commentItem)
+    commentDelete[j].addEventListener('click', commentItem);
   }
-
   function commentItem(event) {
     if (window.confirm('コメントを削除しますか？')) {
       const deleteButton = event.target;
       const deleteCommentId = deleteButton.id;
+
       const deleteComment = (deleteCommentId) => {
         const deleteCommentEndpoint = commentEndpoint + '/' + `${deleteCommentId}`;
         sendRequest(deleteCommentEndpoint, 'DELETE', { id: deleteCommentId })
         .then(() => {
-          deleteButton.closest(".comment-content").remove()
+          deleteButton.closest('.post-commentText-mainContent').remove();
         });
       }
       deleteComment(deleteCommentId);
@@ -140,4 +129,13 @@
       return false
     }
   }
+}
+
+{
+  const commentTextInput = document.getElementById('commentText');
+  const commentTextCount = document.getElementById('limit-count');
+
+  commentTextInput.addEventListener('keyup', () => {
+    commentTextCount.textContent = commentTextInput.value.length;
+  });
 }

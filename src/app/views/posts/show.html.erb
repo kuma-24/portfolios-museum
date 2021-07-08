@@ -1,90 +1,110 @@
-<section class="show-main-content">
-  <div class="show-content">
-    <div class="main-show">
-      <div class="show-main-catchphrase">
-        <div class="show-title-name">
-          <i class="fas fa-pencil-alt title-icon"></i>
-          <p class="catchphrase-name">キャッチフレーズ</p>
-        </div>
-        <p class="catchphrase-content"><%= @post.catchphrase %></p>
-      </div>
-      <div class="show-topics">
-        <div class="show-img">
-          <% if @post.post_arbitrary.thumbnail_img? %>
-            <%= image_tag(@post.post_arbitrary.thumbnail_img.url) %>
-          <% else %>
-            <%= image_tag("/assets/no_img.jpg") %>
+<section class="postShow-page">
+  <div class='postShow-main-content'>
+    <div class='postShow-article-area'>
+      <div class='postShow-article-postArea'>
+        <div class='postShow-postEdit-content'>
+          <% if user_signed_in? && current_user.id == @post.user_id %>
+            <%= link_to '投稿編集', edit_post_path(@post.id), { class:'postShow-postEdit-link' } %>
+            <%= link_to post_path(@post.id),class:'postShow-post-destroy', method: :delete, data: { confirm: '削除しますか?' } do %>
+              <i class="fas fa-trash-alt icon-size"></i>
+            <% end %>
           <% end %>
         </div>
-        <div class="show-title-category">
-          <div class="show-title">
-            <div class="show-title-name">
-              <i class="fas fa-pencil-alt title-icon"></i>
-              <p class="category-name">タイトル名</p>
+        <div class='postShow-post-content'>
+          <div class='postShow-post-firstInformation'>
+            <div class='postShow-post-catchphrase-content'>
+              <div class='postShow-post-catchphrase-info'>
+                <i class="far fa-lightbulb icon-size"></i>
+                <span class='postShow-post-catchphrase-text'>キャッチフレーズ</span> 
+              </div>
+              <span class='postShow-post-catchphrase'><%= @post.catchphrase %></span>
             </div>
-            <p class="title-content"><%= @post.title %></p>
           </div>
-          
-          <div class="show-category">
-            <div class="show-title-name">
-              <i class="fas fa-pencil-alt title-icon"></i>
-              <p class="category-name">カテゴリー</p>
+          <div class='postShow-post-secondInformation'>
+            <div class='postShow-post-thumbnailImg-content'>
+              <% if @post.post_arbitrary.thumbnail_img? %>
+                <%= image_tag(@post.post_arbitrary.thumbnail_img.url, class:'postShow-post-thumbnailImg') %>
+              <% else %>
+                <%= image_tag("/assets/no_img.jpg", class:'postShow-post-thumbnailImg') %>
+              <% end %>
             </div>
-            <p class="category-content"><%= @post.category %></p>
+            <div class='postShow-post-title-category-content'>
+              <div class='postShow-post-title-content'>
+                <div class='postShow-post-title-info'>
+                  <i class="fas fa-pencil-alt icon-size"></i>
+                  <span class='postShow-post-title-text'>タイトル</span>
+                </div>
+                <%= link_to @post.title, @post.post_arbitrary.site_url, class:'postShow-post-title-link', target: :_blank, rel: "noopener noreferrer" %>
+              </div>
+              <div class='postShow-post-category-content'>
+                <div class='postShow-post-category-info'>
+                  <i class="fas fa-tag icon-size"></i>
+                  <span class='postShow-post-category-text'>カテゴリー</span>
+                </div>
+                <span class='postShow-post-category'><%= @post.category %></span>
+              </div>
+            </div>
+          </div>
+          <div class='postShow-post-thirdInformation'>
+            <div class='postShow-post-servisContent-info'> 
+              <i class="fas fa-pencil-alt icon-size"></i>
+              <span class='postShow-post-servisContent-text'>サービス内容</span>    
+            </div>
+            <span class='postShow-post-servisContent'><%= @post.servis_content %></span>
+          </div>
+          <div class='postShow-post-fourthInformation'>
+            <div class='postShow-post-evelopmentBackground-content'> 
+              <div class='postShow-post-evelopmentBackground-info'> 
+                <i class="fas fa-pencil-alt icon-size"></i>
+                <span class='postShow-post-evelopmentBackground-text'>開発・作成背景</span>
+              </div>
+              <span class='postShow-post-evelopmentBackground'><%= @post.evelopment_background %></span>
+            </div>
+            <div class='postShow-post-like-content'> 
+              <%= render partial: "likes/like", locals: { post: @post } %>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="show-servis-evelopment">
-        <div class="show-servis-content">
-          <div class="show-title-name">
-            <i class="fas fa-pencil-alt title-icon"></i>
-            <p class="servis-evelopment-name">サービス内容</p>
-          </div>
-          <p class="servis_post_content"><%= @post.servis_content %></p>
-        </div>
-
-        <div class="show-evelopment-background">
-          <div class="show-title-name">
-            <i class="fas fa-pencil-alt title-icon"></i>
-            <p class="evelopment-background-name">開発・作成背景</p>
-          </div>
-          <p class="show-evelopment-background-content"><%= @post.evelopment_background %></p>
-        </div>
-      </div>
-
-      <div class="show-like">
-        <%= render partial: "likes/like", locals: { post: @post } %>
-        <%= javascript_pack_tag "like.js" %>
-      </div>
-      
-      <div class="show-status">
-        <div class="show-user-profile">
-          <div class="show-user-img">
+      <div class='postShow-articlePost-userArea'>
+        <div class='postShow-postUser-avatarImg-content'>
+          <%= link_to "/users/#{@post.user.id}", {class:'postShow-userShow-link'} do %>
             <% if @post.user.profile.avatar_img? %>
-              <%= image_tag(@post.user.profile.avatar_img.url) %>
+              <%= image_tag(@post.user.profile.avatar_img.url, class:'postShow-postUser-avatarImg') %>
             <% else %>
-              <%= image_tag("/assets/guest_img.jpg") %>
+              <%= image_tag("/assets/guest_img.jpg", class:'postShow-postUser-avatarImg') %>
             <% end %>
-          </div>
-          <div class="show-name-industry">
-            <p class="show-text">今回の開発・制作した人</p>
-            <p class="show-name"><%= @post.user.name %>さん</p>
-            <p class="show-industry"><%= @post.user.profile.industry %></p>
-          </div>
+          <% end %>  
+        </div>
+        <div class='postShow-postUser-profile-content'>
+          <span class='postShow-postUser-profile-info'>今回の開発・制作した人</span>
+          <span class='postShow-postUser-name'><%= @post.user.name %>さん</span>
+          <% if @post.user.profile.industry? %>
+            <span class='postShow-postUser-industry'><%= @post.user.profile.industry %></span>
+          <% else %>
+            <span class='postShow-postUser-industry'>その他</span>
+          <% end %>
         </div>
       </div>
-
-      <%= render partial: 'comments/comment', locals: { post: @post } %>
-      
+      <div class='postShow-article-commentArea'>
+        <%= render partial: 'comments/comment', locals: { post: @post } %>
+      </div>
     </div>
-    <% if user_signed_in? && current_user.id == @post.user_id %>
-      <%= link_to '編集', edit_post_path(@post.id) %>
-      <%= link_to '削除', post_path(@post.id), method: :delete, data: { confirm: '本当にいいですか?' } %>
-    <% end %>
-
-    <div class="aside-show">
-      <%= render partial: 'posts/aside' %>
+    <div class='postShow-aside-area'>
+      <div class='postShow-search-category'>
+        <div class='postShow-category-areaTitle'>
+          <i class="fas fa-search icon-size"></i>
+          <h2 class='postShow-category-title-text'>カテゴリー検索</h2>
+        </div>
+        <%= render partial: "searches/post_category_order" %>
+      </div>
+      <div class='postShow-search-create'>
+        <%= render partial: "searches/post_create_order", locals: { post: @posts_create_order } %>
+      </div>
+      <div class='postShow-search-like'>
+        <%= render partial: "searches/post_like_order", locals: { post: @posts_like_order } %>
+      </div>
     </div>
   </div>
+  <%= javascript_pack_tag "like.js" %>
 </section>

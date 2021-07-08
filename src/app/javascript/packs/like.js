@@ -25,7 +25,6 @@
       credentials: 'same-origin',
       body: JSON.stringify(json)
     });
-
     if (!response.ok) {
       throw Error(response.statusText);
     } else {
