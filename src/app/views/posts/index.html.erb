@@ -60,7 +60,6 @@
       <div class='postIndex-paginate'>
         <%= paginate @posts %>
       </div>
-      <%= javascript_pack_tag "like.js" %>
     </div>
     <div class='postIndex-aside-area'>
       <div class='postIndex-search-category'>
@@ -78,5 +77,6 @@
       </div>
     </div>
   </div>
+  <%= javascript_pack_tag "like.js" %>
   <%= javascript_pack_tag "user_scroll.js" %>
 </section>

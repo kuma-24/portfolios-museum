@@ -1,38 +1,57 @@
-<section class="show-comment" id="showComment">
-  <% @post.comments.reverse.map do |comment| %>
-    <div class="comment-content" id="<%= comment.id %>">
-      <div class="comment-user-status">
-        <div class="comment-user-img">
-          <% if comment.user.profile.avatar_img? %>
-            <li class="comment-avaterImg"><%= image_tag(comment.user.profile.avatar_img.url) %></li>
-          <% else %>
-            <li class="comment-avaterImg"><%= image_tag("/assets/guest_img.jpg") %></li>
+<section class="post-comment-section">
+  <h1 class='post-commentText-areaTitle'>コメント一覧</h1>
+  <div class='post-commentText-content' id='commentText-output'>
+    <% @post.comments.reverse.map do |comment| %>
+      <div class='post-commentText-mainContent'>
+        <div class='post-comment-firstInformation'>
+          <%= link_to "/users/#{comment.user.id}", { class:'commentUser-userShow-link' } do %>
+            <% if comment.user.profile.avatar_img? %>
+              <%= image_tag(comment.user.profile.avatar_img.url, class:'commentUser-avatarImg') %>
+            <% else %>
+              <%= image_tag("/assets/guest_img.jpg", class:'commentUser-avatarImg') %>
+            <% end %>
           <% end %>
-          <p class="comment-userName"><%= comment.user.name %></p>
+          <span class='commentUser-userName'><%= comment.user.name %></span>
+          <span class='commentUser-commentTime'><%= simple_time(comment.created_at) %></span>
+          <% if user_signed_in? && current_user.id == comment.user_id %>
+            <button class='commentUser-commentDestroy' id="<%= comment.id %>">
+              <i class="fas fa-trash-alt icon-size"></i>
+            </button>
+          <% end %>
         </div>
-
-        <div class="comment-postTime-destroy">
-          <p class="comment-dayTime"><%= simple_time(comment.created_at) %></p>
-          <button class="destroy-button" id="<%= comment.id %>" >
-            <i class="fas fa-trash-alt"></i>
-          </button>
+        <div class='post-comment-secondInformation'>
+          <span class='commentUser-commentText'><%= comment.comment_content %></span> 
         </div>
       </div>
-
-      <div class="commentText">
-        <p class="comment-content-text"><%= comment.comment_content %></p>
-      </div>
-    </div>
-  <% end %> 
-
-  <div class="comment-inputText">
-    <textarea id="comment"  maxlength="200", rows="5"></textarea>
-    <% if user_signed_in? %>
-      <button class="comment-input" type="button" id="<%= @post.id %>" value="<%= current_user.id %>">コメント！</button>
-    <% else %>
-      <button class="no-comment-input" type="button">コメント！（ログインをお願いします）</button>
     <% end %>
   </div>
 
+  <div class='post-commentInput-mainContent'>
+    <div class='postIndex-posts-title-info'>
+      <% if user_signed_in? %>
+        <% if current_user.profile.avatar_img? %>
+          <%= image_tag(current_user.profile.avatar_img.url, class:'commentUser-current-avatarImg') %>
+        <% else %>
+          <%= image_tag("/assets/guest_img.jpg", class:'commentUser-current-avatarImg') %>
+        <% end %>
+        <span class='commentUser-current-titleText'>コメントする</span>
+      <% else %>
+        <span class='commentUser-current-titleText'>※ログインをお願いします。</span>
+      <% end %>
+    </div>
+    <div class='post-commentInput-contentNote'>
+      <span class="post-commentInput-info">※200文字以下&#xFF08;現在：<span id="limit-count">0</span>文字&#xFF09;</span>
+    </div>
+    <div class='post-commentInput-mainText'>
+      <textarea class='commentUser-commentText-area' id='commentText' maxlength="200"></textarea>
+      <% if user_signed_in? %>
+        <button class="commentText-input" type="button" id="<%= @post.id %>" value="<%= current_user.id %>">コメント</button>
+      <% else %>
+        <%= link_to new_user_session_path, {class:'commentUser-signin-link'} do %>
+          <button class="un-commentText-input" type="button">コメント</button>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
   <%= javascript_pack_tag 'comment.js' %>
 </section>

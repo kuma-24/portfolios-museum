@@ -5,85 +5,185 @@ $tbMin: 520px;
 $pcMin: 1025px;
 $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 
+@media screen and (min-width: $spMin) and (max-width: $spMax) {
+  .post-comment-section {
+    font-size: calc(100vw / 32);
+  }
+}
+
+@media screen and (min-width: $tbMin) and (max-width: $tbMax) {
+  .post-comment-section {
+    font-size: calc(100vw / 52);
+  }
+}
+
+
 @media screen and (min-width: $pcMin) {
-  .show-comment {
+  .post-comment-section {
     font-size: calc(100vw / 96);
+    font-family: "游ゴシック体", $font_families;
     display: flex;
     flex-direction: column;
-    margin-top: 2.5em;
+    background-color: #F6C555;
+    padding: 0 1em;
+    border: #F6C555 solid .25em;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+    border-radius: 20px;
+    
+    .post-commentText-areaTitle {
+      color: #0F2540;
+      border-bottom: #91989F solid .05em;
+      font-size: 1.5em;
+      margin: 1em auto
+    }
 
-    .comment-content {
-      padding: 1em 5em;
-      border-top: 0.1em solid #C18A26;
-
-      .comment-user-status {
+    .post-commentText-content {
+      display: flex;
+      flex-direction: column;
+      
+      .post-commentText-mainContent {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 1em;
-
-        .comment-user-img {
+        flex-direction: column;
+        border-bottom: #91989F solid .05em;
+        padding: 1em;
+        
+        .post-comment-firstInformation {
           display: flex;
+          align-items: center;
 
-          .comment-avaterImg {
-            list-style: none;
-
-            img {
-              height: 3em;
-              width: 3em;
-              border-radius: 50%;
+          .commentUser-userShow-link {
+            .commentUser-avatarImg {
               object-fit: cover;
+              height: 3.5em;
+              width: 3.5em;
+              border-radius: 50%;
+              border: solid #F75C2F;
             }
           }
-          .comment-userName {
-            margin: auto 0.5em;
+          .commentUser-userName {
+            margin-left: .5em;
           }
-        }
-        .comment-postTime-destroy {
-          display: flex;
+          .commentUser-commentTime {
+            margin-left: auto;
+            margin-right: 1em;
+          }
+          .commentUser-commentDestroy {
+            display: flex;
+            outline: none;
+            background-color: transparent;
+            border: 0.2em solid #F75C2F;
+            border-radius: 10px;
+            color: #F75C2F;
+            padding: .2em 1em;
 
-          .comment-dayTime {
-            margin: 0%;
-          }
-          .destroy-button {
-            margin: 0 0 0 0.5em;
-            .fa-trash-alt {
+            .icon-size {
               pointer-events: none;
             }
           }
         }
-      }
-      .commentText {
-        margin: 1em 0 1em 0.5em;
-        .comment-content-text {
-          margin: 0% 1em;
+        .post-comment-secondInformation {
+          display: flex;
+
+          .commentUser-commentText {
+            margin: 1em auto 1em 3.5em;
+          }
         }
       }
     }
-    .comment-inputText {
-      display: flex;
-      align-items: flex-end;
-      margin: 1em 5em 0 5em;
-      
-      #comment {
-        width: 80%;
-        border: 0.3em solid #B47157;
-        border-radius: 5px;
-        background-color: #FCFAF2;
-      }
-      .comment-input {
-        height: 3em;
-        width: 10em;
-        margin: 0 auto;
+    .post-commentInput-mainContent {
+      margin: 1em;
 
-        color: #fff;
-        background-color: #eb6100;
-        border-bottom: 5px solid #b84c00;
-        &:hover {
-          margin-top: 3px;
-          color: #fff;
-          background: #f56500;
-          border-bottom: 2px solid #b84c00;
+      .postIndex-posts-title-info {
+        display: flex;
+        align-items: center;
+        margin: .5em 0;
+
+        .commentUser-current-avatarImg {
+          object-fit: cover;
+          height: 3em;
+          width: 3em;
+          border-radius: 50%;
+          border: solid #F75C2F;
+        }
+        .commentUser-current-titleText {
+          margin-left: .5em;
+        }
+      }
+      .post-commentInput-contentNote {
+        display: flex;
+        height: .9em;
+        width: 76%;
+
+        .post-commentInput-error-info {
+          display: flex;
+          color: red;
+          font-size: 0.6em;
+          margin-right: 0%;
+        }
+        .post-commentInput-info {
+          display: flex;
+          font-size: 0.6em;
+          margin-right: 0%;
+          margin-left: auto;
+        }
+      }
+      .post-commentInput-mainText {
+        display: flex;
+        align-items: flex-end;
+
+        .commentUser-commentText-area {
+          display: flex;
+          background-color: white;
+          padding: 0.3em;
+          border: 0.2em solid #B47157;
+          border-radius: 10px;
+          width: 80%;
+        }
+        .commentText-input {
+          outline: none;
+          background-color: transparent;
+          border: 0.2em solid #C18A26;
+          border-radius: 10px;
+          font-size: 1.1em;
+          color: #C18A26;
+          padding: 0% 1em;
+          transition: .4s;
+          box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+          height: 2em;
+          width: 20%;
+          margin: auto 1em .2em 1em;
+
+          &:hover {
+            color: white;
+            background-color: #C18A26;
+            border-radius: 10px;
+          }
+        }
+        .commentUser-signin-link {
+          display: flex;
+          text-decoration: none;
+          height: 2em;
+          width: 20%;
+          margin: auto 1em .2em 1em;
+
+          .un-commentText-input {
+            outline: none;
+            background-color: transparent;
+            border: 0.2em solid #91989F;
+            border-radius: 10px;
+            font-size: 1.1em;
+            color: #91989F;
+            padding: 0% 1em;
+            transition: .4s;
+            box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+            width: 100%;
+        
+            &:hover {
+              color: white;
+              background-color: #91989F;
+              border-radius: 10px;
+            }
+          }
         }
       }
     }
