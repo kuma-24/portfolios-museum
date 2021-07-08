@@ -2,17 +2,26 @@ module Api
   module V1
     class CommentsController < ApplicationController
       def create
-        comment = Comment.create!(comment_params)
-        comment_time = comment.day_time
-        user = User.where(id: current_user).pluck(:name)
-        profile = Profile.where(id: current_user).pluck(:avatar_img)
+        @comment = Comment.new(comment_params)
+        if @comment.valid?
+          @comment.save
+          comment = @comment
+          comment_time = comment.day_time
+          user = User.where(id: current_user).pluck(:name)
+          profile = Profile.where(id: current_user).pluck(:avatar_img)
 
-        render json: {
-          comments: comment,
-          commentTime: comment_time,
-          users: user,
-          profiles: profile
-        }
+          render json: {
+            comments: comment,
+            commentTime: comment_time,
+            users: user,
+            profiles: profile
+          }
+        else
+          comment = @comment.errors
+          render json: {
+            error: comment
+          }
+        end
       end
 
       def destroy

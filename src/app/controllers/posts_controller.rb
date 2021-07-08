@@ -21,6 +21,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.includes(:user, :likes, :post_arbitrary, :comments).find(params[:id])
+    @posts_create_order = Post.all.includes(:liked_users, :user, :post_arbitrary).limit(3).order(created_at: :desc)
+    @posts_like_order = Post.includes(:user, :post_arbitrary).joins(:likes).group('likes.post_id').limit(3).order('count(post_id) DESC')
   end
 
   def edit

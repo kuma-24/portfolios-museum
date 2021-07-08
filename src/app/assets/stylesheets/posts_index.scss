@@ -147,7 +147,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           .postIndex-posts-secondInformation {
             display: flex;
             align-items: center;
-            margin: .5em 0;
+            margin: 1em 0 .5em 0;
 
             .postIndex-userShow-link {
               .postIndex-posts-avatarImg {
@@ -181,6 +181,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
               }
               .postIndex-posts-servisContent-text {
                 font-size: 1em;
+                margin: 1em 0 .5em 0;
                 text-decoration: underline;
                 text-decoration-color: #C18A26;
               }
@@ -195,10 +196,13 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
                 display: -webkit-box;
                 -webkit-line-clamp: 3;
                 -webkit-box-orient: vertical;
+                width: 90%;
                 margin: .7em 1em 0 1em;
               }
               button {
                 margin: auto 0 .3em 0;
+                margin-right: 0%;
+                width: 10%;
               }
               div {
                 margin: auto 0 .3em 0;
@@ -308,7 +312,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
               border: 0.2em solid #F75C2F;
               border-radius: 10px;
             }
-            .postIndex-search-button {
+            .posts-search-button {
               outline: none;
               background-color: transparent;
               border: 0.2em solid #F75C2F;
