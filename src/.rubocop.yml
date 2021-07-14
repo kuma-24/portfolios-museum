@@ -4,6 +4,7 @@ require:
 
 
 AllCops:
+  TargetRubyVersion: 3.0.0
   Exclude:
     - 'vendor/**/*'
     - 'bin/**/*'
@@ -67,6 +68,7 @@ Metrics/BlockLength:
     - 'config/routes.rb'
     - 'spec/**/*'
     - 'app/views/**/*.jbuilder'
+    - 'app/forms/post_form.rb'
     - 'lib/tasks/dev.rake'
 
 Metrics/ClassLength:
@@ -74,7 +76,7 @@ Metrics/ClassLength:
 
 Metrics/MethodLength:
   CountComments: false
-  Max: 20
+  Max: 40
   Exclude:
     - 'lib/tasks/dev.rake'
 

@@ -4,13 +4,13 @@ class PostsController < ApplicationController
     @posts_create_order = Post.all.includes(:liked_users, :user, :post_arbitrary).limit(3).order(created_at: :desc)
     @posts_like_order = Post.includes(:user, :post_arbitrary).joins(:likes).group('likes.post_id').limit(3).order('count(post_id) DESC')
   end
-  
+
   def show
     @post = Post.includes(:user, :likes, :post_arbitrary, :comments).find(params[:id])
     @posts_create_order = Post.all.includes(:liked_users, :user, :post_arbitrary).limit(3).order(created_at: :desc)
     @posts_like_order = Post.includes(:user, :post_arbitrary).joins(:likes).group('likes.post_id').limit(3).order('count(post_id) DESC')
   end
-  
+
   def search
     @posts = Post.search(params[:keyword]).page(params[:page]).per(5)
     @posts = Post.sort_category(params[:category_keyword]).page(params[:page]).per(5)
@@ -37,15 +37,14 @@ class PostsController < ApplicationController
     load_post
 
     @form = PostForm.new(post: @post)
-    
   end
 
   def update
     load_post
 
-    @form = PostForm.new(post_params, post: @post) 
- 
-    if @form.valid? 
+    @form = PostForm.new(post_params, post: @post)
+
+    if @form.valid?
       @form.save
       redirect_to @post
     else
@@ -59,8 +58,8 @@ class PostsController < ApplicationController
     redirect_to('/')
   end
 
-
   private
+
     def post_params
       params.require(:post).permit(
         :title,
