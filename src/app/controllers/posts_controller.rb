@@ -4,35 +4,50 @@ class PostsController < ApplicationController
     @posts_create_order = Post.all.includes(:liked_users, :user, :post_arbitrary).limit(3).order(created_at: :desc)
     @posts_like_order = Post.includes(:user, :post_arbitrary).joins(:likes).group('likes.post_id').limit(3).order('count(post_id) DESC')
   end
+  
+  def show
+    @post = Post.includes(:user, :likes, :post_arbitrary, :comments).find(params[:id])
+    @posts_create_order = Post.all.includes(:liked_users, :user, :post_arbitrary).limit(3).order(created_at: :desc)
+    @posts_like_order = Post.includes(:user, :post_arbitrary).joins(:likes).group('likes.post_id').limit(3).order('count(post_id) DESC')
+  end
+  
+  def search
+    @posts = Post.search(params[:keyword]).page(params[:page]).per(5)
+    @posts = Post.sort_category(params[:category_keyword]).page(params[:page]).per(5)
+    @posts_create_order = Post.all.includes(:liked_users, :user, :post_arbitrary).limit(3).order(created_at: :desc)
+    @posts_like_order = Post.includes(:user, :post_arbitrary).joins(:likes).group('likes.post_id').limit(3).order('count(post_id) DESC')
+  end
 
   def new
-    @post = PostForm.new
+    @form = PostForm.new
   end
 
   def create
-    @post = PostForm.new(post_params)
-    if @post.valid?
-      @post.save
+    @form = PostForm.new(post_params)
+
+    if @form.valid?
+      @form.save
       redirect_to root_path
     else
       render :new
     end
   end
 
-  def show
-    @post = Post.includes(:user, :likes, :post_arbitrary, :comments).find(params[:id])
-    @posts_create_order = Post.all.includes(:liked_users, :user, :post_arbitrary).limit(3).order(created_at: :desc)
-    @posts_like_order = Post.includes(:user, :post_arbitrary).joins(:likes).group('likes.post_id').limit(3).order('count(post_id) DESC')
-  end
-
   def edit
-    @post = Post.find(params[:id])
+    load_post
+
+    @form = PostForm.new(post: @post)
+    
   end
 
   def update
-    @post = Post.find(params[:id])
-    if @post.update(post_params)
-      redirect_to post_path
+    load_post
+
+    @form = PostForm.new(post_params, post: @post) 
+ 
+    if @form.valid? 
+      @form.save
+      redirect_to @post
     else
       render :edit
     end
@@ -44,24 +59,22 @@ class PostsController < ApplicationController
     redirect_to('/')
   end
 
-  def search
-    @posts = Post.search(params[:keyword]).page(params[:page]).per(5)
-    @posts = Post.sort_category(params[:category_keyword]).page(params[:page]).per(5)
-    @posts_create_order = Post.all.includes(:liked_users, :user, :post_arbitrary).limit(3).order(created_at: :desc)
-    @posts_like_order = Post.includes(:user, :post_arbitrary).joins(:likes).group('likes.post_id').limit(3).order('count(post_id) DESC')
-  end
 
   private
-
     def post_params
-      params.require(:post_form).permit(
+      params.require(:post).permit(
         :title,
         :category,
         :catchphrase,
         :servis_content,
         :evelopment_background,
         :site_url,
-        :thumbnail_img
+        :thumbnail_img,
+        :post_id
       ).merge(user_id: current_user.id)
+    end
+
+    def load_post
+      @post = current_user.posts.find(params[:id])
     end
 end

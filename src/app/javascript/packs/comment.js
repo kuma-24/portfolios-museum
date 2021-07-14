@@ -82,7 +82,7 @@
               childAvatarImg.src = '/assets/guest_img.jpg'
             } else {
               childAvatarImg.className = 'commentUser-avatarImg'
-              childUserShowLink.src = `/uploads/profile/avatar_img/${data.comments.user_id}/${data.profiles}`
+              childAvatarImg.src = `/uploads/profile/avatar_img/${data.comments.user_id}/${data.profiles}`
             }
 
             childCommentDestroy.prepend(childIcon);

@@ -24,22 +24,22 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
     font-family: "游ゴシック体", $font_families;
     display: flex;
     flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    background-color: #FAD689;
+    width: 60em;
+    margin: 1em auto;
+    border: #FAD689 solid .25em;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
+    border-radius: 20px;
+
+    .post-page-title {
+      text-align: center;
+      color: #0F2540;
+      font-size: 1.5em;
+    }
 
     form {
-      display: flex;
-      flex-direction: column;
-      background-color: #FAD689;
-      width: 60em;
-      margin: 1em auto;
-      border: #FAD689 solid .25em;
-      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29);
-      border-radius: 20px;
-
-      .post-page-title {
-        text-align: center;
-        color: #0F2540;
-        font-size: 1.5em;
-      }
       .post-catchphrase-form {
         display: flex;
         flex-direction: column;
@@ -173,7 +173,7 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
           .post-thumbnail-img-input {
             display: flex;
             
-            #post_form_thumbnail_img {
+            #post_thumbnail_img {
               margin: .5em auto 0 auto;
             }
           }
@@ -538,9 +538,10 @@ $font_families: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku G
         }
       }
       .post-form-button {
-        margin: 1em auto;
-
+        display: flex;
+        
         .post-button {
+          margin: 1em auto;
           outline: none;
           background-color: transparent;
           border: 0.2em solid #C18A26;

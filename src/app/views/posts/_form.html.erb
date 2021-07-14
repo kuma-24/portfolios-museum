@@ -1,0 +1,134 @@
+<%= form_with(model: form, local: true) do |f| %>
+  <div class='post-catchphrase-form'>
+    <div class='post-catchphrase-info'>
+      <i class="fas fa-book-reader icon-size"></i>
+      <%= f.label :catchphrase, "キャッチフレーズ", class:'post-item-catchphrase'%>
+      <span class='post-item-mandatory'>【必須】</span>
+      <span class="post-item-info">※50文字以下&#xFF08;現在：<span class="limit-count">0</span>文字&#xFF09;</span>
+    </div>
+    <div class='post-catchphrase-input'>
+      <%= f.text_field :catchphrase, id:"limit-input", class:"limit-text", maxlength: 50 %>
+    </div>
+    <div class='post-catchphrase-error'>
+      <% if @form.errors.include?(:catchphrase) %> 
+        <span class="error-messages">※<%= @form.errors.messages_for(:catchphrase).first %></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='post-main-section'>
+    <div class='post-thumbnail-img-form'>
+      <div class='post-thumbnail-img-info'>
+        <i class="fas fa-camera-retro icon-size"></i>
+        <span class="post-thumbnail-img-title">サムネイル</span>
+        <span class="post-item-any">【任意】</span>
+      </div>
+      <div class='post-thumbnail-img-file' id="file-select">
+        <%= f.label :thumbnail_img, id:"thumbnail-img" do %> 
+          <i class="fas fa-camera-retro size"></i>
+        <% end %>
+      </div>
+      <div class='post-thumbnail-img-input'>
+        <%= f.file_field :thumbnail_img %>
+      </div>
+      <div class='post-thumbnail-img-note'>
+        <span class="thumbnail-img-item-info">※自動でリサイズされます。</span>
+        <span class="thumbnail-img-item-info">※特になければデフォルト画像が適応されます。</span>
+      </div>
+    </div>
+
+    <div class='post-title-url-category-forms'>
+      <div class='post-title-form'>
+        <div class='post-title-info'>
+          <i class="fas fa-pencil-alt icon-size"></i>
+          <%= f.label :title, "タイトル", class:'post-item-title' %>
+          <span class='post-item-mandatory'>【必須】</span>
+          <span class="post-item-info">※50文字以下&#xFF08;現在：<span class="limit-count">0</span>文字&#xFF09;</span>
+        </div>
+        <div class='post-title-input'>
+          <%= f.text_field :title, id:"limit-input", class:"limit-text", maxlength: 50 %>
+        </div>
+        <div class='post-title-error'>
+          <% if @form.errors.include?(:title) %> 
+            <span class="error-messages">※<%= @form.errors.messages_for(:title).first %></span>
+          <% end %>
+        </div>
+      </div>
+
+      <div class='post-site-url-form'>
+        <div class='post-site-url-info'>
+          <i class="fas fa-link icon-size"></i>
+          <%= f.label :site_url, "サイトのリンク", class:'post-item-site-url' %>
+          <span class="post-item-any">【任意】</span>
+          <span class="post-item-info">※100文字以下&#xFF08;現在：<span class="limit-count">0</span>文字&#xFF09;</span>
+        </div>
+        <div class='post-site-url-input'>
+          <%= f.text_field :site_url, id:"limit-input", class:"limit-text", maxlength: 100 %>
+        </div>
+        <div class='post-site-url-error'>
+          <% if @form.errors.include?(:site_url) %> 
+            <span class="error-messages">※<%= @form.errors.messages_for(:site_url).first %></span>
+          <% end %>
+        </div>
+      </div>
+
+      <div class='post-category-form'>
+        <div class='post-category-info'>
+          <i class="fas fa-tag icon-size"></i>
+          <%= f.label :category, "カテゴリー", class:'post-item-category' %>
+          <span class='post-item-mandatory'>【必須】</span>
+        </div>
+        <div class='post-category-input'>
+          <%= f.select :category, category_box(), { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+        </div>
+        <div class='post-category-error'>
+          <% if @form.errors.include?(:category) %> 
+            <span class="error-messages">※<%= @form.errors.messages_for(:category).first %></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='post-servis-content-form'>
+    <div class='post-servis-content-info'>
+      <i class="fas fa-pen icon-size"></i>
+      <%= f.label :servis_content, "サービス内容", class:'post-item-servis-content' %>
+      <span class='post-item-mandatory'>【必須】</span>
+      <span class="post-item-info">※500文字以下&#xFF08;現在：<span class="limit-count">0</span>文字&#xFF09;</span>
+    </div>
+    <div class='post-servis-content-input'>
+      <%= f.text_area :servis_content, id:"limit-input", class:"limit-text", maxlength: 500 %>
+    </div>
+    <div class='post-servis-content-error'>
+      <% if @form.errors.include?(:servis_content) %> 
+        <span class="error-messages">※<%= @form.errors.messages_for(:servis_content).first %></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='post-evelopment-background-form'>
+    <div class='post-evelopment-background-info'>
+      <i class="fas fa-pen icon-size"></i>
+      <%= f.label :evelopment_background, "開発背景", class:'post-item-evelopment-background' %>
+      <span class='post-item-mandatory'>【必須】</span>
+      <span class="post-item-info">※500文字以下&#xFF08;現在：<span class="limit-count">0</span>文字&#xFF09;</span>
+    </div>
+    <div class='post-evelopment-background-input'>
+      <%= f.text_area :evelopment_background, id:"limit-input", class:"limit-text", maxlength: 500 %>
+    </div>
+    <div class='post-evelopment-background-error'>
+      <% if @form.errors.include?(:evelopment_background) %> 
+        <span class="error-messages">※<%= @form.errors.messages_for(:evelopment_background).first %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="post-form-button">
+    <% if @post.nil? %>
+      <%= f.button "投稿", type: 'button', onclick: 'submit();', class:'post-button' %>
+    <% else %>
+      <%= f.button "更新", type: 'button', onclick: 'submit();', class:'post-button' %>
+    <% end %>
+  </div>
+  <%= javascript_pack_tag 'post_new.js' %>
+<% end %>
