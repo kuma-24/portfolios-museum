@@ -5,6 +5,8 @@
   const count = document.getElementsByClassName("limit-count");
   
   for (let i = 0, j = 0; i < input.length, j < count.length; i++, j++) {
+    count[j].textContent = input[i].value.length;
+    
     input[i].addEventListener('keyup', () => {
       let inputText = input[i].value.length
       count[j].innerHTML = inputText
@@ -13,9 +15,8 @@
 }
 
 {
-  const fileElemnt = document.getElementById('post_form_thumbnail_img');
+  const fileElemnt = document.getElementById('post_thumbnail_img');
   const fileIcon = document.getElementById('thumbnail-img');
-
   fileElemnt.addEventListener("change", handleFiles, false);
 
   function handleFiles() {
