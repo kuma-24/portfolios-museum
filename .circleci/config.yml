@@ -37,7 +37,7 @@ orbs:
   heroku: circleci/heroku@1.2.3
 
 jobs: 
-  build_test:
+  build:
     executor:
       name: default_ruby
     working_directory: ~/portfolios-museum/src
@@ -79,7 +79,7 @@ jobs:
 workflow: 
   build_test&deploy:
     jobs:
-      - build_test
+      - build
       - deploy:
           requires:
             - build_test
