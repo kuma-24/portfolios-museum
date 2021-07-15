@@ -29,11 +29,11 @@ jobs:
           command: docker-compose up -d
       - run: sleep 10
       - run:
-          name: docker-compose exec web bundle exec rails db:create RAILS_ENV=test
-          command: docker-compose exec web bundle exec rails db:create RAILS_ENV=test
+          name: docker-compose exec web bundle exec rails db:create RAILS_ENV=development
+          command: docker-compose exec web bundle exec rails db:create RAILS_ENV=development
       - run:
-          name: docker-compose exec web bundle exec rails db:migrate RAILS_ENV=test
-          command: docker-compose exec web bundle exec rails db:migrate RAILS_ENV=test
+          name: docker-compose exec web bundle exec rails db:migrate RAILS_ENV=development
+          command: docker-compose exec web bundle exec rails db:migrate RAILS_ENV=development
       - run:
           name: docker-compose exec web bundle exec rubocop 
           command: docker-compose exec web bundle exec rubocop 
