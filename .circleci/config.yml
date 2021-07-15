@@ -18,13 +18,13 @@ executors:
 
 
 commands: 
-  restore_Gemfile:
+  restore_gemfile:
     steps:
       - restore_cache:
           name: Restore Gemfile dependencies
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-  save_Gemfile:
+  save_gemfile:
     steps:
       - save_cache:
           name: Cache Gemfile dependencies
@@ -44,10 +44,10 @@ jobs:
     steps:
         - checkout:
             path: ~/portfolios-museum
-        - restore_Gemfile
+        - restore_gemfile
         - run: bundle config set deployment 'true'
         - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
-        - save_Gemfile
+        - save_gemfile
         - run:
             name: Rubocop
             command: bundle exec rubocop
