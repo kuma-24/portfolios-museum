@@ -1,60 +1,42 @@
-version: 2.1 
+version: 2.1
 
-executors: 
-  default_ruby:
-    docker:
-      - image: circleci/ruby:3.0.0
-        environment: 
-          RAILS_ENV: test
-          APP_DATABASE_HOST: "127.0.0.1"
+executors:
+  default:
+    machine:
+      image: circleci/classic:edge
 
-  default_mysql:
-    docker:
-      - image: circleci/mysql:8.0
-        environment:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: app_test
-          MYSQL_USER: user  
-
-
-commands: 
-  restore_gemfile:
-    steps:
-      - restore_cache:
-          name: Restore Gemfile dependencies
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-  save_gemfile:
-    steps:
-      - save_cache:
-          name: Cache Gemfile dependencies
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-orbs: 
-  ruby: circleci/ruby@1.1.2
-  heroku: circleci/heroku@1.2.3
-
-jobs: 
+orbs:
   build:
     executor:
-      name: default_ruby
-    working_directory: ~/portfolios-museum/src
+      name: default
     steps:
-        - checkout:
-            path: ~/portfolios-museum
-        - restore_gemfile
-        - run: bundle config set deployment 'true'
-        - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
-        - save_gemfile
-        - run:
-            name: Rubocop
-            command: bundle exec rubocop
-        - run:
-            name: Rspec
-            command: bundle exec rspec
-  
+      - checkout
+      - run:
+          name: docker-compose build
+          command: docker-compose build
+
+  test:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - run:
+          name: docker-compose up -d
+          command: docker-compose up -d
+      - run: sleep 10
+      - run:
+          name: docker-compose exec web bundle exec rails db:create RAILS_ENV=test
+          command: docker-compose exec web bundle exec rails db:create RAILS_ENV=test
+      - run:
+          name: docker-compose exec web bundle exec rails db:migrate RAILS_ENV=test
+          command: docker-compose exec web bundle exec rails db:migrate RAILS_ENV=test
+      - run:
+          name: docker-compose exec web bundle exec rubocop 
+          command: docker-compose exec web bundle exec rubocop 
+      - run:
+          name: docker-compose exec web bundle exec rspec -f d
+          command: docker-compose exec web bundle exec rspec -f d
+
   deploy:
     docker:
       - image: circleci/ruby:3.0.0
@@ -75,14 +57,17 @@ jobs:
       - run:
           name: database setup
           command: heroku run bundle exec rake db:migrate RAILS_ENV=production -a $HEROKU_APP_NAME
-    
-workflow: 
-  build_test&deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build_test
-          filters:
-            branches:
-              only: main
+
+workflows:
+  build_test_deploy:
+   jobs:
+    - build
+    - test:
+        requires:
+          - build
+    - deploy:
+        requires:
+          - test
+        filters:
+          branches:
+            only: main
