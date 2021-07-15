@@ -6,6 +6,10 @@ executors:
       image: circleci/classic:edge
 
 orbs:
+  ruby: circleci/ruby@1.1.2
+  heroku: circleci/heroku@1.2.3
+
+jobs:
   build:
     executor:
       name: default
