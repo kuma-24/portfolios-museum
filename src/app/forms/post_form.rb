@@ -52,9 +52,9 @@ class PostForm
           evelopment_background: evelopment_background
         )
         PostArbitrary.create!(
-          post_id: @post.id,
           site_url: site_url,
-          thumbnail_img: thumbnail_img
+          thumbnail_img: thumbnail_img,
+          post_id: @post.id
         )
       end
     end
@@ -78,9 +78,9 @@ class PostForm
         catchphrase: post.catchphrase,
         servis_content: post.servis_content,
         evelopment_background: post.evelopment_background,
-        site_url: @post.post_arbitrary&.site_url,
-        thumbnail_img: @post.post_arbitrary&.thumbnail_img,
-        post_id: @post.post_arbitrary&.post_id
+        site_url: post.post_arbitrary&.site_url,
+        thumbnail_img: post.post_arbitrary&.thumbnail_img,
+        post_id: post.post_arbitrary&.post_id
       }
     end
 end
