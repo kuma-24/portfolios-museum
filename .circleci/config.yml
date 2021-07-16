@@ -38,8 +38,8 @@ jobs:
           name: docker-compose exec web bundle exec rubocop 
           command: docker-compose exec web bundle exec rubocop 
       - run:
-          name: docker-compose exec web bundle exec rspec -f d spec/models/user_spec.rb
-          command: docker-compose exec web bundle exec rspec -f d spec/models/user_spec.rb
+          name: docker-compose exec web bundle exec rspec -f d
+          command: docker-compose exec web bundle exec rspec -f d 
 
   deploy:
     docker:
