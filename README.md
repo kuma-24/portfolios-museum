@@ -28,8 +28,8 @@
 # 使用技術
 * ### フロントエンド
   * HTML5
-  * SCSS
-  * Javascript
+  * Sass
+  * JavaScript
 <br>
 
 * ### バックエンド
@@ -41,8 +41,6 @@
   * heroku
   * CircleCI (2.1)
   * Docker・docker-compose
-  * Nginx
-  * Puma
   * MySQL (8.0)
 <br>
 
